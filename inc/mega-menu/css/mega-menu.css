@@ -1,0 +1,51 @@
+/* Hide Slider Rev Message */
+.update-nag.bsf-update-nag,
+table.wp-list-table.plugins tr.plugin-update-tr,
+#wpbody-content .rs-update-notice-wrap#message {
+	display:none !important;
+}
+
+.progression-mega-menu-options {
+    margin-top: 10px;
+}
+
+.field-megamenu-status,
+.field-megamenu-width,
+.field-megamenu-columns,
+.field-megamenu-title,
+.field-megamenu-widgetarea,
+.progression-megamenu-upload-thumbnail.button-primary,
+/* .field-megamenu-icon, */
+.field-megamenu-thumbnail,
+.progression-megamenu-thumbnail-image {
+	display: none;
+}
+
+.menu-item-depth-0 .field-megamenu-status,
+.menu-item-depth-0.progression-megamenu .field-megamenu-width,
+.menu-item-depth-0.progression-megamenu .field-megamenu-columns,
+.menu-item-depth-1.progression-megamenu .field-megamenu-title,
+.menu-item-depth-1.progression-megamenu .field-megamenu-widgetarea,
+.menu-item-depth-2.progression-megamenu .field-megamenu-widgetarea,
+/* .progression-megamenu .field-megamenu-icon, */
+.progression-megamenu .field-megamenu-thumbnail {
+	display: block;
+}
+
+.progression-megamenu .progression-megamenu-upload-thumbnail {
+	display: inline-block;
+}
+
+.progression-megamenu-thumbnail-image {
+	max-width: 300px;
+}
+
+.menu-item-depth-0 .progression-megamenu-upload-thumbnail,
+.menu-item-depth-1 .progression-megamenu-upload-thumbnail,
+.menu-item-depth-2 .progression-megamenu-upload-thumbnail {
+	margin-top: 0 !important;
+}
+
+.progression-megamenu-upload-thumbnail {
+	margin-top: 0.6em !important;
+}

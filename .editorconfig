@@ -1,0 +1,17 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+# 行末の空白を削除
+trim_trailing_whitespace = true
+# 最終行に空行を入れるかどうか
+insert_final_newline = true
+
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+# マークダウンファイル
+[*.md]
+trim_trailing_whitespace = false

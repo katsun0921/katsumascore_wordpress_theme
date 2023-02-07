@@ -1,0 +1,12 @@
+ul.acf-radio-list, ul.acf-checkbox-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.acf-radio-list li, ul.acf-checkbox-list li {
+  padding: 10px;
+}
+
+.edit-post-layout__metaboxes.acf-taxonomy-field .categorychecklist-holder {
+  max-height: 100%;
+};
