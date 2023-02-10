@@ -19,7 +19,7 @@
   <div class="clearfix-pro"></div>
 
 
-  <dl class="grid2column-progression lastcolumn-progression">
+  <dl class="lastcolumn-progression">
     <!-- original-title -->
     <?php if (get_post_meta($post->ID, 'original_title', true)) : ?>
       <dt>原題</dt>
@@ -44,6 +44,38 @@
         </ul>
       </dd>
     <?php endif ?>
+    <?php
+      $actors_filed = get_field('actors_filed');
+      if( $actors_filed ) :
+    ?>
+      <dt>登場人物</dt>
+      <dd>
+      <?php foreach( $actors_filed as $actor_filed ) : ?>
+        <?php
+          $actor_id = $actor_filed['actor'];
+          $actor_filed_character = $actor_filed['character'];
+          $actor_filed_description = $actor_filed['description'];
+          $taxonomy_actor = 'actor';
+          $term_actor = get_term_by( 'ID', $actor_id, $taxonomy_actor );
+          $term_link_actor = get_term_link($actor_id, $taxonomy_actor);
+        ?>
+        <dl style="margin: 0px; font-size: 14px;">
+          <?php if ($actor_filed_character): ?>
+          <dt><?php echo $actor_filed_character ?></dt>
+          <?php endif ?>
+          <dd style="margin-left: 1em;">
+          <?php if ($term_actor): ?>
+          <p style="margin: 0px;">演: <a href="<?php echo esc_url($term_link_actor); ?>"><?php echo $term_actor->name ?></a></p>
+          <? endif ?>
+          <?php if ($actor_filed_description): ?>
+          <p style="margin: 0px;"><?php echo $actor_filed_description ?></p>
+          <?php endif ?>
+          <dd>
+        </dl>
+    <?php endforeach ?>
+    </dd>
+    <?php endif ?>
+
     <?php $actors = get_the_terms($post->ID, 'actor') ?>
     <?php if ($actors) : ?>
       <dt><?php echo get_taxonomy('actor')->label ?></dt>
