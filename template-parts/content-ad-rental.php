@@ -6,7 +6,6 @@ $is_vod_distribution = get_field('vod_group_is_vod_distribution');
 ?>
 <?php if (!$is_cinema_showing && $is_vod_distribution) : ?>
 <section>
-  <h2>レンタルサービスから<?php echo $titleJp; ?>をご覧いただけます。</h2>
   <ul>
     <li>
       <a href="https://px.a8.net/svt/ejp?a8mat=3T0HTG+7IATF6+47OU+BXYE9" rel="nofollow">
