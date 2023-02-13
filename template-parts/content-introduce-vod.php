@@ -57,7 +57,7 @@ $vod_url = get_term_link(get_the_terms($post->ID, 'vod')[0]->term_id);
   </p>
   <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank"
     rel="noopener"><?php echo $vod_service_name . ' ' . $title_jp; ?></a>
-  <p><a href="<?php echo esc_url($vod_url); ?>">他にも<?php echo $vod_service_name ?>の作品はこちらからご覧いただけます。</a></p>
+  <p><a href="<?php echo esc_url($vod_url); ?>">他にも<?php echo $vod_service_name ?>の作品のレビューを書いています。</a></p>
   <p class="progression-blog-single-vod-caution">
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
       <?php echo get_the_date('Y年n月j日'); ?>時点のものです。<br>最新の配信状況は
@@ -82,7 +82,7 @@ $vod_url = get_term_link(get_the_terms($post->ID, 'vod')[0]->term_id);
   </p>
   <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank"
     rel="noopener"><?php echo $vod_service_name . ' ' . $title_jp; ?></a>
-  <p><a href="<?php echo esc_url($vod_url); ?>">他にも<?php echo $vod_service_name ?>の作品はこちらからご覧いただけます。</a></p>
+  <p><a href="<?php echo esc_url($vod_url); ?>">他にも<?php echo $vod_service_name ?>の作品のレビューを書いています。</a></p>
   <p class="progression-blog-single-vod-caution">
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
       <?php echo get_the_date('Y年n月j日'); ?>時点のものです。<br>最新の配信状況は
