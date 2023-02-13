@@ -10,9 +10,6 @@ $release_date = get_field('release_date');
 $vod_service_name = get_the_terms($post->ID, 'vod')[0]->name;
 $vod_service_url = get_post_meta($post->ID, 'vod_group_service_item_url', true);
 $vod_url = get_term_link(get_the_terms($post->ID, 'vod')[0]->term_id);
-echo '<pre>';
-var_dump($is_vod_distribution);
-echo '</pre>';
 
 ?>
 <section class="progression-blog-single-vod-container">
