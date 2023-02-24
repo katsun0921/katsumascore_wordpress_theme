@@ -1,16 +1,13 @@
 <?php
-
-/**
- * @package pro
- */
+$post_id = $post->ID;
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="single-post-<?php echo $post_id; ?>" <?php post_class(); ?>>
   <div class="progression-single-container">
     <?php get_template_part('template-parts/review'); ?>
     <div class="clearfix-pro"></div>
 
-    <?php if (!get_post_meta($post->ID, 'progression_studios_disable_advertisement_post', true)) : ?>
+    <?php if (!get_post_meta($post_id, 'progression_studios_disable_advertisement_post', true)) : ?>
     <?php if (is_active_sidebar('progression-studios-post-widgets-top')) { ?>
     <div class="widget-area-top-of-posts">
       <?php dynamic_sidebar('progression-studios-post-widgets-top'); ?>
@@ -64,22 +61,29 @@
       <?php get_template_part('template-parts/content-relation-by-post-id'); ?>
 
       <?
+      // 劇場版以外VODサービスを表示
+      $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
+      if (!$is_cinema_showing) {
+        get_template_part('template-parts/content-streaming-vod', null, array('post_id' => $post));
+      }
+      ?>
+      <?
       // 劇場版以外レンタルサービスを表示
-      if ($vodServiceSlug !== 'theater') {
-        get_template_part('template-parts/content-ad-rental');
+      if (!$is_cinema_showing) {
+        get_template_part('template-parts/content-ad-rental', null, array('post_id' => $post));
       }
       ?>
     </div>
 
     <?php wp_link_pages(
-        array(
-          'before' => '<div class="progression-page-nav">' . esc_html__('Pages:', 'ratency-progression'),
-          'after' => '</div>',
-          'link_before' => '<span>',
-          'link_after' => '</span>',
-        )
-      );
-      ?>
+      array(
+        'before' => '<div class="progression-page-nav">' . esc_html__('Pages:', 'ratency-progression'),
+        'after' => '</div>',
+        'link_before' => '<span>',
+        'link_after' => '</span>',
+      )
+    );
+    ?>
     <div class="clearfix-pro"></div>
 
     <?php if (get_the_author_meta('description')) : ?>
@@ -106,8 +110,8 @@
 
 
     <?php if (comments_open() || get_comments_number()) :
-        comments_template();
-      endif; ?>
+      comments_template();
+    endif; ?>
     <div class="clearfix-pro"></div>
 
   </div><!-- close .progression-single-container -->

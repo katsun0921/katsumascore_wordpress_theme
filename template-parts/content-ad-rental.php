@@ -1,10 +1,7 @@
 <?php
 // レンタル広告を表示するページ。劇場で上映中でありVODで配信をしていない時は表示をしない。
 $titleJp = get_post_meta($post->ID, 'title_jp', true);
-$is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
-$is_vod_distribution = get_field('vod_group_is_vod_distribution');
 ?>
-<?php if (!$is_cinema_showing && $is_vod_distribution) : ?>
 <section>
   <ul>
     <li>
@@ -27,4 +24,3 @@ $is_vod_distribution = get_field('vod_group_is_vod_distribution');
     </li>
   </ul>
 </section>
-<?php endif; ?>
