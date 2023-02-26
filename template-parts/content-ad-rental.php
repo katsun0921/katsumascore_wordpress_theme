@@ -30,7 +30,7 @@ foreach ($rental_services as $value) {
           'url' => $value
         );
       ?>
-    <?php if (empty($value)) : ?>
+    <?php if (!empty($value)) : ?>
     <li style="width: 33%">
       <? get_template_part('template-parts/affiliate/' . $key, null, $arg_affiliate); ?>
     </li>
