@@ -5,7 +5,7 @@ $template = 'template-parts';
 
 <div id="single-post-<?php echo $post_id; ?>" <?php post_class(); ?>>
   <div class="progression-single-container">
-    <?php get_template_part($template . '/review'); ?>
+    <?php get_template_part($template . '/content-review'); ?>
     <div class="clearfix-pro"></div>
 
     <?php if (!get_post_meta($post_id, 'progression_studios_disable_advertisement_post', true)) : ?>
@@ -23,20 +23,20 @@ $template = 'template-parts';
       <?php the_content(); ?>
 
       <?php get_template_part($template . '/content-review-site-scores'); ?>
-      <?php get_template_part($template . '/content-introduce-vod'); ?>
+      <?php get_template_part($template . '/content-introduce-vod', null, array('post_id' => $post_id)); ?>
       <?php get_template_part($template . '/content-relation-by-post-id'); ?>
 
       <?
       // 劇場版以外VODサービスを表示
       $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
       if (!$is_cinema_showing) {
-        get_template_part($template . '/content-streaming-vod', null, array('post_id' => $post));
+        get_template_part($template . '/content-streaming-vod', null, array('post_id' => $post_id));
       }
       ?>
       <?
       // 劇場版以外レンタルサービスを表示
       if (!$is_cinema_showing) {
-        get_template_part($template . '/content-ad-rental', null, array('post_id' => $post));
+        get_template_part($template . '/content-ad-rental', null, array('post_id' => $post_id));
       }
       ?>
     </div>
