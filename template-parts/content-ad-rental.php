@@ -26,7 +26,7 @@ foreach ($rental_services as $value) {
     <?php foreach ($rental_services as $key => $value) :
         $arg_affiliate = array(
           'unregistered_text' => '未登録の方はこちらから登録できます。',
-          'streaming_text' => '配信はこちらのリンクから移動できます。',
+          'streaming_text' => 'レンタルはこちらのリンクから移動できます。',
           'url' => $value
         );
       ?>
