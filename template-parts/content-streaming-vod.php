@@ -32,6 +32,9 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         case 'u-next':
           $affiliate = $affiliate_path . 'u-next';
           break;
+        case 'disney_plus':
+          $affiliate = $affiliate_path . 'disney-plus';
+          break;
         default:
           $affiliate = null;
       }
