@@ -3,8 +3,10 @@
 $titleJp = get_post_meta($post->ID, 'title_jp', true);
 $repeater_other_vod = 'streaming_vod_other_vod';
 $rows_other_vod = get_field($repeater_other_vod);
-$count_other_vod = count($rows_other_vod);
+$count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
 ?>
+
+<?php if ($count_other_vod > 0): ?>
 <section>
   <h2>
     <?php echo $titleJp ?>は他にも動画配信サービスで配信中です。
@@ -46,7 +48,5 @@ $count_other_vod = count($rows_other_vod);
     <?php endif; ?>
     <?php endfor; ?>
   </ul>
-
-
-
 </section>
+<?php endif; ?>
