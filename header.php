@@ -1,30 +1,27 @@
 <?php
-
 /**
  * The Header for our theme.
- *
- * @package pro
- * @since pro 1.0
  */
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html lang="ja">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE4K3EM3VB"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
+  window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
 
-    gtag('config', 'G-NE4K3EM3VB');
+  gtag('config', 'G-NE4K3EM3VB');
   </script>
   <!-- Google AdSense -->
-  <script data-ad-client="ca-pub-6583700677059660" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script data-ad-client="ca-pub-6583700677059660" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php get_template_part('header/social', 'sharing'); ?>
@@ -42,7 +39,8 @@
 
       <div id="progression-studios-header-width">
 
-        <header id="masthead-pro" class="progression-studios-site-header <?php echo esc_attr(get_theme_mod('progression_studios_nav_align', 'progression-studios-nav-center')); ?>">
+        <header id="masthead-pro"
+          class="progression-studios-site-header <?php echo esc_attr(get_theme_mod('progression_studios_nav_align', 'progression-studios-nav-center')); ?>">
 
           <div id="logo-nav-pro">
 
@@ -54,14 +52,16 @@
 
             <div class="clearfix-pro"></div>
 
-            <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?><div id="progression-sticky-header"><?php endif; ?>
+            <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
+            <div id="progression-sticky-header">
+              <?php endif; ?>
               <?php progression_studios_navigation(); ?>
-              <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?></div><!-- close #progression-sticky-header --><?php endif; ?>
+              <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
+            </div><!-- close #progression-sticky-header -->
+            <?php endif; ?>
 
           </div><!-- close #logo-nav-pro -->
           <?php get_template_part('header/mobile', 'navigation'); ?>
-
         </header>
       </div><!-- close #progression-studios-header-width -->
-
     </div><!-- close #progression-studios-header-position -->
