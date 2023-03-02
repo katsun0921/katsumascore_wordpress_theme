@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Header for our theme.
  */
@@ -44,13 +45,22 @@
 
           <div id="logo-nav-pro">
 
-            <div class="width-container-pro progression-studios-logo-container">
-              <h1 id="logo-pro" class="logo-inside-nav-pro noselect"><?php progression_studios_logo(); ?></h1>
-              <?php if (function_exists('progression_studios_elements_social')) : ?><?php progression_studios_elements_social(); ?><?php endif; ?>
-              <?php if (get_theme_mod('progression_studios_nav_search', 'on') == 'on') : ?><?php get_search_form(); ?><?php endif; ?>
-            </div><!-- close .width-container-pro -->
+            <div class="l-container l-header progression-studios-logo-container u-z-50">
+              <div class="l-header__logo">
+                <h1 id="logo-pro" class="u-m-0 u-py-3 u-w-28 u-leading-none logo-inside-nav-pro noselect">
+                  <?php progression_studios_logo(); ?>
+                </h1>
+              </div>
+              <div>
+                <?php if (get_theme_mod('progression_studios_nav_search', 'on') == 'on') : ?><?php get_search_form(); ?><?php endif; ?>
+              </div>
+              <div>
+                <?php if (function_exists('progression_studios_elements_social')) : ?><?php progression_studios_elements_social(); ?><?php endif; ?>
+              </div>
+            </div>
+            <!-- close .l-container -->
 
-            <div class="clearfix-pro"></div>
+            <div class=" clearfix-pro"></div>
 
             <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
             <div id="progression-sticky-header">

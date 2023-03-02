@@ -96,18 +96,6 @@ function progression_studios_widgets_init() {
 		'after_title' => '</h2>',
 	) );
 
-
-
-	register_sidebar( array(
-		'name' => esc_html__( 'Mobile/Tablet Sidebar', 'ratency-progression' ),
-		'description'   => esc_html__('Mobile/Tablet sidebar', 'ratency-progression'),
-		'id' => 'progression-studios-mobile-sidebar',
-		'before_widget' => '<div id="%1$s" class="sidebar-item widget %2$s">',
-		'after_widget' => '<div class="sidebar-divider-pro"></div></div>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2>',
-	) );
-
 	register_sidebar( array(
 		'name' => esc_html__( 'Header Top Left', 'ratency-progression' ),
 		'description'   => esc_html__('Left widget area above the navigation', 'ratency-progression'),

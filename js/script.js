@@ -1,9 +1,9 @@
-/*  Table of Contents 
+/*  Table of Contents
 01. MENU ACTIVATION
 02. FITVIDES RESPONSIVE VIDEOS
 03. MOBILE MENU
 04. GALLERY JS
-05. SCROLL TO TOP MENU JS 
+05. SCROLL TO TOP MENU JS
 06. prettyPhoto JS
 07. PRELOADER JS
 08. STICKY HEADER JS
@@ -27,17 +27,17 @@ jQuery(document).ready(function($) {
 			 	autoArrows:  	true,                    // disable generation of arrow mark-up
 		 		disableHI:      true,
 	 });
-	 
+
 /*
 =============================================== 02. FITVIDES RESPONSIVE VIDEOS  ===============================================
 */
 	 $("#content-pro").fitVids();
-	 
-	 
+
+
 /*
 =============================================== 03. MOBILE MENU  ===============================================
 */
-	 	
+
    	$('ul.mobile-menu-pro').slimmenu({
    	    resizeWidth: '960',
    	    collapserTitle: 'Menu',
@@ -46,30 +46,30 @@ jQuery(document).ready(function($) {
    	    indentChildren: false,
    		childrenIndenter: '- '
    	});
-	
-	
+
+
 	$('.mobile-menu-icon-pro').click(function(e){
 		e.preventDefault();
 		$('#main-nav-mobile').slideToggle(350);
 		$("#masthead-pro").toggleClass("active-mobile-icon-pro");
 	});
-	
+
 
 
 
 /*
 =============================================== 04. GALLERY JS  ===============================================
-*/	
+*/
     $('.progression-studios-gallery').flexslider({
-		animation: "fade",      
-		slideDirection: "horizontal", 
-		slideshow: false,   
+		animation: "fade",
+		slideDirection: "horizontal",
+		slideshow: false,
 		smoothHeight: false,
-		slideshowSpeed: 7000,  
-		animationSpeed: 1000,        
-		directionNav: true,             
+		slideshowSpeed: 7000,
+		animationSpeed: 1000,
+		directionNav: true,
 		controlNav: true,
-		prevText: "",   
+		prevText: "",
 		nextText: "",
     });
 
@@ -79,20 +79,20 @@ jQuery(document).ready(function($) {
 */
   	// browser window scroll (in pixels) after which the "back to top" link is shown
   	var offset = 150,
-  	
+
 	//browser window scroll (in pixels) after which the "back to top" link opacity is reduced
   	offset_opacity = 1200,
-  	
+
 	//duration of the top scrolling animation (in ms)
   	scroll_top_duration = 700,
-  	
+
 	//grab the "back to top" link
   	$back_to_top = $('#pro-scroll-top');
 
 	//hide or show the "back to top" link
 	$(window).scroll(function(){
   		( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
-  		if( $(this).scrollTop() > offset_opacity ) { 
+  		if( $(this).scrollTop() > offset_opacity ) {
   			$back_to_top.addClass('cd-fade-out');
   		}
   	});
@@ -105,7 +105,7 @@ jQuery(document).ready(function($) {
 		}, scroll_top_duration
 	);
 	});
-	
+
 	/* Scroll to link inside page */
 	$('a.scroll-to-link').click(function(){
 	  $('html, body').animate({
@@ -131,8 +131,8 @@ jQuery(document).ready(function($) {
 			default_height: 619,
   			social_tools: '' /* html or false to disable */
   	});
-	
-	
+
+
   	$("a.lightbox, .lightbox a").prettyPhoto({
 			theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
   			hook: 'class',
@@ -177,22 +177,22 @@ jQuery(document).ready(function($) {
 
 /*
 =============================================== 08. STICKY HEADER JS  ===============================================
-*/	
-	
+*/
+
 	/* HEADER HEIGHT FOR SPACING OF ONE PAGE NAV AND STICKY HEADER */
 	var pro_top_offset = $('header#masthead-pro').height();  // get height of fixed navbar
-	
-	
-	
+
+
+
 	$('#progression-sticky-header').scrollToFixed({ minWidth: 959 });
-	
+
 
 	$(window).resize(function() {
 	   var width_progression = $(document).width();
 	      if (width_progression > 959) {
 				/* STICKY HEADER CLASS */
 				$(window).on('load scroll resize orientationchange', function () {
-					
+
 				    var scroll = $(window).scrollTop();
 				    if (scroll >=  pro_top_offset - 1  ) {
 				        $("#progression-sticky-header").addClass("progression-sticky-scrolled");
@@ -203,25 +203,25 @@ jQuery(document).ready(function($) {
 			} else {
 				$('#progression-sticky-header').trigger('detach.ScrollToFixed');
 			}
-		
+
 	}).resize();
-	
+
 	$(window).ready(function() {
-	
-	$(".sidebar.sticky-sidebar-progression").stick_in_parent({
+
+	$(".l-sidebar.sticky-sidebar-progression").stick_in_parent({
 		offset_top: 30
 	});
-	
+
 });
 
 /*
 =============================================== 09. SHOW/HIDE CART AND SEARCH  ===============================================
-*/	
+*/
 	var hidesearch = false;
 	var hidecart = false;
 	var hidelogin = false;
 	var clickOrTouch = (('ontouchend' in window)) ? 'touchend' : 'click';
-	
+
  	$(".helpmeout-login-book-mark-message").on(clickOrTouch, function(e) {
 		var clicks = $(this).data('clicks');
 		  if (clicks) {
@@ -233,38 +233,38 @@ jQuery(document).ready(function($) {
 		  }
 		  $(this).data("clicks", !clicks);
  	});
-	
+
 	if ($(this).width() > 959) {
 
 	    $("#progression-shopping-cart-toggle").hover(function(){
 	        if (hidecart) clearTimeout(hidecart);
 			$("#progression-shopping-cart-toggle").addClass("activated-class").removeClass("hover-out-class");
 	    }, function() {
-	        hidecart = setTimeout(function() { 
+	        hidecart = setTimeout(function() {
 				$("#progression-shopping-cart-toggle").removeClass("activated-class").addClass("hover-out-class");
 			}, 100);
 	    });
-		
+
 	}
-	
-    
-	
-	
-	
+
+
+
+
+
  	$("#progression-studios-header-search-icon i.pe-7s-search").on(clickOrTouch, function(e) {
 		var clicks = $(this).data('clicks');
 		  if (clicks) {
 		     $("#progression-studios-header-search-icon").removeClass("active-search-icon-pro");
 		     $("#progression-studios-header-search-icon").addClass("hide-search-icon-pro");
-			 
+
 		  } else {
 		     $("#progression-studios-header-search-icon").addClass("active-search-icon-pro");
 			  $("#progression-studios-header-search-icon").removeClass("hide-search-icon-pro");
 		  }
 		  $(this).data("clicks", !clicks);
  	});
-	
-	
 
-	
+
+
+
 });

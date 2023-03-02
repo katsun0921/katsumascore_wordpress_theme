@@ -11,6 +11,6 @@ if ( ! is_active_sidebar( 'progression-studios-sidebar' ) ) {
 }
 ?>
 
-<div class="sidebar sticky-sidebar-progression">
+<div class="l-sidebar sticky-sidebar-progression">
 		<?php dynamic_sidebar( 'progression-studios-sidebar' ); ?>
 </div><!-- close .sidebar -->
