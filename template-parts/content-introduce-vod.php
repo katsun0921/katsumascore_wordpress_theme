@@ -12,6 +12,8 @@ $release_date = get_field('release_date');
 $vod_service_name = get_term($vod_streaming_term_id)->name;
 $vod_service_url = get_field('streaming_vod_watched_vod_watched_vod_url');
 $vod_url = get_term_link(get_term($vod_streaming_term_id)->term_id);
+$is_affiliate_code = get_field('streaming_vod_watched_vod_is_affiliate_code');
+$affiliate_code = get_field('streaming_vod_watched_vod_affiliate_code');
 ?>
 <section class="progression-blog-single-vod-container">
   <?php
@@ -56,8 +58,12 @@ $vod_url = get_term_link(get_term($vod_streaming_term_id)->term_id);
     <?php echo $title_jp; ?>』のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ下記URLの
     <?php echo $vod_service_name ?>からチェックしてみてください！
   </p>
+  <?php if ($is_affiliate_code) : ?>
+  <?php echo $affiliate_code ?>
+  <?php else : ?>
   <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank"
     rel="noopener"><?php echo $vod_service_name . ' ' . $title_jp; ?></a>
+  <?php endif; ?>
   <p><a href="<?php echo esc_url($vod_url); ?>">他にも<?php echo $vod_service_name ?>の作品のレビューを書いています。</a></p>
   <p class="progression-blog-single-vod-caution">
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>

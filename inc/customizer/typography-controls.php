@@ -6,7 +6,7 @@
  */
 
 function progression_studios_add_tab_to_panel( $tabs ) {
-	
+
    $tabs['progression-studios-navigation-font'] = array(
        'name'        => 'progression-studios-navigation-font',
        'panel'       => 'progression_studios_header_panel',
@@ -14,7 +14,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
    $tabs['progression-studios-sub-navigation-font'] = array(
        'name'        => 'progression-studios-sub-navigation-font',
        'panel'       => 'progression_studios_header_panel',
@@ -22,8 +22,8 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
-	
+
+
    $tabs['progression-studios-top-header-font'] = array(
        'name'        => 'progression-studios-top-header-font',
        'panel'       => 'progression_studios_header_panel',
@@ -31,8 +31,8 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
-	
+
+
    $tabs['progression-studios-body-font'] = array(
        'name'        => 'progression-studios-body-font',
        'panel'       => 'progression_studios_body_panel',
@@ -40,8 +40,8 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
-	
+
+
    $tabs['progression-studios-page-title'] = array(
        'name'        => 'progression-studios-page-title',
        'panel'       => 'progression_studios_body_panel',
@@ -49,7 +49,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
    $tabs['progression-studios-widgets-font'] = array(
        'name'        => 'progression-studios-widgets-font',
        'panel'       => 'progression_studios_footer_panel',
@@ -57,7 +57,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
 
 
    $tabs['progression-studios-footer-nav-font'] = array(
@@ -67,10 +67,10 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
-	
-	
-	
+
+
+
+
    $tabs['progression-studios-default-headings'] = array(
        'name'        => 'progression-studios-default-headings',
        'panel'       => 'progression_studios_body_panel',
@@ -78,10 +78,10 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
-	
-  
-	
+
+
+
+
    $tabs['progression-studios-sidebar-headings'] = array(
        'name'        => 'progression-studios-sidebar-headings',
        'panel'       => 'progression_studios_body_panel',
@@ -89,7 +89,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
    $tabs['progression-studios-button-typography'] = array(
        'name'        => 'progression-studios-button-typography',
        'panel'       => 'progression_studios_body_panel',
@@ -97,10 +97,10 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
 
 
-	
+
+
    $tabs['progression-studios-blog-headings'] = array(
        'name'        => 'progression-studios-blog-headings',
        'panel'       => 'progression_studios_blog_panel',
@@ -108,7 +108,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
 	$tabs['progression-studios-blog-overlay-headings'] = array(
        'name'        => 'progression-studios-blog-overlay-headings',
        'panel'       => 'progression_studios_blog_panel',
@@ -116,7 +116,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
    $tabs['progression-studios-blog-post-options'] = array(
        'name'        => 'progression-studios-blog-post-options',
        'panel'       => 'progression_studios_blog_panel',
@@ -124,7 +124,7 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
+
    $tabs['progression-studios-blog-post-styles'] = array(
        'name'        => 'progression-studios-blog-post-styles',
        'panel'       => 'progression_studios_blog_panel',
@@ -132,9 +132,9 @@ function progression_studios_add_tab_to_panel( $tabs ) {
        'description' => '',
        'sections'    => array(),
    );
-	
 
-	
+
+
     // Return the tabs.
     return $tabs;
 }
@@ -167,13 +167,13 @@ function progression_studios_add_control_to_tab( $controls ) {
     unset( $controls['tt_default_heading_4'] );
     unset( $controls['tt_default_heading_5'] );
     unset( $controls['tt_default_heading_6'] );
-	 
-	 
+
+
     /**
      * 2. Now custom examples that are theme specific
      */
-	 
-	
+
+
     $controls['progression_studios_body_font_family'] = array(
         'name'       => 'progression_studios_body_font_family',
  		 'type'        => 'font',
@@ -184,7 +184,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
-	 
+
     $controls['progression_studios_heading_h1'] = array(
         'name'       => 'progression_studios_heading_h1',
  		 'type'        => 'font',
@@ -196,7 +196,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	
+
     $controls['progression_studios_heading_h2'] = array(
         'name'       => 'progression_studios_heading_h2',
  		 'type'        => 'font',
@@ -208,7 +208,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	
+
     $controls['progression_studios_heading_h3'] = array(
         'name'       => 'progression_studios_heading_h3',
  		 'type'        => 'font',
@@ -220,7 +220,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	
+
     $controls['progression_studios_heading_h4'] = array(
         'name'       => 'progression_studios_heading_h4',
  		 'type'        => 'font',
@@ -232,7 +232,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
+
     $controls['progression_studios_heading_h5'] = array(
         'name'       => 'progression_studios_heading_h5',
  		 'type'        => 'font',
@@ -244,7 +244,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
+
     $controls['progression_studios_heading_h6'] = array(
         'name'       => 'progression_studios_heading_h6',
  		 'type'        => 'font',
@@ -256,9 +256,9 @@ function progression_studios_add_control_to_tab( $controls ) {
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
-	 
+
+
+
     $controls['progression_studios_page_title_font_family'] = array(
         'name'       => 'progression_studios_page_title_font_family',
  		 'type'        => 'font',
@@ -269,8 +269,8 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_page_sub_title_font_family'] = array(
         'name'       => 'progression_studios_page_sub_title_font_family',
  		 'type'        => 'font',
@@ -281,10 +281,10 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
-	 
-	 
+
+
+
+
     $controls['progression_studios_nav_font_family'] = array(
         'name'       => 'progression_studios_nav_font_family',
  		 'type'        => 'font',
@@ -296,7 +296,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  		),
     );
 
-	 
+
     $controls['progression_studios_sub_nav_font_family'] = array(
         'name'       => 'progression_studios_sub_nav_font_family',
  	'type'        => 'font',
@@ -307,10 +307,10 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
-	 
 
-	 
-	 
+
+
+
     $controls['progression_studios_top_header_default'] = array(
         'name'       => 'progression_studios_top_header_default',
  		 'type'        => 'font',
@@ -321,7 +321,7 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
-	 
+
     $controls['progression_studios_sub_nav_megamenu'] = array(
         'name'       => 'progression_studios_sub_nav_megamenu',
  	'type'        => 'font',
@@ -333,12 +333,12 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
 
 
-	 
-	 
-	 
+
+
+
+
     $controls['progression_studios_blog_title_font'] = array(
         'name'       => 'progression_studios_blog_title_font',
  		 'type'        => 'font',
@@ -349,8 +349,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_blog_category_post'] = array(
         'name'       => 'progression_studios_blog_category_post',
  		 'type'        => 'font',
@@ -361,7 +361,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
+
     $controls['progression_studios_blog_category_post_hover'] = array(
         'name'       => 'progression_studios_blog_category_post_hover',
  		 'type'        => 'font',
@@ -372,8 +372,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_blog_byline_font'] = array(
         'name'       => 'progression_studios_blog_byline_font',
  		 'type'        => 'font',
@@ -384,7 +384,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
+
     $controls['progression_studios_blog_byline_link_font_hover'] = array(
         'name'       => 'progression_studios_blog_byline_link_font_hover',
  		 'type'        => 'font',
@@ -395,8 +395,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_blog_exceprt'] = array(
         'name'       => 'progression_studios_blog_exceprt',
  		 'type'        => 'font',
@@ -407,11 +407,11 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
-	 
-	 
-	 
+
+
+
+
+
     $controls['progression_studios_blog_title_overlay_font'] = array(
         'name'       => 'progression_studios_blog_title_overlay_font',
  		 'type'        => 'font',
@@ -422,8 +422,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_blog_category_overlay_post'] = array(
         'name'       => 'progression_studios_blog_category_overlay_post',
  		 'type'        => 'font',
@@ -434,7 +434,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
+
     $controls['progression_studios_blog_category_overlay_post_hover'] = array(
         'name'       => 'progression_studios_blog_category_overlay_post_hover',
  		 'type'        => 'font',
@@ -445,8 +445,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
+
+
     $controls['progression_studios_blog_overlay_byline_font'] = array(
         'name'       => 'progression_studios_blog_overlay_byline_font',
  		 'type'        => 'font',
@@ -457,9 +457,9 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
 
-	 
+
+
     $controls['progression_studios_blog_overlay_exceprt'] = array(
         'name'       => 'progression_studios_blog_overlay_exceprt',
  		 'type'        => 'font',
@@ -470,10 +470,10 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  			'subset'                     => 'latin',
  		),
     );
-	 
-	 
-    
-	 
+
+
+
+
     $controls['progression_studios_sidebar_heading'] = array(
         'name'       => 'progression_studios_sidebar_heading',
  		 'type'        => 'font',
@@ -485,8 +485,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
+
+
     $controls['progression_studios_sidebar_default'] = array(
         'name'       => 'progression_studios_sidebar_default',
  		 'type'        => 'font',
@@ -498,35 +498,35 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
+
+
     $controls['progression_studios_sidebar_link'] = array(
         'name'       => 'progression_studios_sidebar_link',
  		 'type'        => 'font',
         'title'      =>  esc_html__('Sidebar Default Link', 'ratency-progression'),
         'tab'        => 'progression-studios-sidebar-headings',
-        'properties' => array( 'selector'   => '.sidebar a' ),
+        'properties' => array( 'selector'   => '.l-sidebar a' ),
  		 'default' => array(
  	 			'subset'                     => 'latin',
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
+
     $controls['progression_studios_sidebar_link_hover'] = array(
         'name'       => 'progression_studios_sidebar_link_hover',
  		 'type'        => 'font',
         'title'      =>  esc_html__('Sidebar Link Hover', 'ratency-progression'),
         'tab'        => 'progression-studios-sidebar-headings',
-        'properties' => array( 'selector'   => '.sidebar ul li.current-cat, .sidebar ul li.current-cat a, .sidebar a:hover' ),
+        'properties' => array( 'selector'   => '.l-sidebar ul li.current-cat, .l-sidebar ul li.current-cat a, .l-sidebar a:hover' ),
  		 'default' => array(
  	 			'subset'                     => 'latin',
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
-	 
-	 
+
+
+
+
     $controls['progression_studios_button_font_family'] = array(
         'name'       => 'progression_studios_button_font_family',
  	'type'        => 'font',
@@ -538,15 +538,15 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
 		'text_decoration'            => 'none',
  		),
     );
-    
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
+
+
+
+
+
+
+
+
+
     $controls['progression_studios_post_title'] = array(
         'name'       => 'progression_studios_post_title',
  		 'type'        => 'font',
@@ -558,7 +558,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
+
     $controls['progression_studios_post_sub_title'] = array(
         'name'       => 'progression_studios_post_sub_title',
  		 'type'        => 'font',
@@ -570,8 +570,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
+
+
     $controls['progression_studios_post_cat'] = array(
         'name'       => 'progression_studios_post_cat',
  		 'type'        => 'font',
@@ -583,7 +583,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
+
     $controls['progression_studios_post_cat_hover'] = array(
         'name'       => 'progression_studios_post_cat_hover',
  		 'type'        => 'font',
@@ -595,8 +595,8 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
+
+
     $controls['progression_studios_post_meta'] = array(
         'name'       => 'progression_studios_post_meta',
  		 'type'        => 'font',
@@ -608,9 +608,9 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-	 
-	 
+
+
+
     $controls['progression_studios_postreview_title'] = array(
         'name'       => 'progression_studios_postreview_title',
  		 'type'        => 'font',
@@ -622,11 +622,11 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  	 			'text_decoration'            => 'none',
  			),
     );
-	 
-    
-	 
-	 
-	 
+
+
+
+
+
 	// Return the controls.
     return $controls;
 }
