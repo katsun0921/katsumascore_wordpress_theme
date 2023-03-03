@@ -1,32 +1,10 @@
 <?php
+$post_id = $post->ID;
+$template = 'template-parts';
+?>
+<?php get_header(); ?>
 
-/**
- * The template for displaying archive pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package pro
- */
-
-get_header(); ?>
-
-
-<div id="page-title-pro" class="u-mb-50px">
-  <div class="l-container">
-    <div id="progression-studios-page-title-container">
-      <?php the_archive_title('<h1 class="page-title">', '</h1>'); ?>
-      <?php the_archive_description('<h4 class="progression-sub-title">', '</h4>'); ?>
-      <?php if (function_exists('bcn_display')) {
-        echo '<ul id="breadcrumbs-progression-studios"><li><a href="';
-        echo esc_url(home_url('/'));
-        echo '"><i class="fa fa-home"></i> </a></li>';
-        bcn_display_list();
-        echo '</ul>';
-      } ?>
-    </div><!-- #progression-studios-page-title-container -->
-    <div class="clearfix-pro"></div>
-  </div><!-- close .l-container -->
-</div><!-- #page-title-pro -->
+<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => get_the_archive_title())); ?>
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
   <div class="l-container">

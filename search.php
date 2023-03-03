@@ -1,30 +1,11 @@
 <?php
+$post_id = $post->ID;
+$template = 'template-parts';
+?>
 
-/**
- * The template for displaying search results pages.
- *
- * @package pro
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-
-
-<div id="page-title-pro" class="u-mb-50px">
-  <div class="l-container">
-    <div id="progression-studios-page-title-container">
-      <h1 class="page-title">
-        <?php printf(esc_html__('Search for: %s', 'ratency-progression'), '<span>' . get_search_query() . '</span>'); ?>
-        <?php if (function_exists('bcn_display')) {
-          echo '<ul id="breadcrumbs-progression-studios"><li><a href="';
-          echo esc_url(home_url('/'));
-          echo '"><i class="fa fa-home"></i> </a></li>';
-          bcn_display_list();
-          echo '</ul>';
-        } ?>
-    </div><!-- #progression-studios-page-title-container -->
-    <div class="clearfix-pro"></div>
-  </div><!-- close .l-container -->
-</div><!-- #page-title-pro -->
+<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => 'Search for:'. get_search_query())); ?>
 
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">

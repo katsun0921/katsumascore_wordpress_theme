@@ -1,32 +1,11 @@
 <?php
+$post_id = $post->ID;
+$template = 'template-parts';
+?>
 
-/**
- * The template for displaying archive pages.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package pro
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-
-<div id="page-title-pro" class="u-mb-50px">
-  <div class="l-container">
-    <div id="progression-studios-page-title-container">
-      <h1 class="page-title">
-        <?php if (get_the_author_meta('description')) : ?><?php echo esc_html__('Author', 'ratency-progression') ?><?php else : ?><?php the_author(); ?><?php endif; ?>
-      </h1>
-      <?php if (function_exists('bcn_display')) {
-        echo '<ul id="breadcrumbs-progression-studios"><li><a href="';
-        echo esc_url(home_url('/'));
-        echo '"><i class="fa fa-home"></i> </a></li>';
-        bcn_display_list();
-        echo '</ul>';
-      } ?>
-    </div><!-- #progression-studios-page-title-container -->
-    <div class="clearfix-pro"></div>
-  </div><!-- close .l-container -->
-</div><!-- #page-title-pro -->
+<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => get_the_author())); ?>
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
   <div class="l-container">
