@@ -539,39 +539,6 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  		),
     );
 
-
-
-
-
-
-
-
-
-    $controls['progression_studios_post_title'] = array(
-        'name'       => 'progression_studios_post_title',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Title', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-post-options',
-        'properties' => array( 'selector'   => '#progression-studios-post-page-title h1' ),
- 		 'default' => array(
- 	 			'subset'                     => 'latin',
- 	 			'text_decoration'            => 'none',
- 			),
-    );
-
-    $controls['progression_studios_post_sub_title'] = array(
-        'name'       => 'progression_studios_post_sub_title',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Sub-title', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-post-options',
-        'properties' => array( 'selector'   => '#progression-studios-post-page-title h4' ),
- 		 'default' => array(
- 	 			'subset'                     => 'latin',
- 	 			'text_decoration'            => 'none',
- 			),
-    );
-
-
     $controls['progression_studios_post_cat'] = array(
         'name'       => 'progression_studios_post_cat',
  		 'type'        => 'font',
@@ -602,7 +569,7 @@ body header ul.mobile-menu-pro .sf-mega h2.mega-menu-heading a, ul.mobile-menu-p
  		 'type'        => 'font',
         'title'      =>  esc_html__('Post Meta', 'ratency-progression'),
         'tab'        => 'progression-studios-blog-post-options',
-        'properties' => array( 'selector'   => 'ul.progression-studios-single-post-meta li a, ul.progression-studios-single-post-meta li' ),
+        'properties' => array( 'selector'   => '.progression-studios-single-post-meta li' ),
  		 'default' => array(
  	 			'subset'                     => 'latin',
  	 			'text_decoration'            => 'none',

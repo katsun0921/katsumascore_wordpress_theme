@@ -10,8 +10,7 @@ if ($relation_filed) :
         $relation_post_id = (int) $relation_post['release_post_id'];
         $relation_categories = get_the_category($relation_post_id);
         $image_thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($relation_post_id), 'progression-studios-blog-background');
-        $image_url = get_post_meta($relation_post_id, 'progression_studios_gallery-image-url', true);
-        $image = $image_url ? $image_url : $image_thumbnail[0];
+        $image =  $image_thumbnail[0];
       ?>
     <li class="progression-blog-single-relation-list"
       style="<?php echo "background-image: url(" . esc_url($image) . ")"; ?>">

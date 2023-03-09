@@ -610,25 +610,6 @@ function progression_studios_customizer($wp_customize)
 		))
 	);
 
-	/* Setting - Header - Header Options */
-	$wp_customize->add_setting('progression_studios_header_search_mobile', array(
-		'default' => 'none',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_header_search_mobile', array(
-			'label'    => esc_html__('Display Search on Mobile?', 'ratency-progression'),
-			'section' => 'progression_studios_section_header_icons_section',
-			'priority'   => 630,
-			'choices'     => array(
-				'none' => esc_html__('Full Width', 'ratency-progression'),
-				'block' => esc_html__('Max Width', 'ratency-progression'),
-			),
-		))
-	);
-
-
-
 
 	/* Section - Header - Tablet/Mobile Header Options */
 	$wp_customize->add_section(
@@ -1699,80 +1680,6 @@ function progression_studios_customizer($wp_customize)
 	);
 
 
-
-
-
-
-	/* Setting - Body - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title_padding_top', array(
-		'default' => '150',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Slider_Control($wp_customize, 'progression_studios_page_title_padding_top', array(
-			'label'    => esc_html__('Page Title Top Padding', 'ratency-progression'),
-			'section'  => 'tt_font_progression-studios-page-title',
-			'priority'   => 501,
-			'choices'     => array(
-				'min'  => 0,
-				'max'  => 450,
-				'step' => 1
-			),
-		))
-	);
-
-	/* Setting - Body - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title_padding_bottom', array(
-		'default' => '150',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Slider_Control($wp_customize, 'progression_studios_page_title_padding_bottom', array(
-			'label'    => esc_html__('Page Title Bottom Padding', 'ratency-progression'),
-			'section'  => 'tt_font_progression-studios-page-title',
-			'priority'   => 515,
-			'choices'     => array(
-				'min'  => 0,
-				'max'  => 450,
-				'step' => 1
-			),
-		))
-	);
-
-
-
-
-	/* Setting - General - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title_bg_image', array(
-		'sanitize_callback' => 'esc_url_raw',
-	));
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control($wp_customize, 'progression_studios_page_title_bg_image', array(
-			'label'    => esc_html__('Page Title Background Image', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-page-title',
-			'priority'   => 535,
-		))
-	);
-
-
-	/* Setting - General - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title_image_position', array(
-		'default' => 'cover',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_page_title_image_position', array(
-			'section' => 'tt_font_progression-studios-page-title',
-			'priority'   => 536,
-			'choices'     => array(
-				'cover' => esc_html__('Image Cover', 'ratency-progression'),
-				'repeat-all' => esc_html__('Image Pattern', 'ratency-progression'),
-			),
-		))
-	);
-
-
-
 	/* Setting - Body - Page Title */
 	$wp_customize->add_setting('progression_studios_page_title_bg_color', array(
 		'default' => '#5847ef',
@@ -2205,22 +2112,6 @@ function progression_studios_customizer($wp_customize)
 		))
 	);
 
-	/* Section - Blog - Blog Post Options */
-	$wp_customize->add_setting('progression_studios_blog_post_rating_page_title', array(
-		'default' => 'false',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_blog_post_rating_page_title', array(
-			'label'    => esc_html__('Review in Page Title', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 100,
-			'choices'     => array(
-				'true' => esc_html__('Display', 'ratency-progression'),
-				'false' => esc_html__('Hide', 'ratency-progression'),
-			),
-		))
-	);
 
 
 
@@ -2241,44 +2132,6 @@ function progression_studios_customizer($wp_customize)
 			),
 		))
 	);
-
-	/* Setting - Body - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title__postpadding_top', array(
-		'default' => '130',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Slider_Control($wp_customize, 'progression_studios_page_title__postpadding_top', array(
-			'label'    => esc_html__('Post Title Top Padding', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 1610,
-			'choices'     => array(
-				'min'  => 0,
-				'max'  => 450,
-				'step' => 1
-			),
-		))
-	);
-
-	/* Setting - Body - Page Title */
-	$wp_customize->add_setting('progression_studios_page_title_post_padding_bottom', array(
-		'default' => '125',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Slider_Control($wp_customize, 'progression_studios_page_title_post_padding_bottom', array(
-			'label'    => esc_html__('Post Title Bottom Padding', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 1620,
-			'choices'     => array(
-				'min'  => 0,
-				'max'  => 450,
-				'step' => 1
-			),
-		))
-	);
-
-
 
 	/* Setting - Body - Page Title */
 	$wp_customize->add_setting('progression_studios_review_rating_bg', array(
@@ -2382,46 +2235,6 @@ function progression_studios_customizer($wp_customize)
 
 
 	/* Section - Blog - Blog Index Post Options */
-	$wp_customize->add_setting('progression_studios_blog_post_index_meta_category_display', array(
-		'default' => 'true',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_blog_post_index_meta_category_display', array(
-			'label'    => esc_html__('Category', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 1652,
-			'choices' => array(
-				'true' => esc_html__('Display', 'ratency-progression'),
-				'false' => esc_html__('Hide', 'ratency-progression'),
-
-			),
-		))
-	);
-
-
-
-	/* Section - Blog - Blog Index Post Options */
-	$wp_customize->add_setting('progression_studios_blog_post_meta_author_display', array(
-		'default' => 'true',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_blog_post_meta_author_display', array(
-			'label'    => esc_html__('Author', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 2035,
-			'choices' => array(
-				'true' => esc_html__('Display', 'ratency-progression'),
-				'false' => esc_html__('Hide', 'ratency-progression'),
-
-			),
-		))
-	);
-
-
-
-	/* Section - Blog - Blog Index Post Options */
 	$wp_customize->add_setting('progression_studios_blog_post_meta_date_display', array(
 		'default' => 'true',
 		'sanitize_callback' => 'progression_studios_sanitize_choices',
@@ -2438,33 +2251,6 @@ function progression_studios_customizer($wp_customize)
 			),
 		))
 	);
-
-
-
-	/* Section - Blog - Blog Index Post Options */
-	$wp_customize->add_setting('progression_studios_blog_post_meta_comment_display', array(
-		'default' => 'true',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_blog_post_meta_comment_display', array(
-			'label'    => esc_html__('Comment Count', 'ratency-progression'),
-			'section' => 'tt_font_progression-studios-blog-post-options',
-			'priority'   => 2355,
-			'choices' => array(
-				'true' => esc_html__('Display', 'ratency-progression'),
-				'false' => esc_html__('Hide', 'ratency-progression'),
-
-			),
-		))
-	);
-
-
-
-
-
-
-
 
 
 	/* Setting - Body - Button Styles */
@@ -3059,11 +2845,6 @@ function progression_studios_customizer_styles()
 		$progression_studios_body_bg = "";
 	}
 
-	if (get_theme_mod('progression_studios_page_title_bg_image')) {
-		$progression_studios_page_title_bg = "background-image:url(" .   esc_attr(get_theme_mod('progression_studios_page_title_bg_image')) . ");";
-	} else {
-		$progression_studios_page_title_bg = "";
-	}
 
 	if (get_theme_mod('progression_studios_body_bg_image_image_position', 'cover') == 'cover') {
 		$progression_studios_body_bg_cover = "background-repeat: no-repeat; background-position:center center; background-size: cover; background-attachment: fixed;";
@@ -3071,35 +2852,11 @@ function progression_studios_customizer_styles()
 		$progression_studios_body_bg_cover = "background-repeat:repeat-all;";
 	}
 
-	if (get_theme_mod('progression_studios_page_title_image_position', 'cover') == 'cover') {
-		$progression_studios_page_tite_bg_cover = "background-repeat: no-repeat; background-position:center center; background-size: cover;";
-	} else {
-		$progression_studios_page_tite_bg_cover = "background-repeat:repeat-all;";
-	}
-
-
-	if (get_theme_mod('progression_studios_post_title_bg_color')) {
-		$progression_studios_post_tite_bg_color = "background-color: " . esc_attr(get_theme_mod('progression_studios_post_title_bg_color', '#000000')) . ";";
-	} else {
-		$progression_studios_post_tite_bg_color = "";
-	}
-
-	if (get_theme_mod('progression_studios_post_page_title_bg_image')) {
-		$progression_studios_post_tite_bg_image_post = "background-image:url(" .   esc_attr(get_theme_mod('progression_studios_post_page_title_bg_image',  get_template_directory_uri() . '/images/page-title.jpg')) . ");";
-	} else {
-		$progression_studios_post_tite_bg_image_post = "";
-	}
 
 	if (get_theme_mod('progression_studios_blog_image_bg', '#000000')) {
 		$progression_studios_post_tite_bg_featuredimg_bg = ".progression-studios-feaured-video-overlay, .progression-studios-default-blog-overlay .progression-studios-feaured-image {background:" . esc_attr(get_theme_mod('progression_studios_blog_image_bg', '#000000')) . ";}";
 	} else {
 		$progression_studios_post_tite_bg_featuredimg_bg = "";
-	}
-
-	if (get_theme_mod('progression_studios_page_post_title_image_position', 'cover') == 'cover') {
-		$progression_studios_post_tite_bg_cover = "background-repeat: no-repeat; background-position:center center; background-size: cover;";
-	} else {
-		$progression_studios_post_tite_bg_cover = "background-repeat:repeat-all;";
 	}
 
 	if (get_theme_mod('progression_studios_sticky_logo_width', '0') != '0') {
@@ -3333,30 +3090,6 @@ function progression_studios_customizer_styles()
 
 
 
-
-	if (function_exists('z_taxonomy_image_url') && z_taxonomy_image_url()) {
-		$progression_studios_custom_tax_page_title_img = "#page-title-pro {background-image:url('" . esc_url(z_taxonomy_image_url()) . "'); }";
-	} else {
-		$progression_studios_custom_tax_page_title_img = "";
-	}
-
-	if (is_page() && get_post_meta($post->ID, 'progression_studios_header_image', true)) {
-		$progression_studios_custom_page_title_img = "#page-title-pro {background-image:url('" . esc_url(get_post_meta($post->ID, 'progression_studios_header_image', true)) . "'); }";
-	} else {
-		$progression_studios_custom_page_title_img = "";
-	}
-	if (get_option('page_for_posts')) {
-		$cover_page = get_page(get_option('page_for_posts'));
-		if (is_home() && get_post_meta($cover_page->ID, 'progression_studios_header_image', true) || is_singular('post') && get_post_meta($cover_page->ID, 'progression_studios_header_image', true) || is_category() && get_post_meta($cover_page->ID, 'progression_studios_header_image', true)) {
-			$progression_studios_blog_header_img = "#page-title-pro {background-image:url('" .  esc_url(get_post_meta($cover_page->ID, 'progression_studios_header_image', true)) . "'); }";
-		} else {
-			$progression_studios_blog_header_img = "";
-		}
-	} else {
-		$progression_studios_blog_header_img = "";
-	}
-
-
 	if (get_theme_mod('progression_studios_header_icon_bg_color')) {
 		$progression_studios_top_header_icon_bg = "background:" . esc_attr(get_theme_mod('progression_studios_header_icon_bg_color'))  . ";";
 	} else {
@@ -3444,14 +3177,6 @@ function progression_studios_customizer_styles()
 		$progression_studios_body_bg
 		$progression_studios_body_bg_cover
 	}
-	#page-title-pro {
-		$progression_studios_page_title_bg
-		$progression_studios_page_tite_bg_cover
-	}
-	#progression-studios-post-page-title {
-		$progression_studios_page_title_bg
-		$progression_studios_page_tite_bg_cover
-	}
 
 	.sidebar h4.widget-title:before { background-color:" .   esc_attr(get_theme_mod('progression_studios_sidebar_header_border', '#5c39f2')) . "; }
 	.sidebar ul ul, .sidebar ul li, .widget .widget_shopping_cart_content p.buttons { border-color:" .   esc_attr(get_theme_mod('progression_studios_sidebar_divider', '#ebebeb')) . "; }
@@ -3465,11 +3190,6 @@ function progression_studios_customizer_styles()
 	.progression-blog-review-content .progression-blog-review-total { background-color: " . esc_attr(get_theme_mod('progression_studios_review_rating_bg', '#2b0f4a')) . ";  }
 	.progression-blog-review-content .progression-blog-review-total:before {border-bottom-color: " . esc_attr(get_theme_mod('progression_studios_review_rating_bg', '#2b0f4a')) . "; }
 	.progression-blog-review-content .progression-blog-review-total:after {border-top-color:" . esc_attr(get_theme_mod('progression_studios_review_rating_bg', '#2b0f4a')) . "; }
-	#page-title-pro.page-title-pro-post-page {
-		$progression_studios_post_tite_bg_color
-		$progression_studios_post_tite_bg_image_post
-		$progression_studios_post_tite_bg_cover
-	}
 	.progression-studios-default-blog-top .blog-post-vertical-content-layout,
 	.progression-blog-content {
 		border-color:" . esc_attr(get_theme_mod('progression_studios_blog_post_border_color', 'rgba(17,17,17,0.10)')) . ";
@@ -3477,7 +3197,6 @@ function progression_studios_customizer_styles()
 	.progression-studios-default-blog-overlay, .overlay-progression-blog-content {
 		min-height:" . esc_attr(get_theme_mod('progression_studios_overlay_min_height', '300')) . "px;
 	}
-	$progression_studios_post_tite_overlay_image_cover
 	$progression_studios_post_tite_bg_featuredimg_bg
 	.progression-ratency-slider-review-total { background-color: " . esc_attr(get_theme_mod('progression_studios_blog_review_rating_index_bg', '#2b0f4a')) . ";}
 	.progression-ratency-slider-review-total:before {border-bottom-color: " . esc_attr(get_theme_mod('progression_studios_blog_review_rating_index_bg', '#2b0f4a')) . "; }
@@ -3864,16 +3583,6 @@ function progression_studios_customizer_styles()
 	}
 
 	@media only screen and (min-width: 960px) and (max-width: 1300px) {
-		#page-title-pro {
-			padding-top:" . esc_attr(get_theme_mod('progression_studios_page_title_padding_top', '150') - 15) . "px;
-			padding-bottom:" . esc_attr(get_theme_mod('progression_studios_page_title_padding_bottom', '150') - 15) . "px;
-		}
-
-		#progression-studios-post-page-title {
-			padding-top:" . esc_attr(get_theme_mod('progression_studios_page_title__postpadding_top', '130') - 15) . "px;
-			padding-bottom:" .  esc_attr(get_theme_mod('progression_studios_page_title_post_padding_bottom', '125') - 15) . "px;
-		}
-
 		.sf-menu ul {
 			margin-left:" . esc_attr((get_theme_mod('progression_studios_nav_left_right', '42') / 3) - 4) . "px;
 		}
@@ -3975,28 +3684,13 @@ function progression_studios_customizer_styles()
 	#copyright-text { padding:" . esc_attr(get_theme_mod('progression_studios_copyright_margin_top', '45')) . "px 0px " . esc_attr(get_theme_mod('progression_studios_copyright_margin_bottom', '50')) . "px 0px; }
 	#progression-studios-footer-logo { max-width:" . esc_attr(get_theme_mod('progression_studios_footer_logo_width', '250')) . "px; padding-top:" . esc_attr(get_theme_mod('progression_studios_footer_logo_margin_top', '45')) . "px; padding-bottom:" . esc_attr(get_theme_mod('progression_studios_footer_logo_margin_bottom', '0')) . "px; padding-right:" . esc_attr(get_theme_mod('progression_studios_footer_logo_margin_right', '0')) . "px; padding-left:" . esc_attr(get_theme_mod('progression_studios_footer_logo_margin_left', '0')) . "px; }
 	/* END FOOTER STYLES */
-	@media only screen and (max-width: 767px) {
-		#masthead-pro .search-form {
-			display:" . esc_attr(get_theme_mod('progression_studios_header_search_mobile', 'none')) . ";
-		}
-	}
 	@media only screen and (max-width: 959px) {
-		#page-title-pro {
-			padding-top:" . esc_attr(get_theme_mod('progression_studios_page_title_padding_top', '150') - 25) . "px;
-			padding-bottom:" . esc_attr(get_theme_mod('progression_studios_page_title_padding_bottom', '150') - 25) . "px;
-		}
-		#progression-studios-post-page-title {
-			padding-top:" . esc_attr(get_theme_mod('progression_studios_page_title__postpadding_top', '130') - 25) . "px;
-			padding-bottom:" .  esc_attr(get_theme_mod('progression_studios_page_title_post_padding_bottom', '125') - 25) . "px;
-		}
 		$progression_studios_header_bg_optional
 		.progression-studios-transparent-header header#masthead-pro {
 			$progression_studios_header_bg_image
 			$progression_studios_header_bg_cover
 		}
 		$progression_studios_mobile_header_bg_color
-		$progression_studios_mobile_header_logo_width
-		$progression_studios_mobile_header_logo_margin_top
 		$progression_studios_mobile_header_nav_padding_top
 	}
 	@media only screen and (min-width: 960px) and (max-width: " . esc_attr(get_theme_mod('progression_studios_site_width', '1200') + 100) . "px) {
