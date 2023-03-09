@@ -9,11 +9,11 @@ $template = 'template-parts';
     <div class="clearfix-pro"></div>
 
     <?php if (!get_post_meta($post_id, 'progression_studios_disable_advertisement_post', true)) : ?>
-    <?php if (is_active_sidebar('progression-studios-post-widgets-top')) { ?>
+    <?php if (is_active_sidebar('progression-studios-post-widgets-top')) : ?>
     <div class="widget-area-top-of-posts">
       <?php dynamic_sidebar('progression-studios-post-widgets-top'); ?>
     </div>
-    <?php } ?>
+    <?php endif; ?>
     <?php endif; ?>
 
     <div class="progression-blog-single-content">

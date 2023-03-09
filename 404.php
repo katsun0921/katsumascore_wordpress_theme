@@ -1,47 +1,28 @@
 <?php
+$post_id = $post->ID;
+$template = 'template-parts';
+?>
 
-/**
- * The template for displaying 404 pages (Not Found).
- *
- * @package pro
- */
+<?php get_header(); ?>
 
-get_header(); ?>
-
-<div id="page-title-pro" class="u-mb-50px">
-	<div class="l-container">
-		<div id="progression-studios-page-title-container">
-			<h1 class="page-title"><?php esc_html_e('404 Error', 'ratency-progression'); ?></h1>
-			<?php if (function_exists('bcn_display')) {
-				echo '<ul id="breadcrumbs-progression-studios"><li><a href="';
-				echo esc_url(home_url('/'));
-				echo '"><i class="fa fa-home"></i> </a></li>';
-				bcn_display_list();
-				echo '</ul>';
-			} ?>
-		</div>
-		<div class="clearfix-pro"></div>
-	</div>
-</div><!-- #page-title-pro -->
-
+<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => '404 Error')); ?>
 
 <div id="content-pro" class="u-mb-50px u-relative">
-	<div id="error-page-index">
+  <div id="error-page-index">
+    <div class="l-container">
+      <h3><?php esc_html_e("Oops! That page can&rsquo;t be found.", 'ratency-progression'); ?></h3>
+      <p>
+        <?php esc_html_e("Sorry, We couldn&rsquo;t find the page you&rsquo;re looking for. Maybe Try one of the links in the navigation or a search.", 'ratency-progression'); ?>
+      </p>
+      <?php get_search_form(); ?>
 
-		<div class="l-container">
-
-			<br>
-			<h3><?php esc_html_e("Oops! That page can&rsquo;t be found.", 'ratency-progression'); ?></h3>
-			<p><?php esc_html_e("Sorry, We couldn&rsquo;t find the page you&rsquo;re looking for. Maybe Try one of the links in the navigation or a search.", 'ratency-progression'); ?></p>
-			<?php get_search_form(); ?>
-
-			<br>
-
+      <br>
 
 
-			<div class="clearfix-pro"></div>
-		</div><!-- close .l-container -->
-	</div><!-- close #error-page-index -->
+
+      <div class="clearfix-pro"></div>
+    </div><!-- close .l-container -->
+  </div><!-- close #error-page-index -->
 </div><!-- #content-pro -->
 
 <?php get_footer(); ?>
