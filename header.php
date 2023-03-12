@@ -55,7 +55,34 @@
                 <?php if (get_theme_mod('progression_studios_nav_search', 'on') == 'on') : ?><?php get_search_form(); ?><?php endif; ?>
               </div>
               <div>
-                <?php if (function_exists('progression_studios_elements_social')) : ?><?php progression_studios_elements_social(); ?><?php endif; ?>
+                <ul class="u-flex justify-between u-gap-x-5">
+                  <?php if (get_theme_mod( 'progression_studios_header_rss')) : ?>
+                  <li>
+                    <a href="<?php echo esc_url(get_theme_mod('progression_studios_header_rss')); ?>" target="_blank"
+                      class="c-icon c-icon__header"
+                      title="<?php echo esc_html__( 'RSS', 'progression-elements-ratency' ); ?>">
+                      <?php get_template_part('icons/rss') ?>
+                    </a>
+                  </li>
+                  <?php endif; ?>
+                  <?php if (get_theme_mod( 'progression_studios_header_facebook')) : ?>
+                  <li>
+                    <a href="<?php echo esc_url(get_theme_mod('progression_studios_header_facebook')); ?>"
+                      target="_blank" class="c-icon c-icon__header"
+                      title="<?php echo esc_html__( 'Facebook', 'progression-elements-ratency' ); ?>">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <?php endif; ?>
+                  <?php if (get_theme_mod( 'progression_studios_header_twitter')) : ?><li>
+                    <a href="<?php echo esc_url(get_theme_mod('progression_studios_header_twitter')); ?>"
+                      target="_blank" class="c-icon c-icon__header"
+                      title="<?php echo esc_html__( 'Twitter', 'progression-elements-ratency' ); ?>">
+                      <?php get_template_part('icons/twitter') ?>
+                    </a>
+                  </li>
+                  <?php endif; ?>
+                </ul><!-- close .progression-studios-header-social-icons -->
               </div>
             </div>
             <!-- close .l-container -->
@@ -71,7 +98,8 @@
             <?php endif; ?>
 
           </div><!-- close #logo-nav-pro -->
-          <?php get_template_part('header/mobile', 'navigation'); ?>
+          <?php get_template_part('header/mobile', 'navigatio
+n'); ?>
         </header>
       </div><!-- close #progression-studios-header-width -->
     </div><!-- close #progression-studios-header-position -->
