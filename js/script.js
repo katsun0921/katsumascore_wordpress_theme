@@ -106,13 +106,6 @@ jQuery(document).ready(function($) {
 	);
 	});
 
-	/* Scroll to link inside page */
-	$('a.scroll-to-link').click(function(){
-	  $('html, body').animate({
-	    scrollTop: $( $.attr(this, 'href') ).offset().top - pro_top_offset
-	  }, 400);
-	  return false;
-	});
 
 
 /*
@@ -145,34 +138,6 @@ jQuery(document).ready(function($) {
 			default_height: 619,
   			social_tools: '' /* html or false to disable */
   	});
-
-
-/*
-=============================================== 07. PRELOADER JS  ===============================================
-*/
-	(function($) {
-		var didDone = false;
-		    function done() {
-		        if(!didDone) {
-		            didDone = true;
-					$("#page-loader-pro").addClass('finished-loading');
-					$("#boxed-layout-pro").addClass('progression-preloader-completed');
-		        }
-		    }
-		    var loaded = false;
-		    var minDone = false;
-		    //The minimum timeout.
-		    setTimeout(function(){
-		        minDone = true;
-		        //If loaded, fire the done callback.
-		        if(loaded)  {  done(); } }, 400);
-		    //The maximum timeout.
-		    setTimeout(function(){  done();   }, 2000);
-		    //Bind the load listener.
-		    $(window).load(function(){  loaded = true;
-		        if(minDone) { done(); }
-		    });
-	})(jQuery);
 
 
 /*
@@ -217,9 +182,7 @@ jQuery(document).ready(function($) {
 /*
 =============================================== 09. SHOW/HIDE CART AND SEARCH  ===============================================
 */
-	var hidesearch = false;
 	var hidecart = false;
-	var hidelogin = false;
 	var clickOrTouch = (('ontouchend' in window)) ? 'touchend' : 'click';
 
  	$(".helpmeout-login-book-mark-message").on(clickOrTouch, function(e) {
