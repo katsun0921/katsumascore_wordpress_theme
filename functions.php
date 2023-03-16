@@ -57,8 +57,6 @@ function progression_studios_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'progression-studios-header-top-left' => esc_html__( 'Top Left Menu', 'ratency-progression' ),
-		'progression-studios-header-top-right' => esc_html__( 'Top Right Menu', 'ratency-progression' ),
 		'progression-studios-primary' => esc_html__( 'Primary Menu', 'ratency-progression' ),
 		'progression-studios-mobile-menu' => esc_html__( 'Mobile Primary Menu', 'ratency-progression' ),
 	) );
@@ -94,26 +92,6 @@ function progression_studios_widgets_init() {
 		'after_widget' => '<div class="sidebar-divider-pro"></div></div>',
 		'before_title' => '<h2 class="widget-title">',
 		'after_title' => '</h2>',
-	) );
-
-	register_sidebar( array(
-		'name' => esc_html__( 'Header Top Left', 'ratency-progression' ),
-		'description'   => esc_html__('Left widget area above the navigation', 'ratency-progression'),
-		'id' => 'progression-studios-header-top-left',
-		'before_widget' => '<div id="%1$s" class="header-top-item widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<span class="widget-title">',
-		'after_title' => '</span>',
-	) );
-
-	register_sidebar( array(
-		'name' => esc_html__( 'Header Top Right', 'ratency-progression' ),
-		'description'   => esc_html__('Right widget area above the navigation', 'ratency-progression'),
-		'id' => 'progression-studios-header-top-right',
-		'before_widget' => '<div id="%1$s" class="header-top-item widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<span class="widget-title">',
-		'after_title' => '</span>',
 	) );
 
 

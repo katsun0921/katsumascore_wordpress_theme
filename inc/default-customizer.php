@@ -39,136 +39,67 @@ function progression_studios_customizer($wp_customize)
 	$wp_customize->add_panel(
 		'progression_studios_general_panel',
 		array(
-			'priority'    => 3,
+			'priority'    => 4,
 			'title'       => esc_html__('General', 'ratency-progression'),
 		)
 	);
 
-
 	/* Section - General - General Layout */
 	$wp_customize->add_section(
-		'progression_studios_section_general_layout',
+		'progression_studios_section_general_sns_link',
 		array(
-			'title'          => esc_html__('General Options', 'ratency-progression'),
+			'title'          => esc_html__('SNS Links', 'ratency-progression'),
 			'panel'          => 'progression_studios_general_panel', // Not typically needed.
 			'priority'       => 10,
 		)
 	);
 
-
-
-	/* Setting - General - General Layout */
-	$wp_customize->add_setting('progression_studios_site_width', array(
-		'default' => '1200',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
+	/* Section - General - SNS - Link */
+	$wp_customize->add_section(
+		'progression_studios_section_general_sns_link',
+		array(
+			'title'          => esc_html__('SNS Link', 'ratency-progression'),
+			'panel'          => 'progression_studios_general_panel', // Not typically needed.
+			'priority'       => 10,
+		)
+	);
+	/* Setting - Header - Header Icons */
+	$wp_customize->add_setting('progression_studios_general_rss', array(
+		'sanitize_callback' => 'esc_url_raw',
 	));
 	$wp_customize->add_control(
-		new progression_studios_Controls_Slider_Control($wp_customize, 'progression_studios_site_width', array(
-			'label'    => esc_html__('Site Width(px)', 'ratency-progression'),
-			'section' => 'progression_studios_section_general_layout',
-			'priority'   => 15,
-			'choices'     => array(
-				'min'  => 961,
-				'max'  => 4500,
-				'step' => 1
-			),
-		))
+		'progression_studios_general_rss',
+		array(
+			'label'          => esc_html__('RSS Icon', 'progression-elements-ratency'),
+			'section' => 'progression_studios_section_general_sns_link',
+			'type' => 'text',
+			'priority'   => 10,
+		)
 	);
 
-
-	/* Setting - Header - Header Options */
-	$wp_customize->add_setting('progression_studios_select_color', array(
-		'default'	=> '#ffffff',
-		'sanitize_callback' => 'sanitize_hex_color',
-	));
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control($wp_customize, 'progression_studios_select_color', array(
-			'label'    => esc_html__('Mouse Selection Color', 'ratency-progression'),
-			'section'  => 'progression_studios_section_general_layout',
-			'priority'   => 20,
-		))
+	/* Setting - Header - Header Icons */
+	$wp_customize->add_setting( 'progression_studios_general_facebook' ,array(
+		'sanitize_callback' => 'esc_url_raw',
+	) );
+	$wp_customize->add_control( 'progression_studios_general_facebook', array(
+		'label'          => esc_html__( 'Facebook Icon', 'progression-elements-ratency' ),
+		'section' => 'progression_studios_section_general_sns_link',
+		'type' => 'text',
+		'priority'   => 10,
+		)
 	);
 
-	/* Setting - Header - Header Options */
-	$wp_customize->add_setting('progression_studios_select_bg', array(
-		'default'	=> '#5c39f2',
-		'sanitize_callback' => 'progression_studios_sanitize_customizer',
-	));
-	$wp_customize->add_control(
-		new Progression_Studios_Revised_Alpha_Color_Control($wp_customize, 'progression_studios_select_bg', array(
-			'default'	=> '#5c39f2',
-			'label'    => esc_html__('Mouse Selection Background', 'ratency-progression'),
-			'section'  => 'progression_studios_section_general_layout',
-			'priority'   => 25,
-		))
+	/* Setting - Header - Header Icons */
+	$wp_customize->add_setting( 'progression_studios_general_twitter' ,array(
+		'sanitize_callback' => 'esc_url_raw',
+	) );
+	$wp_customize->add_control( 'progression_studios_general_twitter', array(
+		'label'          => esc_html__( 'Twitter Icon', 'progression-elements-ratency' ),
+		'section' => 'progression_studios_section_general_sns_link',
+		'type' => 'text',
+		'priority'   => 15,
+		)
 	);
-
-
-
-
-
-
-
-
-
-	/* Setting - General - General Layout */
-	$wp_customize->add_setting('progression_studios_lightbox_caption', array(
-		'default' => 'on',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_lightbox_caption', array(
-			'label'    => esc_html__('Lightbox Captions', 'ratency-progression'),
-			'section' => 'progression_studios_section_general_layout',
-			'priority'   => 100,
-			'choices'     => array(
-				'on' => esc_html__('On', 'ratency-progression'),
-				'off' => esc_html__('Off', 'ratency-progression'),
-			),
-		))
-	);
-
-	/* Setting - General - General Layout */
-	$wp_customize->add_setting('progression_studios_lightbox_play', array(
-		'default' => 'on',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_lightbox_play', array(
-			'label'    => esc_html__('Lightbox Gallery Play/Pause', 'ratency-progression'),
-			'section' => 'progression_studios_section_general_layout',
-			'priority'   => 110,
-			'choices'     => array(
-				'on' => esc_html__('On', 'ratency-progression'),
-				'off' => esc_html__('Off', 'ratency-progression'),
-			),
-		))
-	);
-
-
-	/* Setting - General - General Layout */
-	$wp_customize->add_setting('progression_studios_lightbox_count', array(
-		'default' => 'on',
-		'sanitize_callback' => 'progression_studios_sanitize_choices',
-	));
-	$wp_customize->add_control(
-		new progression_studios_Controls_Radio_Buttonset_Control($wp_customize, 'progression_studios_lightbox_count', array(
-			'label'    => esc_html__('Lightbox Gallery Count', 'ratency-progression'),
-			'section' => 'progression_studios_section_general_layout',
-			'priority'   => 150,
-			'choices'     => array(
-				'on' => esc_html__('On', 'ratency-progression'),
-				'off' => esc_html__('Off', 'ratency-progression'),
-			),
-		))
-	);
-
-
-
-
-
-
-
 
 	/* Section - General - Page Loader */
 	$wp_customize->add_section(
@@ -225,9 +156,6 @@ function progression_studios_customizer($wp_customize)
 	);
 
 
-
-
-
 	/* Setting - General - Page Loader */
 	$wp_customize->add_setting('progression_studios_page_loader_text', array(
 		'default' => '#cccccc',
@@ -269,7 +197,9 @@ function progression_studios_customizer($wp_customize)
 	);
 
 
-	/* Section - Footer - Scroll To Top */
+
+
+  /* Section - Footer - Scroll To Top */
 	$wp_customize->add_section('progression_studios_section_scroll', array(
 		'title'          => esc_html__('Scroll To Top Button', 'ratency-progression'),
 		'panel'          => 'progression_studios_general_panel', // Not typically needed.
