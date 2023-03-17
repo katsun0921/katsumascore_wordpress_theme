@@ -63,7 +63,7 @@ function progression_studios_customizer($wp_customize)
 			'priority'       => 10,
 		)
 	);
-	/* Setting - Header - Header Icons */
+	/* Setting - General - SNS Link */
 	$wp_customize->add_setting('progression_studios_general_rss', array(
 		'sanitize_callback' => 'esc_url_raw',
 	));
@@ -77,7 +77,7 @@ function progression_studios_customizer($wp_customize)
 		)
 	);
 
-	/* Setting - Header - Header Icons */
+	/* Setting - General - SNS Link */
 	$wp_customize->add_setting( 'progression_studios_general_facebook' ,array(
 		'sanitize_callback' => 'esc_url_raw',
 	) );
@@ -89,7 +89,7 @@ function progression_studios_customizer($wp_customize)
 		)
 	);
 
-	/* Setting - Header - Header Icons */
+	/* Setting - General - SNS Link */
 	$wp_customize->add_setting( 'progression_studios_general_twitter' ,array(
 		'sanitize_callback' => 'esc_url_raw',
 	) );

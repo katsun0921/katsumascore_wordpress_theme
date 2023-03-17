@@ -33,48 +33,55 @@
 
 <body id="js-preloader" <?php body_class(); ?>>
   <?php get_template_part('header/page', 'loader'); ?>
-  <header id="masthead-pro" class="l-header">
-    <div class="l-container progression-studios-logo-container u-z-50">
-      <div class="l-header__logo">
+  <header id="masthead-pro">
+    <div class="l-header">
+      <div>
         <h1 id="logo-pro" class="u-m-0 u-py-3 u-w-28 u-leading-none logo-inside-nav-pro noselect">
+          <a href="<?php echo esc_url('/'); ?>" rel="home">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/logo-primary.png" alt="katsumascore"
+              className="u-w-24" width="100" />
+          </a>
         </h1>
       </div>
       <div>
         <?php get_search_form(); ?>
       </div>
       <?php
-            $rssLink = get_theme_mod('progression_studios_general_rss')
-          ?>
+      $rssLink = get_theme_mod('progression_studios_general_rss');
+      $twitterLink = get_theme_mod('progression_studios_general_twitter');
+      $facebookLink = get_theme_mod('progression_studios_general_facebook');
+      ?>
       <div>
         <ul class="u-flex justify-between u-gap-x-5">
           <?php if ($rssLink) : ?>
           <li>
             <a href="<?php echo esc_url($rssLink); ?>" target="_blank" class="c-icon c-icon__header"
-              title="<?php echo esc_html__( 'RSS', 'progression-elements-ratency' ); ?>">
-              <?php get_template_part('icons/rss') ?>
+              title="<?php echo esc_html__('RSS', 'progression-elements-ratency'); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-rss.png" alt="rss" width="100" />
             </a>
           </li>
           <?php endif; ?>
-          <?php if (get_theme_mod( 'progression_studios_header_facebook')) : ?>
+          <?php if ($facebookLink) : ?>
           <li>
-            <a href="<?php echo esc_url(get_theme_mod('progression_studios_general_facebook')); ?>" target="_blank"
-              class="c-icon c-icon__header"
-              title="<?php echo esc_html__( 'Facebook', 'progression-elements-ratency' ); ?>">
+            <a href="<?php echo esc_url($facebookLink); ?>" target="_blank" class="c-icon c-icon__header"
+              title="<?php echo esc_html__('Facebook', 'progression-elements-ratency'); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.png" alt="facebook"
+                width="100" />
             </a>
           </li>
           <?php endif; ?>
-          <?php if (get_theme_mod( 'progression_studios_general_twitter')) : ?><li>
-            <a href="<?php echo esc_url(get_theme_mod('progression_studios_general_twitter')); ?>" target="_blank"
-              class="c-icon c-icon__header"
-              title="<?php echo esc_html__( 'Twitter', 'progression-elements-ratency' ); ?>">
-              <?php get_template_part('icons/twitter') ?>
+          <?php if ($twitterLink) : ?>
+          <li>
+            <a href="<?php echo esc_url($twitterLink); ?>" target="_blank" class="c-icon c-icon__header"
+              title="<?php echo esc_html__('Twitter', 'progression-elements-ratency'); ?>">
+              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-twitter-blue-circle.png"
+                alt="twitter" />
             </a>
           </li>
           <?php endif; ?>
         </ul><!-- close .progression-studios-header-social-icons -->
       </div>
     </div>
-    <!-- close .l-container -->
 
     <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
     <div id="progression-sticky-header">
