@@ -1,6 +1,4 @@
 /*  Table of Contents
-01. MENU ACTIVATION
-02. FITVIDES RESPONSIVE VIDEOS
 03. MOBILE MENU
 04. GALLERY JS
 05. SCROLL TO TOP MENU JS
@@ -13,25 +11,7 @@
 jQuery(document).ready(function($) {
 	 'use strict';
 
-/*
-=============================================== 01. MENU ACTIVATION  ===============================================
-*/
-	 jQuery('.progression-studios-one-page-nav-off nav#site-navigation ul.sf-menu, #progression-header-top-left-container ul.sf-menu, #progression-header-top-right-container ul.sf-menu').superfish({
-			 	popUpSelector: 'ul.sub-menu,.sf-mega', 	// within menu context
-	 			delay:      	200,                	// one second delay on mouseout
-	 			speed:      	0,               		// faster \ speed
-		 		speedOut:    	200,             		// speed of the closing animation
-				animation: 		{opacity: 'show'},		// animation out
-				animationOut: 	{opacity: 'hide'},		// adnimation in
-		 		cssArrows:     	true,              		// set to false
-			 	autoArrows:  	true,                    // disable generation of arrow mark-up
-		 		disableHI:      true,
-	 });
 
-/*
-=============================================== 02. FITVIDES RESPONSIVE VIDEOS  ===============================================
-*/
-	 $("#content-pro").fitVids();
 
 
 /*
