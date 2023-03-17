@@ -1,5 +1,5 @@
 	<?php if (get_theme_mod( 'progression_studios_page_transition', 'transition-off-pro') == "transition-on-pro") : ?>
-	<div id="page-loader-pro" class="u-fixed">
+	<div id="page-loader-pro" class="finished-loading u-fixed">
 	  <div id="center-loader">
 
 	    <?php if (get_theme_mod( 'progression_studios_transition_loader') == "cube-grid-pro") : ?>

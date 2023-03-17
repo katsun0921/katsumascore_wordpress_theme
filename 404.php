@@ -15,11 +15,6 @@ $template = 'template-parts';
         <?php esc_html_e("Sorry, We couldn&rsquo;t find the page you&rsquo;re looking for. Maybe Try one of the links in the navigation or a search.", 'ratency-progression'); ?>
       </p>
       <?php get_search_form(); ?>
-
-      <br>
-
-
-
       <div class="clearfix-pro"></div>
     </div><!-- close .l-container -->
   </div><!-- close #error-page-index -->
