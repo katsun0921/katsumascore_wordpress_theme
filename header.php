@@ -28,6 +28,10 @@
   <?php get_template_part('header/social', 'sharing'); ?>
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+    rel="stylesheet">
   <?php wp_head(); ?>
 </head>
 
@@ -35,7 +39,7 @@
   <?php get_template_part('header/page', 'loader'); ?>
   <header id="masthead-pro">
     <div class="l-header">
-      <div>
+      <div class="l-header__logo">
         <h1 id="logo-pro" class="u-m-0 u-py-3 u-w-28 u-leading-none logo-inside-nav-pro noselect">
           <a href="<?php echo esc_url('/'); ?>" rel="home">
             <img src="<?php echo get_template_directory_uri(); ?>/images/logo-primary.png" alt="katsumascore"
@@ -43,7 +47,7 @@
           </a>
         </h1>
       </div>
-      <div>
+      <div class="l-header__search">
         <?php get_search_form(); ?>
       </div>
       <?php
@@ -51,30 +55,31 @@
       $twitterLink = get_theme_mod('progression_studios_general_twitter');
       $facebookLink = get_theme_mod('progression_studios_general_facebook');
       ?>
-      <div>
+      <div class="l-header__snsLinks">
         <ul class="u-flex justify-between u-gap-x-5">
           <?php if ($rssLink) : ?>
           <li>
-            <a href="<?php echo esc_url($rssLink); ?>" target="_blank" class="c-icon c-icon__header"
+            <a href="<?php echo esc_url($rssLink); ?>" target="_blank"
               title="<?php echo esc_html__('RSS', 'progression-elements-ratency'); ?>">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-rss.png" alt="rss" width="100" />
+              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-rss.png" alt="rss"
+                width="100" />
             </a>
           </li>
           <?php endif; ?>
           <?php if ($facebookLink) : ?>
           <li>
-            <a href="<?php echo esc_url($facebookLink); ?>" target="_blank" class="c-icon c-icon__header"
+            <a href="<?php echo esc_url($facebookLink); ?>" target="_blank"
               title="<?php echo esc_html__('Facebook', 'progression-elements-ratency'); ?>">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.png" alt="facebook"
-                width="100" />
+              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.png"
+                alt="facebook" width="100" />
             </a>
           </li>
           <?php endif; ?>
           <?php if ($twitterLink) : ?>
           <li>
-            <a href="<?php echo esc_url($twitterLink); ?>" target="_blank" class="c-icon c-icon__header"
+            <a href="<?php echo esc_url($twitterLink); ?>" target="_blank"
               title="<?php echo esc_html__('Twitter', 'progression-elements-ratency'); ?>">
-              <img src="<?php echo get_template_directory_uri(); ?>/images/logo-twitter-blue-circle.png"
+              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-twitter-blue-circle.png"
                 alt="twitter" />
             </a>
           </li>
@@ -82,14 +87,19 @@
         </ul><!-- close .progression-studios-header-social-icons -->
       </div>
     </div>
-
-    <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
-    <div id="progression-sticky-header">
-      <?php endif; ?>
-      <?php progression_studios_navigation(); ?>
-      <?php if (get_theme_mod('progression_studios_header_sticky', 'none-sticky-pro') == 'sticky-pro') : ?>
-    </div><!-- close #progression-sticky-header -->
-    <?php endif; ?>
-
-    <?php get_template_part('header/mobile', 'navigation'); ?>
+    <div class="l-navigation l-navigation--isDesktop">
+      <div class="l-navigation__menuButton u-flex u-justify-center u-items-center u-gap-x-4">
+        <button type="button" id="js-menu-button" class="c-hamburgerMenu">
+          <span class="c-hamburgerMenu__lineContainer">
+            <span class="c-hamburgerMenu__line"></span>
+            <span class="c-hamburgerMenu__line"></span>
+            <span class="c-hamburgerMenu__line"></span>
+          </span>
+          <span class="c-hamburgerMenu__label">MENU</span>
+        </button>
+      </div>
+      <nav id="js-mobile-menu" class="l-navigation__list u-opacity-0">
+        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-link__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
+      </nav>
+    </div>
   </header>
