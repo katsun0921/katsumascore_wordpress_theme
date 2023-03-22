@@ -13,12 +13,9 @@ $template = 'template-parts';
 
 <div id="content-pro" class="u-mb-50px u-relative">
   <div class="l-container">
-    <?php get_template_part('template-parts/date'); ?>
-
     <?php while (have_posts()) : the_post(); ?>
     <?php get_template_part('template-parts/content', 'page'); ?>
     <?php endwhile; ?>
-
     <div class="clearfix-pro"></div>
   </div><!-- close .l-container -->
 </div><!-- #content-pro -->
