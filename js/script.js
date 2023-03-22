@@ -12,31 +12,6 @@ jQuery(document).ready(function($) {
 	 'use strict';
 
 
-
-
-/*
-=============================================== 03. MOBILE MENU  ===============================================
-*/
-
-   	$('ul.mobile-menu-pro').slimmenu({
-   	    resizeWidth: '960',
-   	    collapserTitle: 'Menu',
-   	    easingEffect:'easeInOutQuint',
-   	    animSpeed:350,
-   	    indentChildren: false,
-   		childrenIndenter: '- '
-   	});
-
-
-	$('.mobile-menu-icon-pro').click(function(e){
-		e.preventDefault();
-		$('#main-nav-mobile').slideToggle(350);
-		$("#masthead-pro").toggleClass("active-mobile-icon-pro");
-	});
-
-
-
-
 /*
 =============================================== 04. GALLERY JS  ===============================================
 */

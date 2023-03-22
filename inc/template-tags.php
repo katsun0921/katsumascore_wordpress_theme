@@ -12,34 +12,8 @@
 add_filter('progression_studios_filter_embeds', 'wp_oembed_get');
 
 ?>
-<?php function progression_studios_navigation() { ?>
-
-<div class="clearfix-pro"></div><!-- Forces logo onto it's own line -->
-<div id="progression-studios-nav-bg" class="u-relative u-z-10">
-  <div class="l-container optional-centered-area-on-mobile">
-
-    <div class="mobile-menu-icon-pro noselect"><i
-        class="fa fa-bars"></i><?php if (get_theme_mod('progression_studios_mobile_menu_text', 'on') == 'on') : ?><span
-        class="progression-mobile-menu-text"><?php echo esc_html__('Menu', 'ratency-progression') ?></span><?php endif; ?>
-    </div>
-
-    <div id="progression-nav-container" class="u-float-right">
-      <nav id="site-navigation" class="main-navigation noselect">
-        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'sf-menu', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
-        <div class="clearfix-pro"></div>
-      </nav>
-      <div class="clearfix-pro"></div>
-    </div><!-- close #progression-nav-container -->
-
-
-    <div class="clearfix-pro"></div>
-  </div><!-- close .l-container -->
-</div><!-- close #progression-studios-nav-bg -->
 
 <?php
-  }
-
-
 
   /* Modify Default Category Widget */
   add_filter('wp_list_categories', 'progression_studios_add_span_cat_count');
