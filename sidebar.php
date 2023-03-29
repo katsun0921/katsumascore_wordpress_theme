@@ -6,11 +6,8 @@
  * @since pro 1.0
  */
 
-if ( ! is_active_sidebar( 'progression-studios-sidebar' ) ) {
-	return;
-}
 ?>
 
-<div class="l-sidebar sticky-sidebar-progression">
-		<?php dynamic_sidebar( 'progression-studios-sidebar' ); ?>
+<div class="l-sidebar">
+  <?php dynamic_sidebar('progression-studios-post-widget-sidebar'); ?>
 </div><!-- close .sidebar -->
