@@ -12,12 +12,17 @@ $template = 'template-parts';
 
 <div id="content-pro" class="site-content-blog-post u-mt-60px u-mb-50px u-relative ">
 
-  <div class="l-container l-container__showLeftSidebar">
-    <div id="main-container-pro" class="l-content">
+  <div class="l-container">
+    <?php if (get_theme_mod('progression_studios_blog_post_sidebar', 'right') == 'right' || get_theme_mod('progression_studios_blog_post_sidebar', 'right') == 'left') : ?>
+    <div id="main-container-pro" class="l-content"><?php endif; ?>
+
       <?php get_template_part('template-parts/date', 'single'); ?>
       <?php get_template_part('template-parts/content', 'single'); ?>
-    </div><!-- close #main-container-pro -->
-    <?php get_sidebar(); ?>
+
+      <?php if (get_theme_mod('progression_studios_blog_post_sidebar', 'right') == 'right' || get_theme_mod('progression_studios_blog_post_sidebar', 'right') == 'left') : ?>
+    </div><!-- close #main-container-pro --><?php get_sidebar(); ?><?php endif; ?>
+
+    <div class="clearfix-pro"></div>
   </div><!-- close .l-container -->
 
 </div><!-- #content-pro -->

@@ -85,12 +85,12 @@ if ( ! isset( $content_width ) )
  */
 function progression_studios_widgets_init() {
 	register_sidebar( array(
-		'name' => esc_html__( 'Post Widget Sidebar', 'ratency-progression' ),
-		'description'   => esc_html__('Widget area at the right side of posts', 'ratency-progression'),
-		'id' => 'progression-studios-post-widget-sidebar',
-		'before_widget' => '<div id="%1$s" class="c-widget c-%2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h2>',
+		'name' => esc_html__( 'Sidebar', 'ratency-progression' ),
+		'description'   => esc_html__('Default sidebar', 'ratency-progression'),
+		'id' => 'progression-studios-sidebar',
+		'before_widget' => '<div id="%1$s" class="sidebar-item widget %2$s">',
+		'after_widget' => '<div class="sidebar-divider-pro"></div></div>',
+		'before_title' => '<h2 class="widget-title">',
 		'after_title' => '</h2>',
 	) );
 
@@ -99,21 +99,22 @@ function progression_studios_widgets_init() {
 		'name' => esc_html__( 'Post Widget Area Top', 'ratency-progression' ),
 		'description' => esc_html__( 'Widget area at the top of posts', 'ratency-progression' ),
 		'id' => 'progression-studios-post-widgets-top',
-		'before_widget' => '<div id="%1$s" class="c-widget c-%2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
 	) );
 
 	register_sidebar( array(
 		'name' => esc_html__( 'Post Widget Area Bottom', 'ratency-progression' ),
 		'description' => esc_html__( 'Widget area at the bottom of posts', 'ratency-progression' ),
 		'id' => 'progression-studios-post-widgets-bottom',
-		'before_widget' => '<div id="%1$s" class="c-widget c-%2$s">',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
+		'before_title' => '<h4 class="widget-title">',
+		'after_title' => '</h4>',
 	) );
+
 }
 add_action( 'widgets_init', 'progression_studios_widgets_init' );
 
@@ -224,6 +225,10 @@ require get_template_directory() . '/inc/default-customizer.php';
 require get_template_directory() . '/inc/mega-menu/mega-menu-framework.php';
 
 
+/**
+ * Masonry JS
+ */
+require get_template_directory() . '/inc/js-customizer.php';
 
 /**
  * Elementor Page Builder Functions
