@@ -33,6 +33,15 @@ function progression_studios_add_tab_to_panel( $tabs ) {
    );
 
 
+   $tabs['progression-studios-body-font'] = array(
+       'name'        => 'progression-studios-body-font',
+       'panel'       => 'progression_studios_body_panel',
+       'title'       => esc_html__('Body Main', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
+
+
    $tabs['progression-studios-page-title'] = array(
        'name'        => 'progression-studios-page-title',
        'panel'       => 'progression_studios_body_panel',
@@ -73,11 +82,53 @@ function progression_studios_add_tab_to_panel( $tabs ) {
 
 
 
+   $tabs['progression-studios-sidebar-headings'] = array(
+       'name'        => 'progression-studios-sidebar-headings',
+       'panel'       => 'progression_studios_body_panel',
+       'title'       => esc_html__('Sidebar Options', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
 
    $tabs['progression-studios-button-typography'] = array(
        'name'        => 'progression-studios-button-typography',
        'panel'       => 'progression_studios_body_panel',
        'title'       => esc_html__('Button/Input Styles', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
+
+
+
+
+   $tabs['progression-studios-blog-headings'] = array(
+       'name'        => 'progression-studios-blog-headings',
+       'panel'       => 'progression_studios_blog_panel',
+       'title'       => esc_html__('Blog Default Styles', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
+
+	$tabs['progression-studios-blog-overlay-headings'] = array(
+       'name'        => 'progression-studios-blog-overlay-headings',
+       'panel'       => 'progression_studios_blog_panel',
+       'title'       => esc_html__('Blog Overlay Styles', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
+
+   $tabs['progression-studios-blog-post-options'] = array(
+       'name'        => 'progression-studios-blog-post-options',
+       'panel'       => 'progression_studios_blog_panel',
+       'title'       => esc_html__('Blog Post Options', 'ratency-progression'),
+       'description' => '',
+       'sections'    => array(),
+   );
+
+   $tabs['progression-studios-blog-post-styles'] = array(
+       'name'        => 'progression-studios-blog-post-styles',
+       'panel'       => 'progression_studios_blog_panel',
+       'title'       => esc_html__('Blog Post Styles', 'ratency-progression'),
        'description' => '',
        'sections'    => array(),
    );
@@ -340,6 +391,62 @@ function progression_studios_add_control_to_tab( $controls ) {
  			'subset'                     => 'latin',
  		),
     );
+
+
+
+
+    $controls['progression_studios_sidebar_heading'] = array(
+        'name'       => 'progression_studios_sidebar_heading',
+ 		 'type'        => 'font',
+        'title'      =>  esc_html__('Sidebar Heading', 'ratency-progression'),
+        'tab'        => 'progression-studios-sidebar-headings',
+        'properties' => array( 'selector'   => '.sidebar h4.widget-title, .sidebar h2.widget-title' ),
+ 		 'default' => array(
+ 	 			'subset'                     => 'latin',
+ 	 			'text_decoration'            => 'none',
+ 			),
+    );
+
+
+    $controls['progression_studios_sidebar_default'] = array(
+        'name'       => 'progression_studios_sidebar_default',
+ 		 'type'        => 'font',
+        'title'      =>  esc_html__('Sidebar Default Text', 'ratency-progression'),
+        'tab'        => 'progression-studios-sidebar-headings',
+        'properties' => array( 'selector'   => '.sidebar' ),
+ 		 'default' => array(
+ 	 			'subset'                     => 'latin',
+ 	 			'text_decoration'            => 'none',
+ 			),
+    );
+
+
+    $controls['progression_studios_sidebar_link'] = array(
+        'name'       => 'progression_studios_sidebar_link',
+ 		 'type'        => 'font',
+        'title'      =>  esc_html__('Sidebar Default Link', 'ratency-progression'),
+        'tab'        => 'progression-studios-sidebar-headings',
+        'properties' => array( 'selector'   => '.l-sidebar a' ),
+ 		 'default' => array(
+ 	 			'subset'                     => 'latin',
+ 	 			'text_decoration'            => 'none',
+ 			),
+    );
+
+    $controls['progression_studios_sidebar_link_hover'] = array(
+        'name'       => 'progression_studios_sidebar_link_hover',
+ 		 'type'        => 'font',
+        'title'      =>  esc_html__('Sidebar Link Hover', 'ratency-progression'),
+        'tab'        => 'progression-studios-sidebar-headings',
+        'properties' => array( 'selector'   => '.l-sidebar ul li.current-cat, .l-sidebar ul li.current-cat a, .l-sidebar a:hover' ),
+ 		 'default' => array(
+ 	 			'subset'                     => 'latin',
+ 	 			'text_decoration'            => 'none',
+ 			),
+    );
+
+
+
 
     $controls['progression_studios_button_font_family'] = array(
         'name'       => 'progression_studios_button_font_family',

@@ -81,10 +81,12 @@ if( ! class_exists( 'ProgressionFrontendWalker' ) ) {
 			if( $depth === 0 ) {
 
 				$this->menu_megamenu_status = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_status', true );
+				$this->allowed_columns = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_columns', true );
 			}
 
 			$this->menu_megamenu_icon = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_icon', true);
 			$this->menu_megamenu_notif = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_notif', true);
+			$this->menu_megamenu_widgetarea = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_widgetarea', true);
 			$this->menu_megamenu_title = get_post_meta( $item->ID, '_menu_item_progression_studios_megamenu_title', true );
 
 			/* we are inside a mega menu */
@@ -123,11 +125,28 @@ if( ! class_exists( 'ProgressionFrontendWalker' ) ) {
 					$item_output .= "<h2 class='mega-menu-heading'>" . $heading . "</h2>";
 				}
 
+				if( $this->menu_megamenu_widgetarea &&	is_active_sidebar( $this->menu_megamenu_widgetarea )) {
+					$item_output .= '<div class="progression-megamenu-widgets-container second-level-widget">';
+					ob_start();
+					dynamic_sidebar( $this->menu_megamenu_widgetarea );
+
+					$item_output .= ob_get_clean() . '</div>';
+				}
 
 				$class_columns  = ' {current_row_'.$this->num_of_rows.'}';
 
 
-			} else {
+			} else if( $depth === 2 && $this->menu_megamenu_widgetarea && $this->menu_megamenu_status == "enabled" ) {
+
+				if( is_active_sidebar( $this->menu_megamenu_widgetarea ) ) {
+					$item_output .= '<div class="progression-megamenu-widgets-container">';
+					ob_start();
+						dynamic_sidebar( $this->menu_megamenu_widgetarea );
+
+					$item_output .= ob_get_clean() . '</div>';
+				}
+
+			}else {
 
 				$atts = array();
 				$atts['title']  = ! empty( $item->attr_title )	? 'title="'  . esc_attr( $item->attr_title ) .'"' : '';

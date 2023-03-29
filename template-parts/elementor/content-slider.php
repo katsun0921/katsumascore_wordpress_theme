@@ -26,6 +26,7 @@ $image = $imageThumbnail[0];
                     <?php if ($settings['progression_elements_post_category'] == 'yes') : ?><div
                       class="progression-ratency-slider-categories"><?php the_category(' '); ?></div><?php endif; ?>
 
+                    <?php progression_studios_blog_post_title(); ?>
                     <h2 class="progression-ratency-progression-slider-title"><?php echo the_title(); ?></h2>
 
 

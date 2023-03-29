@@ -14,19 +14,19 @@
 
         <?php if (has_post_thumbnail()) : ?>
         <div class="progression-studios-feaured-image">
-          <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('progression-studios-blog-index'); ?>
-            <?php if (get_theme_mod('progression_studios_blog_index_rating_display', 'true') == 'true') : ?>
-            <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-            <div class="progression-studios-hexagon-index-container">
-              <div class="progression-studios-index-hexagon-border">
-                <div class="progression-ratency-slider-review-total">
-                  <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-              </div>
+          <?php progression_studios_blog_link(); ?>
+          <?php the_post_thumbnail('progression-studios-blog-index'); ?>
+          <?php if (get_theme_mod('progression_studios_blog_index_rating_display', 'true') == 'true') : ?>
+          <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
+          <div class="progression-studios-hexagon-index-container">
+            <div class="progression-studios-index-hexagon-border">
+              <div class="progression-ratency-slider-review-total">
+                <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
             </div>
-            <?php endif; ?>
-            <?php endif; ?>
-          </a>
+          </div>
+          <?php endif; ?>
+          <?php endif; ?>
+
         </div><!-- close .progression-studios-feaured-image -->
         <?php else : ?>
 
@@ -36,6 +36,34 @@
           <?php echo apply_filters('the_content', get_post_meta($post->ID, 'video_code', true)); ?>
         </div>
 
+        <?php else : ?>
+
+        <?php if (has_post_format('gallery') && get_post_meta($post->ID, 'progression_studios_gallery', true)) : ?>
+        <div class="progression-studios-feaured-image">
+          <div class="flexslider progression-studios-gallery">
+            <ul class="slides">
+              <?php $files = get_post_meta(get_the_ID(), 'progression_studios_gallery', 1); ?>
+              <?php foreach ((array) $files as $attachment_id => $attachment_url) : ?>
+              <?php $lightbox_pro = wp_get_attachment_image_src($attachment_id, 'large'); ?>
+              <li>
+                <?php if (get_post_meta($post->ID, 'progression_studios_blog_featured_image_link', true) == 'progression_link_lightbox') : ?>
+                <a href="<?php echo esc_attr($lightbox_pro[0]); ?>" data-rel="prettyPhoto[gallery-<?php the_ID(); ?>]"
+                  <?php $get_description = get_post($attachment_id)->post_excerpt; ?>>
+                  <?php else : ?>
+                  <a <?php echo progression_studios_blog_index_gallery(); ?>
+                    <?php $get_description = get_post($attachment_id)->post_excerpt; ?>>
+                    <?php endif; ?>
+                    <?php echo wp_get_attachment_image($attachment_id, 'progression-studios-blog-index'); ?>
+                  </a>
+              </li>
+              <?php endforeach;  ?>
+            </ul>
+          </div><!-- close .flexslider -->
+
+        </div><!-- close .progression-studios-feaured-image -->
+
+        <?php endif; ?>
+        <!-- close featured thumbnail -->
 
         <?php endif; ?>
         <!-- close gallery -->
@@ -52,7 +80,7 @@
         <?php endif; ?>
         <?php endif; ?>
 
-        <h2 class="progression-blog-title"><?php the_title(); ?></a></h2>
+        <h2 class="progression-blog-title"><?php progression_studios_blog_post_title(); ?><?php the_title(); ?></a></h2>
 
         <?php if ('post' == get_post_type()) : ?>
         <ul class="progression-post-meta">
