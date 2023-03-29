@@ -154,9 +154,6 @@ jQuery(document).ready(function($) {
 
 	$(window).ready(function() {
 
-	$(".l-sidebar.sticky-sidebar-progression").stick_in_parent({
-		offset_top: 30
-	});
 
 });
 
