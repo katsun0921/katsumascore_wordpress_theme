@@ -9,11 +9,11 @@ $template = 'template-parts';
     <div class="clearfix-pro"></div>
 
     <?php if (!get_post_meta($post_id, 'progression_studios_disable_advertisement_post', true)) : ?>
-    <?php if (is_active_sidebar('progression-studios-post-widgets-top')) : ?>
-    <div class="widget-area-top-of-posts">
-      <?php dynamic_sidebar('progression-studios-post-widgets-top'); ?>
-    </div>
-    <?php endif; ?>
+      <?php if (is_active_sidebar('progression-studios-post-widgets-top')) : ?>
+        <div class="widget-area-top-of-posts">
+          <?php dynamic_sidebar('progression-studios-post-widgets-top'); ?>
+        </div>
+      <?php endif; ?>
     <?php endif; ?>
 
     <div class="progression-blog-single-content">
@@ -43,7 +43,7 @@ $template = 'template-parts';
 
     <?php wp_link_pages(
       array(
-        'before' => '<div class="progression-page-nav">' . esc_html__('Pages:', 'ratency-progression'),
+        'before' => '<div class="c-pagination">' . esc_html__('Pages:', 'ratency-progression'),
         'after' => '</div>',
         'link_before' => '<span>',
         'link_after' => '</span>',
@@ -53,15 +53,15 @@ $template = 'template-parts';
     <div class="clearfix-pro"></div>
 
     <?php if (get_the_author_meta('description')) : ?>
-    <?php get_template_part($template . '/author', 'info'); ?>
+      <?php get_template_part($template . '/author', 'info'); ?>
     <?php endif; ?>
 
     <?php if (!get_post_meta($post->ID, 'progression_studios_disable_advertisement_post', true)) : ?>
-    <?php if (is_active_sidebar('progression-studios-post-widgets-bottom')) { ?>
-    <div class="widget-area-bottom-of-posts">
-      <?php dynamic_sidebar('progression-studios-post-widgets-bottom'); ?>
-    </div>
-    <?php } ?>
+      <?php if (is_active_sidebar('progression-studios-post-widgets-bottom')) { ?>
+        <div class="widget-area-bottom-of-posts">
+          <?php dynamic_sidebar('progression-studios-post-widgets-bottom'); ?>
+        </div>
+      <?php } ?>
     <?php endif; ?>
 
     <div class="clearfix-pro"></div>
@@ -69,7 +69,7 @@ $template = 'template-parts';
 
 
     <?php if (get_theme_mod('progression_studios_blog_post_related') == 'true') : ?>
-    <?php get_template_part($template . '/related', 'posts'); ?>
+      <?php get_template_part($template . '/related', 'posts'); ?>
     <?php endif; ?>
 
     <div class="clearfix-pro"></div>
