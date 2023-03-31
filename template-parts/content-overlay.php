@@ -33,15 +33,12 @@ $image = $imageThumbnail[0];
         <div class="overlay-progression-blog-content-table-cell">
           <div class="overlay-progression-blog-content-padding">
 
-            <?php if (get_theme_mod('progression_studios_blog_index_rating_display', 'true') == 'true') : ?>
             <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-            <div class="progression-studios-hexagon-index-container">
-              <div class="progression-studios-index-hexagon-border">
-                <div class="progression-ratency-slider-review-total">
-                  <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-              </div>
-            </div>
-            <?php endif; ?>
+            <span class="c-score">
+              <span class="c-score__count">
+                <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
+              </span>
+            </span>
             <?php endif; ?>
 
             <h2 class="overlay-progression-blog-title"><?php the_title(); ?></h2>
@@ -89,5 +86,7 @@ $image = $imageThumbnail[0];
     </a>
 
     <div class="clearfix-pro"></div>
-  </div><!-- close .progression-studios-default-blog-overlay -->
+  </div>
+  <!-- close .pro
+gression-studios-default-blog-overlay -->
 </div><!-- #post-## -->

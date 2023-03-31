@@ -15,12 +15,10 @@ $image = $imageThumbnail[0];
                   <div class="progression-ratency-slider-progression-crowd-index-content">
                     <?php if ($settings['progression_elements_post_review'] == 'yes') : ?>
                     <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-                    <div class="progression-ratency-slider-hexagon-container">
-                      <div class="progression-ratency-slider-hexagon-border">
-                        <div class="progression-ratency-slider-review-total">
-                          <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-                      </div>
-                    </div>
+                    <span class="c-score">
+                      <span class="c-score__count">
+                        <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></span>
+                    </span>
                     <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($settings['progression_elements_post_category'] == 'yes') : ?><div

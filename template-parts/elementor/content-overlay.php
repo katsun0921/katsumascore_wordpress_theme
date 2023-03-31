@@ -36,12 +36,11 @@ $image = $imageThumbnail[0];
 
             <?php if ($settings['progression_elements_post_show_review'] == 'yes') : ?>
             <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-            <div class="progression-studios-hexagon-index-container">
-              <div class="progression-studios-index-hexagon-border">
-                <div class="progression-ratency-slider-review-total">
-                  <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-              </div>
-            </div>
+            <span class="c-score">
+              <span class="c-score__count">
+                <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
+              </span>
+            </span>
             <?php endif; ?>
             <?php endif; ?>
 

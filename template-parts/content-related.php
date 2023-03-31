@@ -14,15 +14,12 @@ $image = $imageThumbnail[0];
       </div>
       <?php endif; ?>
 
-      <?php if (get_theme_mod('progression_studios_blog_index_rating_display', 'true') == 'true') : ?>
       <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-      <div class="progression-studios-hexagon-index-container">
-        <div class="progression-studios-index-hexagon-border">
-          <div class="progression-ratency-slider-review-total">
-            <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-        </div>
-      </div>
-      <?php endif; ?>
+      <span class="c-score">
+        <span class="c-score__count">
+          <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
+        </span>
+      </span>
       <?php endif; ?>
 
       <div class="overlay-progression-blog-content">
