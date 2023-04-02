@@ -25,21 +25,15 @@ $image = $imageThumbnail[0];
       <div class="overlay-progression-blog-content">
         <div class="overlay-progression-blog-content-table-cell">
           <div class="overlay-progression-blog-content-padding">
-
-            <div class="related-overlay-blog-meta-category-list"><?php foreach ((get_the_category()) as $category) {
-                                                                  echo '<span>' . $category->cat_name . '</span>';
-                                                                } ?></div>
-
-            <h2 class="overlay-progression-blog-title"><?php the_title(); ?></h2>
-
+            <div class="related-overlay-blog-meta-category-list">
+              <?php foreach ((get_the_category()) as $category) {
+                echo '<span>' . $category->cat_name . '</span>';
+              } ?>
+            </div>
+            <h3 class="c-heading__post"><a href=""><?php the_title(); ?></a></h3>
           </div><!-- close .overlay-progression-blog-content-padding -->
-
         </div>
       </div><!-- close .overlay-progression-blog-content -->
-
-      <div class="overlay-blog-gradient"></div>
     </a>
-
-    <div class="clearfix-pro"></div>
   </div><!-- close .progression-studios-default-blog-overlay -->
 </div><!-- #post-## -->

@@ -63,36 +63,6 @@ jQuery(document).ready(function($) {
 
 
 
-/*
-=============================================== 06. prettyPhoto JS  ===============================================
-*/
-
-  	$(".woocommerce-product-gallery__wrapper a[data-rel^='prettyPhoto'], .progression-studios-gallery-post-image a[data-rel^='prettyPhoto'], #page-title-pro-post-page a[data-rel^='prettyPhoto'], .progression-studios-default-blog-overlay a[data-rel^='prettyPhoto'], .progression-studios-image-grid a[data-rel^='prettyPhoto'], .progression-studios-feaured-image a[data-rel^='prettyPhoto']").prettyPhoto({
-			theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
-  			hook: 'data-rel',
-			opacity: 0.7,
-  			show_title: false, /* true/false */
-  			deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
-  			overlay_gallery: false, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
-  			custom_markup: '',
-			default_width: 1100,
-			default_height: 619,
-  			social_tools: '' /* html or false to disable */
-  	});
-
-
-  	$("a.lightbox, .lightbox a").prettyPhoto({
-			theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
-  			hook: 'class',
-			opacity: 0.7,
-  			show_title: false, /* true/false */
-  			deeplinking: false, /* Allow prettyPhoto to update the url to enable deeplinking. */
-  			overlay_gallery: false, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
-  			custom_markup: '',
-			default_width: 1100,
-			default_height: 619,
-  			social_tools: '' /* html or false to disable */
-  	});
 
 
 (function() {
