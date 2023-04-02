@@ -4,8 +4,7 @@ $image = $imageThumbnail[0];
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <div class="l-postOverlay">
-    <a href="<?php the_permalink(); ?>">
+  <a href="<?php the_permalink(); ?>" class="l-postOverlay">
       <?php if (has_post_thumbnail()) : ?>
         <div class="l-postOverlay__image" style="background-image:url('<?php echo esc_attr($image); ?>')"></div>
       <?php endif; ?>
@@ -24,6 +23,5 @@ $image = $imageThumbnail[0];
         } ?>
       </div>
       <h3 class="c-heading__post"><?php the_title(); ?></h3>
-    </a>
-  </div>
-</div><!-- #post-## -->
+  </a>
+</div>
