@@ -14,35 +14,26 @@ $image = $imageThumbnail[0];
       </div>
       <?php endif; ?>
 
-      <?php if (get_theme_mod('progression_studios_blog_index_rating_display', 'true') == 'true') : ?>
       <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
-      <div class="progression-studios-hexagon-index-container">
-        <div class="progression-studios-index-hexagon-border">
-          <div class="progression-ratency-slider-review-total">
-            <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></div>
-        </div>
-      </div>
-      <?php endif; ?>
+      <span class="c-score">
+        <span class="c-score__count">
+          <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
+        </span>
+      </span>
       <?php endif; ?>
 
       <div class="overlay-progression-blog-content">
         <div class="overlay-progression-blog-content-table-cell">
           <div class="overlay-progression-blog-content-padding">
-
-            <div class="related-overlay-blog-meta-category-list"><?php foreach ((get_the_category()) as $category) {
-                                                                  echo '<span>' . $category->cat_name . '</span>';
-                                                                } ?></div>
-
-            <h2 class="overlay-progression-blog-title"><?php the_title(); ?></h2>
-
+            <div class="related-overlay-blog-meta-category-list">
+              <?php foreach ((get_the_category()) as $category) {
+                echo '<span>' . $category->cat_name . '</span>';
+              } ?>
+            </div>
+            <h3 class="c-heading__post"><a href=""><?php the_title(); ?></a></h3>
           </div><!-- close .overlay-progression-blog-content-padding -->
-
         </div>
       </div><!-- close .overlay-progression-blog-content -->
-
-      <div class="overlay-blog-gradient"></div>
     </a>
-
-    <div class="clearfix-pro"></div>
   </div><!-- close .progression-studios-default-blog-overlay -->
 </div><!-- #post-## -->

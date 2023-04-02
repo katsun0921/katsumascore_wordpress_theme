@@ -207,116 +207,6 @@ function progression_studios_add_control_to_tab( $controls ) {
     );
 
 
-
-
-    $controls['progression_studios_blog_title_font'] = array(
-        'name'       => 'progression_studios_blog_title_font',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Title', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => 'h2.progression-blog-title' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
-    $controls['progression_studios_blog_category_post'] = array(
-        'name'       => 'progression_studios_blog_category_post',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Category', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => '.blog-meta-category-list a' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-    $controls['progression_studios_blog_category_post_hover'] = array(
-        'name'       => 'progression_studios_blog_category_post_hover',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Category Hover', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => '.blog-meta-category-list a:hover' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
-    $controls['progression_studios_blog_byline_font'] = array(
-        'name'       => 'progression_studios_blog_byline_font',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Meta', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => 'ul.progression-post-meta li, ul.progression-post-meta li a' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-    $controls['progression_studios_blog_byline_link_font_hover'] = array(
-        'name'       => 'progression_studios_blog_byline_link_font_hover',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Meta Hover', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => 'ul.progression-post-meta li a:hover' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
-    $controls['progression_studios_blog_exceprt'] = array(
-        'name'       => 'progression_studios_blog_exceprt',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Index Excerpt', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-headings',
-        'properties' => array( 'selector'   => '.progression-studios-blog-excerpt' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
-
-
-
-    $controls['progression_studios_blog_title_overlay_font'] = array(
-        'name'       => 'progression_studios_blog_title_overlay_font',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Title', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-overlay-headings',
-        'properties' => array( 'selector'   => 'h2.overlay-progression-blog-title' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
-    $controls['progression_studios_blog_category_overlay_post'] = array(
-        'name'       => 'progression_studios_blog_category_overlay_post',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Category', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-overlay-headings',
-        'properties' => array( 'selector'   => '.overlay-blog-meta-category-list a, .related-overlay-blog-meta-category-list span' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-    $controls['progression_studios_blog_category_overlay_post_hover'] = array(
-        'name'       => 'progression_studios_blog_category_overlay_post_hover',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Category Hover', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-overlay-headings',
-        'properties' => array( 'selector'   => '.overlay-blog-meta-category-list a:hover' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
     $controls['progression_studios_blog_overlay_byline_font'] = array(
         'name'       => 'progression_studios_blog_overlay_byline_font',
  		 'type'        => 'font',
@@ -328,18 +218,6 @@ function progression_studios_add_control_to_tab( $controls ) {
  		),
     );
 
-
-
-    $controls['progression_studios_blog_overlay_exceprt'] = array(
-        'name'       => 'progression_studios_blog_overlay_exceprt',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Index Excerpt', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-overlay-headings',
-        'properties' => array( 'selector'   => '.overlay-progression-studios-excerpt p' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
 
     $controls['progression_studios_button_font_family'] = array(
         'name'       => 'progression_studios_button_font_family',
