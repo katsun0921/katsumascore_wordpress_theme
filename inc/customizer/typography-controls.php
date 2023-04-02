@@ -207,18 +207,6 @@ function progression_studios_add_control_to_tab( $controls ) {
     );
 
 
-    $controls['progression_studios_blog_overlay_byline_font'] = array(
-        'name'       => 'progression_studios_blog_overlay_byline_font',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Post Meta', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-overlay-headings',
-        'properties' => array( 'selector'   => 'ul.progression-studio-overlay-post-meta li' ),
- 		 'default' => array(
- 			'subset'                     => 'latin',
- 		),
-    );
-
-
     $controls['progression_studios_button_font_family'] = array(
         'name'       => 'progression_studios_button_font_family',
  	'type'        => 'font',
