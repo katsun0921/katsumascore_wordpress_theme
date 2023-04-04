@@ -207,6 +207,15 @@ function custom_enqueue_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'custom_enqueue_scripts');
 
+function my_redirect() {
+    /* 著者アーカイブのリダイレクト */
+    if ( is_author() ){
+        wp_safe_redirect( home_url() );
+        exit;
+    }
+}
+add_action( 'template_redirect', 'my_redirect', 1);
+
 /**
  * Custom template tags for this theme.
  */

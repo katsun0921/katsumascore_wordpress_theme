@@ -1,4 +1,5 @@
 <?php
+// functions でhome にリダイレクトをしている
 $post_id = $post->ID;
 $template = 'template-parts';
 ?>

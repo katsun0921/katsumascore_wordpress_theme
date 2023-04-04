@@ -53,7 +53,7 @@ $template = 'template-parts';
 
     <?php if (!get_post_meta($post->ID, 'progression_studios_disable_advertisement_post', true)) : ?>
     <?php if (is_active_sidebar('progression-studios-post-widgets-bottom')) { ?>
-    <div class="widget-area-bottom-of-posts">
+    <div class="u-mt-3 u-mb-12">
       <?php dynamic_sidebar('progression-studios-post-widgets-bottom'); ?>
     </div>
     <?php } ?>
