@@ -53,10 +53,10 @@ $template = 'template-parts';
       </div><!-- close .progression-masonry-margins -->
 
       <?php endif; ?>
-
-      <?php if (is_active_sidebar('progression-studios-post-widget-sidebar')) : ?>
-      <?php get_sidebar(); ?>
     </div>
+
+    <?php if (is_active_sidebar('progression-studios-post-widget-sidebar')) : ?>
+    <?php get_sidebar(); ?>
     <?php endif; ?>
   </div>
   <!-- close .l-container -->
