@@ -1,4 +1,5 @@
 <?php
+// functions でhome にリダイレクトをしている
 $post_id = $post->ID;
 $template = 'template-parts';
 ?>
@@ -58,8 +59,6 @@ $template = 'template-parts';
       <?php endif; ?>
     </div><!-- close #main-container-pro -->
     <?php get_sidebar(); ?>
-
-    <div class="clearfix-pro"></div>
   </div><!-- close .l-container -->
 </div><!-- #content-pro -->
 <?php get_footer(); ?>

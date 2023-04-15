@@ -257,23 +257,6 @@ function progression_studios_add_control_to_tab( $controls ) {
     );
 
 
-
-    $controls['progression_studios_postreview_title'] = array(
-        'name'       => 'progression_studios_postreview_title',
- 		 'type'        => 'font',
-        'title'      =>  esc_html__('Review Title', 'ratency-progression'),
-        'tab'        => 'progression-studios-blog-post-options',
-        'properties' => array( 'selector'   => '.progression-blog-review-content h2' ),
- 		 'default' => array(
- 	 			'subset'                     => 'latin',
- 	 			'text_decoration'            => 'none',
- 			),
-    );
-
-
-
-
-
 	// Return the controls.
     return $controls;
 }

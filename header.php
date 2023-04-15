@@ -30,7 +30,7 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sawarabi+Gothic&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shippori+Mincho&display=swap"
     rel="stylesheet">
   <?php wp_head(); ?>
 </head>
@@ -102,4 +102,5 @@
         <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-link__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
       </nav>
     </div>
+
   </header>
