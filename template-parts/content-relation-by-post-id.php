@@ -32,8 +32,10 @@ if ($relation_filed) :
           </div>
         </div>
         <div class="l-postImageOverlay__content">
-          <div class="c-heading__post">
-            <?php echo get_the_title($relation_post_id); ?>
+          <div class="u-p-3">
+            <div class="c-heading__post">
+              <?php echo get_the_title($relation_post_id); ?>
+            </div>
           </div>
         </div>
       </a>

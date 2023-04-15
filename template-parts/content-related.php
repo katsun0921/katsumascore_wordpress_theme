@@ -19,6 +19,8 @@ $image = $imageThumbnail[0];
         } ?>
   </div>
   <div class="l-postImageOverlay__content">
-    <h3 class="c-heading__post"><?php the_title(); ?></h3>
+    <div class="u-p-3">
+      <h3 class="c-heading__post"><?php the_title(); ?></h3>
+    </div>
   </div>
 </a>
