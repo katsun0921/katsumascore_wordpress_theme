@@ -23,8 +23,9 @@ $image = $imageThumbnail[0];
                         <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></span>
                     </span>
                     <?php endif; ?>
-                    <?php if ($settings['progression_elements_post_category'] == 'yes') : ?><div
-                      class="progression-ratency-slider-categories"><?php the_category(' '); ?></div><?php endif; ?>
+                    <?php if ($settings['progression_elements_post_category'] == 'yes') : ?>
+                    <div><?php the_category(' '); ?></div>
+                    <?php endif; ?>
                     <a href="<?php echo get_permalink() ?>">
                       <h2 class="progression-ratency-progression-slider-title"><?php echo the_title(); ?></h2>
                       <?php if ($settings['progression_elements_post_excerpt'] == 'yes') : ?>

@@ -32,7 +32,7 @@
       <div class="progression-studios-float-blog-content-padding">
         <?php if ('post' == get_post_type()) : ?>
         <?php if ($settings['progression_elements_post_display_category'] == 'yes') : ?>
-        <div class="blog-meta-category-list"><?php the_category(' '); ?></div>
+        <div class="c-category c-category__title"><?php the_category(' '); ?></div>
         <?php endif; ?>
         <?php endif; ?>
 

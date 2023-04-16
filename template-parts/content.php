@@ -37,7 +37,7 @@
       <!-- close video -->
 
       <?php if ('post' == get_post_type() && get_theme_mod('progression_studios_blog_index_meta_category_display', 'true') == 'true') : ?>
-      <div class="blog-meta-category-list"><?php the_category(' '); ?></div>
+      <div class="c-category c-category__title"><?php the_category(' '); ?></div>
       <?php endif; ?>
       <h3 class="c-heading__post"><a href="<? the_permalink() ?>"><?php the_title(); ?></a></h3>
       <?php if (has_excerpt()) : ?>
