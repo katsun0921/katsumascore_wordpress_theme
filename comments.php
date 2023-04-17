@@ -20,11 +20,11 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-	<?php // You can start editing here -- including this comment! ?>
+  <?php // You can start editing here -- including this comment! ?>
 
-	<?php if ( have_comments() ) : ?>
-		<h4 class="comments-title">
-			<?php
+  <?php if ( have_comments() ) : ?>
+  <h4 class="comments-title">
+    <?php
 			$comment_count = get_comments_number();
 			if ( 1 === $comment_count ) {
 				printf(
@@ -41,54 +41,58 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
-		</h4>
+  </h4>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'ratency-progression' ); ?></h2>
-			<div class="nav-links">
+  <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+  <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+    <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'ratency-progression' ); ?></h2>
+    <div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?></div>
-				
-				<div class="clearfix-pro"></div>
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-above -->
-		<?php endif; // check for comment navigation ?>
+      <div class="nav-previous">
+        <?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
+      <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?>
+      </div>
 
-		<ol class="comment-list">
-			<?php
+      <div class="clearfix-pro"></div>
+    </div><!-- .nav-links -->
+  </nav><!-- #comment-nav-above -->
+  <?php endif; // check for comment navigation ?>
+
+  <ol class="">
+    <?php
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
 					'avatar_size' => 80,
 				) );
 			?>
-		</ol><!-- .comment-list -->
+  </ol>
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'ratency-progression' ); ?></h2>
-			<div class="nav-links">
+  <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
+  <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
+    <h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'ratency-progression' ); ?></h2>
+    <div class="nav-links">
 
-				<div class="nav-previous"><?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
-				<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?></div>
-				
-				<div class="clearfix-pro"></div>
-			</div><!-- .nav-links -->
-		</nav><!-- #comment-nav-below -->
-		<?php endif; // check for comment navigation ?>
+      <div class="nav-previous">
+        <?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
+      <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?>
+      </div>
 
-	<?php endif; // have_comments() ?>
+      <div class="clearfix-pro"></div>
+    </div><!-- .nav-links -->
+  </nav><!-- #comment-nav-below -->
+  <?php endif; // check for comment navigation ?>
 
-	<?php
+  <?php endif; // have_comments() ?>
+
+  <?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'ratency-progression' ); ?></p>
-	<?php endif; ?>
+  <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'ratency-progression' ); ?></p>
+  <?php endif; ?>
 
-	<?php 
+  <?php
 	comment_form();
 	?>
 
