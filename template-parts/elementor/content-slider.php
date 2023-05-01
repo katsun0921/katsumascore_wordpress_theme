@@ -5,6 +5,9 @@
 
 $imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'progression-studios-blog-background');
 $image = $imageThumbnail[0];
+$cats = get_the_category();
+$cat = $cats[0];
+$post_id = $post->ID;
 ?>
 <li class="<?php echo esc_attr($settings['progression_elements_slider_css3_animation']); ?>">
   <div class="progression-elements-slider-background" <?php if (has_post_thumbnail()) : ?>
@@ -17,14 +20,11 @@ $image = $imageThumbnail[0];
               <div class="progression-ratency-slider-content-margins">
                 <div class="progression-ratency-slider-content-alignment">
                   <div class="progression-ratency-slider-progression-crowd-index-content">
-                    <?php if ($settings['progression_elements_post_review'] == 'yes' && get_post_meta($post->ID, 'review_score', true)) : ?>
-                    <span class="c-score">
-                      <span class="c-score__count">
-                        <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?></span>
-                    </span>
+                    <?php if ($settings['progression_elements_post_review'] == 'yes' && get_post_meta($post_id, 'review_score', true)) : ?>
+                    <?php  get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
                     <?php endif; ?>
                     <?php if ($settings['progression_elements_post_category'] == 'yes') : ?>
-                    <div><?php the_category(' '); ?></div>
+                    <div class="c-category c-category__small"><?php echo $cat->name; ?></div>
                     <?php endif; ?>
                     <a href="<?php echo get_permalink() ?>">
                       <h2 class="progression-ratency-progression-slider-title"><?php echo the_title(); ?></h2>
