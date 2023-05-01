@@ -50,41 +50,8 @@
       <div class="l-header__search">
         <?php get_search_form(); ?>
       </div>
-      <?php
-      $rssLink = get_theme_mod('progression_studios_general_rss');
-      $twitterLink = get_theme_mod('progression_studios_general_twitter');
-      $facebookLink = get_theme_mod('progression_studios_general_facebook');
-      ?>
       <div class="l-header__snsLinks">
-        <ul class="u-flex justify-between u-gap-x-5">
-          <?php if ($rssLink) : ?>
-          <li>
-            <a href="<?php echo esc_url($rssLink); ?>" target="_blank"
-              title="<?php echo esc_html__('RSS', 'progression-elements-ratency'); ?>">
-              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-rss.png" alt="rss"
-                width="100" />
-            </a>
-          </li>
-          <?php endif; ?>
-          <?php if ($facebookLink) : ?>
-          <li>
-            <a href="<?php echo esc_url($facebookLink); ?>" target="_blank"
-              title="<?php echo esc_html__('Facebook', 'progression-elements-ratency'); ?>">
-              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-facebook.png"
-                alt="facebook" width="100" />
-            </a>
-          </li>
-          <?php endif; ?>
-          <?php if ($twitterLink) : ?>
-          <li>
-            <a href="<?php echo esc_url($twitterLink); ?>" target="_blank"
-              title="<?php echo esc_html__('Twitter', 'progression-elements-ratency'); ?>">
-              <img class="u-w-8" src="<?php echo get_template_directory_uri(); ?>/images/logo-twitter-blue-circle.png"
-                alt="twitter" />
-            </a>
-          </li>
-          <?php endif; ?>
-        </ul><!-- close .progression-studios-header-social-icons -->
+        <?php get_template_part('template-parts/components/ListSocialIcon') ?>
       </div>
     </div>
     <div class="l-navigation l-navigation--isDesktop">
@@ -99,7 +66,7 @@
         </button>
       </div>
       <nav id="js-mobile-menu" class="l-navigation__list u-opacity-0">
-        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-link__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
+        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
       </nav>
     </div>
 
