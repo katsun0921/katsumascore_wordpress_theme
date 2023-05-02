@@ -1,41 +1,96 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
- * Contains the closing of the id=main div and all content after
+ * Contains the closing of the #content div and all content after.
  *
- * @package pro
- * @since pro 1.0
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package WordPress
+ * @subpackage katsumascore
+ * @since 1.0.0
  */
+$categories = get_categories(array(
+    'orderby' => 'include',
+    'include' => array('movie', 'anime', 'drama')
+));
+$taxonomies = get_taxonomies();
+$rssLink = get_theme_mod('progression_studios_general_rss');
+$twitterLink = get_theme_mod('progression_studios_general_twitter');
+$facebookLink = get_theme_mod('progression_studios_general_facebook');
 ?>
-	
-	<?php if (get_theme_mod( 'progression_studios_footer_elementor_library') && !is_singular( 'elementor_library') ) : ?>
-		<div id="progression-studios-footer-page-builder">
-			<?php if(is_page() && get_post_meta($post->ID, 'progression_studios_disable_footer_per_page', true)): ?><?php else: ?>
-			<?php
-			if( function_exists( 'elementor_load_plugin_textdomain' ) ) {
-			$progression_studios_elementor_footer_instance = Elementor\Plugin::instance();
-			echo  $progression_studios_elementor_footer_instance->frontend->get_builder_content_for_display( get_theme_mod( 'progression_studios_footer_elementor_library') );
-			}
-			?><?php endif; ?>
-		</div>
-	<?php else: ?>
-		<footer id="site-footer" class="progression-studios-footer-normal-width <?php echo esc_attr( get_theme_mod('progression_studios_footer_copyright_location', 'footer-copyright-align-left') ); ?>">
-			<div id="progression-studios-copyright">
-				<div id="copyright-divider-top"></div>				
-					<div class="width-container-pro">
-						<div id="copyright-text">
-								<?php echo wp_kses(get_theme_mod( 'progression_studios_footer_copyright', 'All Rights Reserved. Developed by Progression Studios' ), true); ?>
-						</div>
-					</div> <!-- close .width-container-pro -->			
-				<div class="clearfix-pro"></div>
-			</div><!-- close #progression-studios-copyright -->
-		</footer>
-	<?php endif; ?>
 
-	</div><!-- close #boxed-layout-pro -->
-	<a href="#0" id="pro-scroll-top"><?php esc_html_e( 'Scroll to top', 'ratency-progression' ); ?></a>
-	
+<footer class="l-footer">
+  <div class="l-container">
+    <section>
+      <dl class="c-list__taxonomy">
+        <dt class="c-list__term u-mb-4">CATEGORIES</dt>
+        <dd class="c-list__content">
+          <ul class="u-flex u-flex-wrap">
+            <?php foreach($categories as $category) : ?>
+            <li class="c-list__termList">
+              <a href="<?php echo get_category_link($category->term_id); ?>">
+                <?php echo $category->name; ?>
+                <span class="c-list__termCount">
+                  <?php echo $category->count; ?>
+                </span>
+              </a>
+            </li>
+            <? endforeach ?>
+          </ul>
+        </dd>
+      </dl>
+      <dl class="c-list__taxonomy u-mt-4">
+        <?php
+          foreach($taxonomies as $taxonomy) :
+            if($taxonomy == 'vod') :
+              $terms = get_terms(array(
+                'taxonomy' => $taxonomy,
+                'hide_empty' => false,
+              ));
+            ?>
+        <dt class="c-list__term u-mb-4">VOD</dt>
+        <dd class="c-list__content">
+          <ul class="u-flex u-flex-wrap">
+            <?php
+              foreach($terms as $term) :
+                $name = $term->name;
+                $slug = $term->slug;
+                $count = $term->count;
+                if ($slug !== 'theater' && $count !== 0) : ?>
+            <li class="c-list__termList">
+              <a href="<?php echo get_term_link($term->term_id, $taxonomy); ?>">
+                <?php echo $name; ?>
+                <span class="c-list__termCount">
+                  <?php echo $count; ?>
+                </span>
+              </a>
+            </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
+          </ul>
+        </dd>
+        <?php endif; ?>
+        <?php endforeach; ?>
+      </dl>
+    </section>
+    <section class="u-mt-8 l-footer__info">
+      <?php get_template_part('template-parts/components/ListSocialIcon') ?>
+      <div class="l-footer__support">
+        <ul class="l-footer__help">
+          <li><a href="/about">サイトについて</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+        <p class="u-ml-auto u-mt-auto">
+          All Rights Reserved. Developed by Katsumascore.
+        </p>
+      </div>
+    </section>
+  </div>
+</footer>
+
 <?php wp_footer(); ?>
 </body>
+
 </html>
