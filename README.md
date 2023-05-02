@@ -6,13 +6,24 @@ katsumascore.blog wordpress theme
 
 phpの変数名はスネークケースとする。※キャメルケースだと反映できないことがある。
 
-## CSS クラス名を変更 feature/change_class_name/main
-
-cssの変更でclass名を変更するもとのブランチ
-
-このブランチから各ページのclass名を変更する。
+## tag ルール
 
 ```bash
-main -> feature/change_class_name/main -> feature/change_class_name/author
-                                      |-> feature/change_class_name/content-ad
+
+# template ファイルの追加と削除
+v1.0.0
+↓
+v2.0.0
+
+# 機能の追加と削除
+v1.0.0
+↓
+v1.1.0
+
+# 現在機能の修正
+v1.0.0
+↓
+v1.0.1
+
 ```
+
