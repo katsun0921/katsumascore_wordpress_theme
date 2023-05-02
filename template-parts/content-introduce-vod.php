@@ -72,5 +72,4 @@ $affiliate_code = get_field('streaming_vod_watched_vod_affiliate_code');
     </strong>
   </p>
   <?php endif; ?>
-  <div class="clearfix-pro"></div>
 </section>

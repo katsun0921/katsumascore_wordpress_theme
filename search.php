@@ -38,7 +38,6 @@ $template = 'template-parts';
         </div><!-- close .progression-masonry-margins -->
       </div><!-- close .progression-studios-blog-index -->
 
-      <div class="clearfix-pro"></div>
 
 
       <?php else : ?>

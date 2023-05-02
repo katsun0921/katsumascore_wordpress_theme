@@ -52,8 +52,6 @@ if ( post_password_required() ) {
         <?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
       <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?>
       </div>
-
-      <div class="clearfix-pro"></div>
     </div><!-- .nav-links -->
   </nav><!-- #comment-nav-above -->
   <?php endif; // check for comment navigation ?>
@@ -77,8 +75,6 @@ if ( post_password_required() ) {
         <?php previous_comments_link( esc_html__( '&larr; Older Comments', 'ratency-progression' ) ); ?></div>
       <div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments &rarr;', 'ratency-progression' ) ); ?>
       </div>
-
-      <div class="clearfix-pro"></div>
     </div><!-- .nav-links -->
   </nav><!-- #comment-nav-below -->
   <?php endif; // check for comment navigation ?>

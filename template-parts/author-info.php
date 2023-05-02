@@ -78,5 +78,4 @@
   </div>
 
 
-  <div class="clearfix-pro"></div>
   </div>
