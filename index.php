@@ -40,17 +40,15 @@ $template = 'template-parts';
               </div>
             </div>
             <?php endwhile; ?>
-          </div><!-- close .progression-blog-index-masonry -->
-        </div><!-- close .progression-masonry-margins -->
-      </div><!-- close .progression-studios-blog-index -->
-
-      <div class="clearfix-pro"></div>
+          </div>
+        </div>
+      </div>
 
       <?php else : ?>
 
       <div class="progression-studios-blog-index">
         <?php get_template_part('template-parts/content', 'none'); ?>
-      </div><!-- close .progression-masonry-margins -->
+      </div>
 
       <?php endif; ?>
     </div>

@@ -19,9 +19,11 @@ $post_id = $post->ID;
             <div class="progression-ratency-slider-content-max-width">
               <div class="progression-ratency-slider-content-margins">
                 <div class="progression-ratency-slider-content-alignment">
-                  <div class="progression-ratency-slider-progression-crowd-index-content">
+                  <div class="progression-ratency-slider-progression-crowd-index-content u-relative">
                     <?php if ($settings['progression_elements_post_review'] == 'yes' && get_post_meta($post_id, 'review_score', true)) : ?>
-                    <?php  get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
+                    <div class="u-absolute u-top-1-5 u-right-1-5">
+                      <?php get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
+                    </div>
                     <?php endif; ?>
                     <?php if ($settings['progression_elements_post_category'] == 'yes') : ?>
                     <div class="c-category c-category__small"><?php echo $cat->name; ?></div>

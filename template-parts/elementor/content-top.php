@@ -3,6 +3,7 @@
 /**
  * @description Elementor 使用時のTOPページ
  */
+$post_id = $post->ID;
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -13,19 +14,17 @@
 
       <?php if (has_post_thumbnail()) : ?>
       <a href="<?php the_permalink(); ?>" class="u-block u-relative">
-        <span class="c-score u-absolute u-right-1-5 u-top-1-5">
-          <span class="c-score__count">
-            <?php echo esc_attr(get_post_meta($post->ID, 'review_score',  true)) ?>
-          </span>
-        </span>
+        <div class="u-absolute u-top-1-5 u-right-1-5">
+          <?php get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
+        </div>
         <?php the_post_thumbnail('progression-studios-blog-index'); ?>
       </a>
       <?php else : ?>
 
-      <?php if (has_post_format('video') && get_post_meta($post->ID, 'video_code', true) || has_post_format('audio') && get_post_meta($post->ID, 'video_code', true)) : ?>
+      <?php if (has_post_format('video') && get_post_meta($post_id, 'video_code', true) || has_post_format('audio') && get_post_meta($post_id, 'video_code', true)) : ?>
 
       <div class="video-progression-studios-format">
-        <?php echo apply_filters('the_content', get_post_meta($post->ID, 'video_code', true)); ?>
+        <?php echo apply_filters('the_content', get_post_meta($post_id, 'video_code', true)); ?>
       </div>
 
       <?php endif; ?>
