@@ -26,7 +26,6 @@ function progression_studios_setup() {
 	add_image_size('progression-studios-blog-index', 900, 475, true);
 	add_image_size('progression-studios-blog-background', 900, 900, false);
 	add_image_size('progression-studios-blog-left-align', 700, 460, true);
-	add_image_size('progression-studios-blog-full-width', 1400, 740, true);
 	add_image_size('progression-studios-slider-thumb', 300, 200, true);
 
 
@@ -127,7 +126,6 @@ function progression_studios_scripts() {
 	wp_enqueue_style(  'ratency-progression-style', get_stylesheet_uri());
 	wp_enqueue_script( 'ratency-progression-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20120206', true );
 	wp_enqueue_script( 'scrolltofixed', get_template_directory_uri() . '/js/scrolltofixed.js', array( 'jquery' ), '20120206', true );
-	wp_enqueue_script( 'prettyPhoto', get_template_directory_uri() . '/js/prettyphoto.js', array( 'jquery' ), '20120206', true );
 	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/flexslider.js', array( 'jquery' ), '20120206', true );
 	wp_enqueue_script( 'ratency-progression-masonry', get_template_directory_uri() . '/js/masonry.js', array( 'jquery' ), '20120206', true );
 	wp_enqueue_script( 'ratency-progression-scripts', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '20120206', true );
@@ -137,40 +135,6 @@ function progression_studios_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'progression_studios_scripts' );
 
-
-
-/**
- * Enqueue google fonts
- */
-function progression_studios_fonts_url() {
-    $progression_studios_font_url = '';
-
-    /*
-    Translators: If there are characters in your language that are not supported
-    by chosen font(s), translate this to 'off'. Do not translate into your own language.
-     */
-    if ( 'off' !== _x( 'on', 'Google font: on or off', 'ratency-progression' ) ) {
-        $progression_studios_font_url = add_query_arg( 'family', urlencode( 'Fira Sans Condensed:400,500,700|Share:700,400i|Noto Sans:400,700|&subset=latin' ), "//fonts.googleapis.com/css" );
-    }
-
-    return $progression_studios_font_url;
-}
-
-
-/* Demo Content Import */
-function progression_studios_demo_import_files() {
-  return array(
-    array(
-      'import_file_name'           => esc_html__( 'Ratency Theme Import', 'ratency-progression' ),
-      'local_import_file'            => trailingslashit( get_template_directory() ) . '/demo/content.xml',
-      'local_import_widget_file'     => trailingslashit( get_template_directory() ) . '/demo/widgets.json',
-      'local_import_customizer_file' => trailingslashit( get_template_directory() ) . '/demo/theme_option.dat',
-      'import_preview_image_url'   => 'https://ratency.progressionstudios.com/wp-content/themes/ratency-progression/screenshot.png',
-      'preview_url'                => 'https://ratency.progressionstudios.com',
-    ),
-  );
-}
-add_filter( 'pt-ocdi/import_files', 'progression_studios_demo_import_files' );
 
 function progression_studios_demo_after_import_setup() {
 	// Assign menus to their locations.
