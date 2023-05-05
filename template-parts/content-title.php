@@ -11,7 +11,7 @@ $image = $imageThumbnail[0];
     <?php if ($is_post) : ?>
     <h1 class="page-title c-heading__title">
       <span class="u-block u-mb-6"><?php get_template_part('template-parts/content-category') ?></span>
-      <span class="u-block"><?php echo $headingText ?>の<br>あらすじ、感想、評価まとめ</span>
+      <span class="u-block is-shadow"><?php echo $headingText ?>の<br>あらすじ、感想、評価まとめ</span>
     </h1>
     <p class="u-text-white">
       <?php if (get_theme_mod('progression_studios_blog_post_meta_date_display', 'true') == 'true' && get_theme_mod('progression_studios_blog_date_ago', 'true') == 'true')  : ?>
@@ -26,6 +26,4 @@ $image = $imageThumbnail[0];
       <?php echo $headingText ?></h1>
     <?php endif; ?>
   </div>
-  <!-- close #progression-stud
-ios-page-title-container -->
-</div><!-- #page-title-pro -->
+</div>

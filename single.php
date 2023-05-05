@@ -16,6 +16,28 @@ $template = 'template-parts';
     </div><!-- close #main-container-pro -->
     <?php get_sidebar(); ?>
   </div><!-- close .l-container -->
+  <div class="u-mt-10 l-container">
+    <?php
+      // 関連IDにもとづくPostを表示
+      get_template_part($template . '/content-relation-by-post-id'); ?>
+    <?php
+      // 劇場版以外VODサービスを表示
+      $is_cinema_showing=get_field('cinema_info_filed_is_cinema_showing'); if (!$is_cinema_showing) {
+      get_template_part($template . '/content-streaming-vod' , null, array('post_id'=> $post_id));
+      }
+      ?>
+    <?php
+      // 劇場版以外レンタルサービスを表示
+      if (!$is_cinema_showing) {
+        get_template_part($template . '/content-ad-rental', null, array('post_id' => $post_id));
+      }
+    ?>
+
+    <?php
+      // カテゴリーにもとづくPostを表示
+      get_template_part($template . '/category-posts-rand');
+    ?>
+  </div>
   <div class="u-mt-10">
     <?php get_template_part('template-parts/content-sharing'); ?>
   </div>

@@ -18,27 +18,13 @@ $template = 'template-parts';
     <?php get_template_part($template . '/content-good-point') ?>
     <?php get_template_part($template . '/content-summary') ?>
 
-    <?php the_content(); ?>
+    <div class="p-content">
+      <?php the_content(); ?>
+    </div>
 
     <?php get_template_part($template . '/content-review-site-scores'); ?>
     <?php get_template_part($template . '/content-introduce-vod', null, array('post_id' => $post_id)); ?>
-    <?php
-      // 関連IDにもとづくPostを表示
-      get_template_part($template . '/content-relation-by-post-id'); ?>
 
-    <?
-      // 劇場版以外VODサービスを表示
-      $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
-      if (!$is_cinema_showing) {
-        get_template_part($template . '/content-streaming-vod', null, array('post_id' => $post_id));
-      }
-      ?>
-    <?
-      // 劇場版以外レンタルサービスを表示
-      if (!$is_cinema_showing) {
-        get_template_part($template . '/content-ad-rental', null, array('post_id' => $post_id));
-      }
-      ?>
 
     <?php wp_link_pages(
       array(
@@ -61,6 +47,5 @@ $template = 'template-parts';
 
     <?php the_tags('<div class="c-tags">', '', '</div>'); ?>
 
-    <?php get_template_part($template . '/related-posts-rand'); ?>
   </div>
 </div>

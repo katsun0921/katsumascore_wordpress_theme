@@ -1,16 +1,14 @@
 <?php
 $imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'progression-studios-blog-background');
 $image = $imageThumbnail[0];
+$post_id = $post->ID;
 ?>
 
 <a id="post-related-<?php the_ID(); ?>" href="<?php the_permalink(); ?>" class="l-postImageOverlay"
   style="<?php echo 'background-image: url(' . esc_url($image) . ')'; ?>">
-  <?php if (get_post_meta($post->ID, 'review_score', true)) : ?> <div class="u-absolute u-right-1-5 u-top-1-5 u-z-20">
-    <span class="c-score">
-      <span class="c-score__count">
-        <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
-      </span>
-    </span>
+  <?php if (get_post_meta($post_id, 'review_score', true)) : ?>
+  <div class="u-absolute u-right-1-5 u-top-1-5 u-z-20">
+    <?php get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
   </div>
   <?php endif; ?>
   <div class="c-category">
