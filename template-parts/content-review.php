@@ -1,4 +1,4 @@
-<div class="p-info">
+<section class="p-info u-mb-12">
 
   <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
   <div class="p-info__score">
@@ -116,4 +116,4 @@
     <?php echo get_post_meta($post->ID, 'video_code', true) ?>
     <?php endif ?>
   </div>
-</div>
+</section>

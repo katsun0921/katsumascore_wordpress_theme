@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-
-<?php the_content(); ?>
-
+<div class="p-content">
+  <?php the_content(); ?>
+</div>
 <?php get_footer(); ?>

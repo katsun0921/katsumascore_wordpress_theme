@@ -40,9 +40,9 @@ foreach ((array) $siteNames as $site) {
 }
 ?>
 <?php if ($reviewSites > 0) : ?>
-<section class="progression-blog-single-review-site-container">
-  <h2 class="progression-blog-single-review-site-heading">各サイトのレビューサイトのスコア</h2>
-  <ul>
+<section>
+  <h2 class="u-mb-4">各サイトのレビューサイトのスコア</h2>
+  <ul class="u-list-disc">
     <?php foreach ((array) $reviewSites as $key => $value) :
         $data = $value[key($value)];
         $siteUrl = strlen($data['site_url']) > 0 ? 'href="' . $data['site_url'] . '" target="_blank" rel="noopener"' : '';
@@ -58,7 +58,7 @@ foreach ((array) $siteNames as $site) {
     <?php endif; ?>
     <?php endforeach; ?>
   </ul>
-  <p class="progression-blog-single-review-site-caution">
+  <p>
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
       <?php echo get_the_date('Y年n月j日'); ?>時点のものです。<br>各サイトの最新スコアは各々のサイトにてご確認ください。
     </strong>

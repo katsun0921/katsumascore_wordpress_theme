@@ -20,35 +20,30 @@ $template = 'template-parts';
       <?php endif; ?>
 
       <?php if (have_posts()) : ?>
-      <div class="progression-studios-blog-index">
-
-        <div class="progression-masonry-margins">
-          <div class="progression-blog-index-masonry">
-            <?php while (have_posts()) : the_post(); ?>
-            <div
-              class="progression-masonry-item progression-masonry-col-<?php echo esc_attr(get_theme_mod('progression_studios_blog_columns', '1')); ?>">
-              <div class="progression-masonry-padding-blog">
-                <?php if (get_theme_mod('progression_studios_blog_index_layout', 'default') == 'default') : ?>
-                <?php get_template_part('template-parts/content', get_post_format()); ?>
-                <?php endif; ?>
-                <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
-                <?php get_template_part('template-parts/content', 'overlay'); ?>
-                <?php endif; ?>
-                <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'top-image') : ?>
-                <?php get_template_part('template-parts/content', 'top'); ?>
-                <?php endif; ?>
-              </div>
+      <div class="progression-masonry-margins">
+        <div class="progression-blog-index-masonry">
+          <?php while (have_posts()) : the_post(); ?>
+          <div
+            class="progression-masonry-item progression-masonry-col-<?php echo esc_attr(get_theme_mod('progression_studios_blog_columns', '1')); ?>">
+            <div class="progression-masonry-padding-blog">
+              <?php if (get_theme_mod('progression_studios_blog_index_layout', 'default') == 'default') : ?>
+              <?php get_template_part('template-parts/content', get_post_format()); ?>
+              <?php endif; ?>
+              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
+              <?php get_template_part('template-parts/content', 'overlay'); ?>
+              <?php endif; ?>
+              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'top-image') : ?>
+              <?php get_template_part('template-parts/content', 'top'); ?>
+              <?php endif; ?>
             </div>
-            <?php endwhile; ?>
           </div>
+          <?php endwhile; ?>
         </div>
       </div>
 
       <?php else : ?>
 
-      <div class="progression-studios-blog-index">
-        <?php get_template_part('template-parts/content', 'none'); ?>
-      </div>
+      <?php get_template_part('template-parts/content', 'none'); ?>
 
       <?php endif; ?>
     </div>

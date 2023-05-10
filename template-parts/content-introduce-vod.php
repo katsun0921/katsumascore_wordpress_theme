@@ -19,14 +19,14 @@ $affiliate_code = get_field('streaming_vod_watched_vod_affiliate_code');
 // まだVODが配信していなく、劇場公開を視聴している
 if (!$is_vod_streaming && $is_cinema_watched) :
 ?>
-<section class="progression-blog-single-vod-container">
-  <h2 class="progression-blog-single-vod-heading">
+<section>
+  <h2 class="u-mb-4">
     このページでは
     <?php echo $release_date ?>に公開された
     <?php echo $title_jp; ?>を執筆しました。
   </h2>
   <?php if ($is_cinema_showing) : ?>
-  <p class="progression-blog-single-vod-text">
+  <p class="u-mb-2">
     公開中の『
     <?php echo $title_jp; ?>』のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ劇場情報URLからチェックしてみてください！
   </p>
@@ -35,13 +35,13 @@ if (!$is_vod_streaming && $is_cinema_watched) :
   <?php else : ?>
   <p><?php the_modified_date('Y年m月d日') ?>時点では劇場公開が終了しております。</p>
   <?php endif; ?>
-  <p class="progression-blog-single-vod-caution">
+  <div>
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
       <?php echo get_the_date('Y年n月j日'); ?>時点のものです。</strong><br>最新の状況は
     <a href="<?php echo esc_url($official_url); ?>" rel="noopener" target="_blank">
       <?php echo $title_jp; ?>サイトにてご確認ください。
     </a>
-  </p>
+  </div>
 </section>
 <?php endif; ?>
 
@@ -49,13 +49,13 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 // VODが配信中のものかり執筆し、劇場公開で視聴していない
 if ($is_vod_streaming && !$is_cinema_watched) :
 ?>
-<section class="progression-blog-single-vod-container">
-  <h2 class="progression-blog-single-vod-heading">
+<section>
+  <h2 class="u-mb-4">
     このページでは
     <?php echo $vod_service_name; ?>で配信中の
     <?php echo $title_jp; ?>から執筆しました
   </h2>
-  <p class="progression-blog-single-vod-text">
+  <p>
     <?php echo $vod_service_name ?>で配信されている『
     <?php echo $title_jp; ?>』のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ下記URLの
     <?php echo $vod_service_name ?>からチェックしてみてください！
@@ -94,7 +94,7 @@ if ($is_vod_streaming && !$is_cinema_watched) :
       <?php endforeach ?>
     </ul>
   </div>
-  <p class="progression-blog-single-vod-caution">
+  <p>
     <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
       <?php echo get_the_date('Y年n月j日'); ?>時点のものです。<br>最新の配信状況は
       <?php echo $vod_service_name; ?>サイトにてご確認ください。
