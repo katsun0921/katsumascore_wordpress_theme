@@ -1,7 +1,7 @@
 <?php
 $post_id = $post->ID;
-$imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'progression-studios-blog-background');
-$imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'progression-studios-blog-background');
+$imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'background');
+$imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'background');
 $image = $imageThumbnail[0];
 $cats = get_the_category();
 $cat = $cats[0];

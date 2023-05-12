@@ -10,40 +10,31 @@ $template = 'template-parts';
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
   <div class="l-container l-container__showLeftSidebar">
-    <div id="main-container-pro" class="l-content">
+    <div class="l-content">
       <?php if (have_posts()) : ?>
 
-      <div class="progression-masonry-margins"
-        style="margin-top:-<?php echo esc_attr(get_theme_mod('progression_studios_blog_index_gap', '15')); ?>px; margin-left:-<?php echo esc_attr(get_theme_mod('progression_studios_blog_index_gap', '15')); ?>px; margin-right:-<?php echo esc_attr(get_theme_mod('progression_studios_blog_index_gap', '15')); ?>px;">
-        <div class="progression-blog-index-masonry">
-          <?php while (have_posts()) : the_post(); ?>
-          <div
-            class="progression-masonry-item progression-masonry-col-<?php echo esc_attr(get_theme_mod('progression_studios_blog_columns', '1')); ?>">
-            <div class="progression-masonry-padding-blog"
-              style="padding:<?php echo esc_attr(get_theme_mod('progression_studios_blog_index_gap', '15')); ?>px;">
-              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'default') : ?>
-              <?php get_template_part('template-parts/content', get_post_format()); ?>
-              <?php endif; ?>
-              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
-              <?php get_template_part('template-parts/content', 'overlay'); ?>
-              <?php endif; ?>
-              <?php if (get_theme_mod('progression_studios_blog_index_layout', 'top-image') == 'top-image') : ?>
-              <?php get_template_part('template-parts/content', 'top'); ?>
-              <?php endif; ?>
-            </div>
-          </div>
-          <?php endwhile; ?>
-        </div><!-- close .progression-blog-index-masonry -->
-      </div><!-- close .progression-masonry-margins -->
-
-
+      <ul>
+        <?php while (have_posts()) : the_post(); ?>
+        <li>
+          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'default') : ?>
+          <?php get_template_part('template-parts/content', get_post_format()); ?>
+          <?php endif; ?>
+          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
+          <?php get_template_part('template-parts/content', 'overlay'); ?>
+          <?php endif; ?>
+          <?php if (get_theme_mod('progression_studios_blog_index_layout', 'top-image') == 'top-image') : ?>
+          <?php get_template_part('template-parts/content', 'top'); ?>
+          <?php endif; ?>
+        </li>
+        <?php endwhile; ?>
+      </ul><!-- close .progression-blog-index-masonry -->
 
       <?php else : ?>
 
       <?php get_template_part('template-parts/content', 'none'); ?>
 
       <?php endif; ?>
-    </div><!-- close #main-container-pro -->
+    </div>
     <?php get_sidebar(); ?>
   </div><!-- close .l-container -->
 </div><!-- #content-pro -->
