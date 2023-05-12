@@ -9,7 +9,7 @@ $image = $imageThumbnail[0];
 
 <a class="p-postTopImage" href="<?php the_permalink(); ?>">
   <div class="p-postTopImage__image">
-    <img src="<?php echo esc_url($image); ?>" alt="" width="540" />
+    <img src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
     <div class="u-absolute u-right-2 u-top-2">
       <?php get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>
     </div>

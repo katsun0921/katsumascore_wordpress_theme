@@ -7,7 +7,7 @@ $imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post), 'bac
 $image = $imageThumbnail[0];
 ?>
 
-<a class="p-postImageOverlay" href="<?php the_permalink() ?>"
+<a id="post-<?php the_ID(); ?>" class="p-postImageOverlay" href="<?php the_permalink() ?>"
   style='background-image: url("<?php echo esc_url($image); ?>");'>
   <div class="u-z-20 u-absolute u-right-1-5 u-top-1-5">
     <?php get_template_part('template-parts/components/Score', null, array('post_id' => $post_id)); ?>

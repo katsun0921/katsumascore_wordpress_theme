@@ -19,7 +19,7 @@ if( $category_query->have_posts() ) :
   <ul class="<?php echo $class_name ?>">
     <?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
     <li>
-      <?php get_template_part( 'template-parts/content-related' ); ?>
+      <?php get_template_part('template-parts/components/postImageOverlay'); ?>
     </li>
     <?php endwhile; ?>
   </ul>
