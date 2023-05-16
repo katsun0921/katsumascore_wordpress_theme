@@ -41,7 +41,9 @@ foreach ((array) $siteNames as $site) {
 ?>
 <?php if ($reviewSites > 0) : ?>
 <section>
-  <h2 class="u-mb-4">各サイトのレビューサイトのスコア</h2>
+  <h2 class="u-mb-4">
+    <?php echo pll_current_language() === 'en' ? 'Review site scores for each site' : '各サイトのレビューサイトのスコア'; ?>
+  </h2>
   <ul class="u-list-disc">
     <?php foreach ((array) $reviewSites as $key => $value) :
         $data = $value[key($value)];
@@ -59,9 +61,19 @@ foreach ((array) $siteNames as $site) {
     <?php endforeach; ?>
   </ul>
   <p>
-    <strong>本ページの情報は<time datetime="<?php the_time(get_the_date('Y-m-d')); ?>"></time>
-      <?php echo get_the_date('Y年n月j日'); ?>時点のものです。<br>各サイトの最新スコアは各々のサイトにてご確認ください。
+    <?php if (pll_current_language() === 'en') : ?>
+    <strong>Information on this page is current as of
+      <time datetime="<?php the_time(get_the_date('Y-m-d')); ?>">
+        <?php echo get_the_date('F j, Y'); ?>
+      </time>.<br>Please check each site for the latest scores.
     </strong>
+    <?php else: ?>
+    <strong>本ページの情報は
+      <time datetime="<?php the_time(get_the_date('Y-m-d')); ?>">
+        <?php echo get_the_date('Y年n月j日'); ?>
+      </time>時点のものです。<br>各サイトの最新スコアは各々のサイトにてご確認ください。
+    </strong>
+    <?php endif; ?>
   </p>
 </section>
 <?php endif; ?>

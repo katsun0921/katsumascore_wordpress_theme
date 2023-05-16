@@ -27,3 +27,15 @@ v1.0.1
 
 ```
 
+## 英語ページ
+
+[Polylangプラグインを使用](https://polylang.pro/)
+
+https://www.webdesignleaves.com/pr/wp/wp_polylang.html
+
+日本語ページを作成したら、英語ページを作成する
+
+```php
+# 英語ページの出し分け
+pll_current_language() === 'en' ? '英語' : '日本語';
+```

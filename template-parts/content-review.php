@@ -1,44 +1,61 @@
-<section class="p-info u-mb-12">
+<?php
+// 基本情報を表示するテンプレート
+$post_id = $post->ID;
 
-  <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
+$date_string = get_field('release_date');
+$release_date = DateTime::createFromFormat('Ymd', $date_string);
+
+?><section class="p-info u-mb-12">
+
+  <?php if (get_post_meta($post_id, 'review_score', true)) : ?>
   <div class="p-info__score">
     <div class="c-score c-score__large">
       <div class="c-score__count">
-        <?php echo esc_attr(get_post_meta($post->ID, 'review_score', true)); ?>
+        <?php echo esc_attr(get_post_meta($post_id, 'review_score', true)); ?>
       </div>
     </div>
   </div>
   <?php endif; ?>
 
-  <?php if (get_the_excerpt($post->ID, true)) : ?>
+  <?php if (get_the_excerpt($post_id, true)) : ?>
   <div>
-    <p><?php echo sprintf(wp_kses(get_the_excerpt($post->ID, true), true)); ?></p>
+    <p><?php echo get_the_excerpt($post_id, true); ?></p>
   </div>
   <?php endif; ?>
 
   <dl class="p-info__detail">
     <!-- original-title -->
-    <?php if (get_post_meta($post->ID, 'original_title', true)) : ?>
-    <dt class="u-font-bold u-text-lg">原題</dt>
+    <?php if (get_post_meta($post_id, 'original_title', true)) : ?>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Original Title' : '原題'; ?>
+    </dt>
     <dd class="u-pl-4">
-      <?php echo get_post_meta($post->ID, 'original_title', true) ?>
+      <?php echo get_post_meta($post_id, 'original_title', true) ?>
     </dd>
     <?php endif ?>
-    <?php if (get_post_meta($post->ID, 'official_url', true)) : ?>
-    <dt class="u-font-bold u-text-lg">公式サイト</dt>
+    <?php if (get_post_meta($post_id, 'official_url', true)) : ?>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Original Site' : '公式サイト'; ?>
+    </dt>
     <dd class="u-pl-4">
-      <a href="<?php echo esc_url(get_post_meta($post->ID, 'official_url', true)) ?>" target="_blank">
-        <?php echo get_post_meta($post->ID, 'official_url', true) ?>
+      <a href="<?php echo esc_url(get_post_meta($post_id, 'official_url', true)) ?>" target="_blank">
+        <?php echo get_post_meta($post_id, 'official_url', true) ?>
       </a>
     </dd>
     <?php endif ?>
-    <?php if (get_post_meta($post->ID, 'release_date', true)) : ?>
-    <dt class="u-font-bold u-text-lg">上映日・配信日</dt>
-    <dd class="u-pl-4"><?php echo get_field('release_date') ?></dd>
+    <?php if (get_post_meta($post_id, 'release_date', true)) : ?>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Screening and distribution dates' : '上映日・配信日'; ?>
+    </dt>
+    <dd class="u-pl-4">
+      <?php echo  pll_current_language() === 'en' ? $release_date->format('j M, Y') : $release_date->format('Y年m月d日'); ?>
+    </dd>
     <?php endif ?>
-    <?php $directors = get_the_terms($post->ID, 'director') ?>
+    <?php $directors = get_the_terms($post_id, 'director') ?>
     <?php if ($directors) : ?>
-    <dt class="u-font-bold u-text-lg"><?php echo get_taxonomy('director')->label ?></dt>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Director' : '監督'; ?>
+    </dt>
     <dd class="u-pl-4">
       <ul id="c-listMovie__multiple">
         <?php foreach ((array)$directors as $director) : ?>
@@ -53,7 +70,9 @@
     $actors_filed = get_field('actors_filed');
     if ($actors_filed) :
     ?>
-    <dt class="u-font-bold u-text-lg">登場人物</dt>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Characters' : '登場人物'; ?>
+    </dt>
     <dd class="u-pl-4">
       <dl>
         <?php foreach ($actors_filed as $actor_filed) : ?>
@@ -70,7 +89,7 @@
         <?php endif ?>
         <dd class="u-pl-4">
           <?php if ($term_actor) : ?>
-          <p>演: <a href="<?php echo esc_url($term_link_actor); ?>"><?php echo $term_actor->name ?></a></p>
+          <p>Actor: <a href="<?php echo esc_url($term_link_actor); ?>"><?php echo $term_actor->name ?></a></p>
           <? endif ?>
           <?php if ($actor_filed_description) : ?>
           <p><?php echo $actor_filed_description ?></p>
@@ -81,7 +100,7 @@
     </dd>
     <?php endif ?>
 
-    <?php $film_studios = get_the_terms($post->ID, 'film_studio') ?>
+    <?php $film_studios = get_the_terms($post_id, 'film_studio') ?>
     <?php if ($film_studios) : ?>
     <dt class="u-font-bold u-text-lg"><?php echo get_taxonomy('film_studio')->label ?></dt>
     <dd class="u-pl-4">
@@ -94,7 +113,7 @@
       </ul>
     </dd>
     <?php endif ?>
-    <?php $production_studios = get_the_terms($post->ID, 'production_studio') ?>
+    <?php $production_studios = get_the_terms($post_id, 'production_studio') ?>
     <?php if ($production_studios) : ?>
     <dt class="u-font-bold u-text-lg"><?php echo get_taxonomy('production_studio')->label ?></dt>
     <dd class="u-pl-4">
@@ -112,8 +131,9 @@
     <?php endif ?>
   </dl>
   <div class="u-mt-4 p-info__iframe">
-    <?php if (get_post_meta($post->ID, 'video_code', true)) : ?>
-    <?php echo get_post_meta($post->ID, 'video_code', true) ?>
+    <?php if (get_post_meta($post_id, 'video_code', true)) : ?>
+    <?php echo get_post_meta($post_id, 'video_code', true) ?>
     <?php endif ?>
   </div>
+
 </section>
