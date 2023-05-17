@@ -5,7 +5,7 @@
  */
 ?>
 <!doctype html>
-<html lang="ja">
+<html lang="<?php echo pll_current_language() === 'en' ? 'en' : 'ja' ?>">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -41,7 +41,7 @@
     <div class="l-header">
       <div class="l-header__logo">
         <h1 id="logo-pro" class="u-m-0 u-py-3 u-w-28 u-leading-none logo-inside-nav-pro noselect">
-          <a href="<?php echo esc_url('/'); ?>" rel="home">
+          <a href="<?php echo esc_url(pll_current_language() === 'en' ? '/en' : '/'); ?>" rel="home">
             <img src="<?php echo get_template_directory_uri(); ?>/images/logo-primary.png" alt="katsumascore"
               className="u-w-24" width="100" />
           </a>

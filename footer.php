@@ -78,9 +78,10 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
       <?php get_template_part('template-parts/components/ListSocialIcon') ?>
       <div class="l-footer__support">
         <ul class="l-footer__help">
-          <li><a href="/about">サイトについて</a></li>
+          <li><a href="/about"><?php echo pll_current_language() === 'en' ? 'About the Site' : 'サイトについて'; ?></a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="/contact"><?php echo pll_current_language() === 'en' ? 'Contact' : 'お問い合わせ'; ?></a>
+          </li>
         </ul>
         <p class="u-ml-auto u-mt-auto">
           All Rights Reserved. Developed by Katsumascore.
