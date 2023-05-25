@@ -3,7 +3,9 @@ $good_points_filed = get_field('good_point_filed');
 if ($good_points_filed) :
 ?>
 <section class="p-goodPoint">
-  <h2 class="u-mb-4">ここがおすすめ！</h2>
+  <h2 class="u-mb-4">
+    <?php echo pll_current_language() === 'en' ? 'I highly recommend this place!' : 'ここがおすすめ！' ?>
+  </h2>
   <ul class="u-list-disc">
     <?php
       foreach ((array) $good_points_filed as $good_point) :

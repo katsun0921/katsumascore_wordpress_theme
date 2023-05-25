@@ -15,7 +15,9 @@ $class_name = count($category_query->posts) === 3 ? 'l-postRelated__3columns' : 
 if( $category_query->have_posts() ) :
 ?>
 <section class="u-mt-6">
-  <h2 class="c-heading__related u-mb-3">こちらもおすすめ</h2>
+  <h2 class="c-heading__related u-mb-3">
+    <?php echo pll_current_language() === 'en' ? 'I recommend this option.' : 'こちらもおすすめです！' ?>
+  </h2>
   <ul class="<?php echo $class_name ?>">
     <?php while ( $category_query->have_posts() ) : $category_query->the_post(); ?>
     <li>
