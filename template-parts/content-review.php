@@ -2,10 +2,11 @@
 // 基本情報を表示するテンプレート
 $post_id = $post->ID;
 
-$date_string = get_field('release_date');
-$release_date = DateTime::createFromFormat('Ymd', $date_string);
+$date_string = get_post_meta($post_id, 'release_date', true);
+$release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) : null;
 
-?><section class="p-info u-mb-12">
+?>
+<section class="p-info u-mb-12">
 
   <?php if (get_post_meta($post_id, 'review_score', true)) : ?>
   <div class="p-info__score">
@@ -43,12 +44,12 @@ $release_date = DateTime::createFromFormat('Ymd', $date_string);
       </a>
     </dd>
     <?php endif ?>
-    <?php if (get_post_meta($post_id, 'release_date', true)) : ?>
+    <?php if ($release_date) : ?>
     <dt class="u-font-bold u-text-lg">
       <?php echo pll_current_language() === 'en' ? 'Screening and distribution dates' : '上映日・配信日'; ?>
     </dt>
     <dd class="u-pl-4">
-      <?php echo  pll_current_language() === 'en' ? $release_date->format('j M, Y') : $release_date->format('Y年m月d日'); ?>
+      <?php echo pll_current_language() === 'en' ? $release_date->format('j M, Y') : $release_date->format('Y年m月d日'); ?>
     </dd>
     <?php endif ?>
     <?php $directors = get_the_terms($post_id, 'director') ?>
