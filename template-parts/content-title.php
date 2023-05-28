@@ -10,11 +10,7 @@ $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
   <?php if ($is_post) : ?>
   <h1 class="page-title c-heading__title">
     <span class="u-block u-mb-6"><?php get_template_part('template-parts/content-category') ?></span>
-    <?php if( pll_current_language() === 'en' ) : ?>
-    <span class="u-block is-shadow"><?php echo $headingText ?><br>Synopsis, Impressions and Ratings</span>
-    <?php else: ?>
-    <span class="u-block is-shadow"><?php echo $headingText ?>の<br>あらすじ、感想、評価まとめ</span>
-    <?php endif; ?>
+    <span class="u-block is-shadow"><?php echo the_title() ?></span>
   </h1>
   <p class="u-text-white">
     <?php if (get_theme_mod('progression_studios_blog_post_meta_date_display', 'true') == 'true' && get_theme_mod('progression_studios_blog_date_ago', 'true') == 'true') : ?>
@@ -26,6 +22,6 @@ $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
   </p>
   <?php else : ?>
   <h1 class="page-title c-heading__title">
-    <?php echo $headingText ?></h1>
+    <?php echo the_title() ?></h1>
   <?php endif; ?>
 </div>

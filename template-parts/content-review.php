@@ -103,7 +103,9 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
 
     <?php $film_studios = get_the_terms($post_id, 'film_studio') ?>
     <?php if ($film_studios) : ?>
-    <dt class="u-font-bold u-text-lg"><?php echo get_taxonomy('film_studio')->label ?></dt>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Distributed by' : '配給会社'; ?>
+    </dt>
     <dd class="u-pl-4">
       <ul class="c-listMovie__multiple">
         <?php foreach ((array)$film_studios as $film_studio) : ?>
@@ -116,7 +118,8 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
     <?php endif ?>
     <?php $production_studios = get_the_terms($post_id, 'production_studio') ?>
     <?php if ($production_studios) : ?>
-    <dt class="u-font-bold u-text-lg"><?php echo get_taxonomy('production_studio')->label ?></dt>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Production Companies' : '配給会社'; ?>
     <dd class="u-pl-4">
       <ul class="c-listMovie__multiple">
         <?php foreach ((array)$production_studios as $production_studio) : ?>
@@ -136,5 +139,4 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
     <?php echo get_post_meta($post_id, 'video_code', true) ?>
     <?php endif ?>
   </div>
-
 </section>
