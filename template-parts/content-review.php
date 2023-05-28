@@ -119,7 +119,7 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
     <?php $production_studios = get_the_terms($post_id, 'production_studio') ?>
     <?php if ($production_studios) : ?>
     <dt class="u-font-bold u-text-lg">
-      <?php echo pll_current_language() === 'en' ? 'Production Companies' : '配給会社'; ?>
+      <?php echo pll_current_language() === 'en' ? 'Production Companies' : '制作会社'; ?>
     <dd class="u-pl-4">
       <ul class="c-listMovie__multiple">
         <?php foreach ((array)$production_studios as $production_studio) : ?>
