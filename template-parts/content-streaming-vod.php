@@ -52,7 +52,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
           'affiliate_code' => $affiliate_code,
         )
       ?>
-    <?php if (isset($affiliate)) : ?>
+    <?php if (is_null($affiliate)) : ?>
     <li style="width: 50%">
       <? get_template_part($affiliate, null, $arg_affiliate) ?>
     </li>
