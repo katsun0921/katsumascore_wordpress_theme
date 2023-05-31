@@ -88,26 +88,27 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 <?php
 // VODが配信中のものかり執筆し、劇場公開で視聴していない
 if ($is_vod_streaming && !$is_cinema_watched) :
+$title = pll_current_language() === 'en' ? $original_title : $title_jp;
 ?>
 <section>
   <h2 class="u-mb-4">
     <?php echo pll_current_language() === 'en' ?
-        'This page is written from the "' . $original_title . '" which is available on ' . $vod_service_name . '.' :
-        'このページでは' . $vod_service_name . 'で配信中の' . $title_jp . 'から執筆しました。';
+        'This page is written from the "' . $title . '" which is available on ' . $vod_service_name . '.' :
+        'このページでは' . $vod_service_name . 'で配信中の' . $title . 'から執筆しました。';
       ?>
   </h2>
   <p>
     <?php echo pll_current_language() === 'en' ?
-        'This page introduces the synopsis, impressions, and ratings of "' . $original_title . '" available on ' . $vod_service_name . '.
+        'This page introduces the synopsis, impressions, and ratings of "' . $title . '" available on ' . $vod_service_name . '.
     If you are interested in this movie, please check it out at ' . $vod_service_name . '!' :
-        $vod_service_name . 'で配信されている「' . $title_jp . '」のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ下記URLの' . $vod_service_name . 'からチェックしてみてください！';
+        $vod_service_name . 'で配信されている「' . $title . '」のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ下記URLの' . $vod_service_name . 'からチェックしてみてください！';
       ?>
   </p>
   <?php if ($is_affiliate_code) : ?>
   <?php echo $affiliate_code ?>
   <?php else : ?>
   <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank"
-    rel="noopener"><?php echo $vod_service_name . ' ' . $title_jp; ?></a>
+    rel="noopener"><?php echo $vod_service_name . ' ' . $title; ?></a>
   <?php endif; ?>
   <?php
     // VODにもとづくPostを取得
