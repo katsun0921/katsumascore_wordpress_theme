@@ -1,16 +1,17 @@
 <?php
+['post_id' => $post_id] = $args;
 // コンテンツを配信していVODを表示するページ。劇場で上映中でありVODで配信をしていない時は表示をしない。
-$title_jp = get_post_meta($post->ID, 'title_jp', true);
-$original_title = get_post_meta($post->ID, 'original_title', true);
+$title_jp = get_post_meta($post_id, 'title_jp', true);
+$original_title = get_post_meta($post_id, 'original_title', true);
 $repeater_other_vod = 'streaming_vod_other_vod';
-$rows_other_vod = get_field($repeater_other_vod);
+$rows_other_vod = get_field($repeater_other_vod, $post_id);
 $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
 ?>
 
 <?php if ($count_other_vod > 0) : ?>
 <section>
   <h2>
-    <?php echo pll_current_language() === 'en' ? 'You can access ' . $original_title . ' through various other video distribution services as well.' : $title_jp . 'は' ?>
+    <?php echo pll_current_language() === 'en' ? 'You can access ' . $original_title . ' through various other video distribution services as well.' : $title_jp . 'は、他にも様々な動画配信サービスで配信中です。' ?>
   </h2>
   <ul style="flex-wrap: wrap;display: flex;list-style: none;">
     <?php
@@ -19,7 +20,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $is_affiliate_code = $rows_other_vod[$i]['is_affiliate_code'];
         $affiliate_code = $rows_other_vod[$i]['affiliate_code'];
         $affiliate = null;
-        $affiliate_path = 'template-parts/affiliate/';
+        $affiliate_path = '/template-parts/affiliate/';
         $url = $rows_other_vod[$i]['other_vod_url'];
         $slug = get_term($vod_term_id)->slug;
         $amazon_prime_video = pll_current_language() === 'en' ? 'amazon-prime-video-com' : 'amazon-prime-video-jp';
@@ -41,8 +42,6 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
           case $disney_plus:
             $affiliate = $affiliate_path . 'disney-plus';
             break;
-          default:
-            $affiliate = null;
         }
         $arg_affiliate = array(
           'unregistered_text' => pll_current_language() === 'en' ? 'If you have not yet registered, you can do so here.' : '未登録の方はこちらから登録できます。',
@@ -52,7 +51,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
           'affiliate_code' => $affiliate_code,
         )
       ?>
-    <?php if (is_null($affiliate)) : ?>
+    <?php if (!is_null($affiliate)) : ?>
     <li style="width: 50%">
       <? get_template_part($affiliate, null, $arg_affiliate) ?>
     </li>

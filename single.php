@@ -25,8 +25,9 @@ get_template_part($template . '/content-title', null, array('post_id' => $post_i
       get_template_part($template . '/content-relation-by-post-id'); ?>
     <?php
       // 劇場版以外VODサービスを表示
-      $is_cinema_showing=get_field('cinema_info_filed_is_cinema_showing'); if (!$is_cinema_showing) {
-      get_template_part($template . '/content-streaming-vod' , null, array('post_id'=> $post_id));
+      $is_cinema_showing=get_field('cinema_info_filed_is_cinema_showing');
+      if (!$is_cinema_showing) {
+        get_template_part($template . '/content-streaming-vod' , null, array('post_id'=> $post_id));
       }
       ?>
     <?php
