@@ -25,6 +25,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $slug = get_term($vod_term_id)->slug;
         $amazon_prime_video = pll_current_language() === 'en' ? 'amazon-prime-video-com' : 'amazon-prime-video-jp';
         $netflix = pll_current_language() === 'en' ? 'netflix-com' : 'netflix-jp';
+        $unext = pll_current_language() === 'en' ? 'u-next-en' : 'u-next-ja';
         $disney_plus = pll_current_language() === 'en' ? 'disneyplus-com' : 'disneyplus-jp';
         switch ($slug) {
           case $amazon_prime_video:
@@ -36,7 +37,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
           case $netflix:
             $affiliate = $affiliate_path . 'netflix';
             break;
-          case 'u-next':
+          case $unext:
             $affiliate = $affiliate_path . 'u-next';
             break;
           case $disney_plus:
