@@ -24,17 +24,17 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 <section>
   <h2 class="u-mb-4">
     <?php if (pll_current_language() === 'en') : ?>
-    Published on this page on
-    <time datetime="<?php echo $release_date->format('j M, Y'); ?>">
-      <?php echo $release_date->format('j M, Y'); ?>
-    </time>
+    <!-- Published on this page on
+    <time datetime="<?php // echo $release_date->format('j M, Y'); ?>">
+      <?php // echo $release_date->format('j M, Y'); ?>
+    </time> -->
     Written <?php echo $original_title ?>.
     <?php else : ?>
-    このページでは
-    <time datetime="<?php echo $release_date->format('Y-m-d'); ?>">
-      <?php echo $release_date->format('Y年m月d日'); ?>
+    <!-- このページでは
+    <time datetime="<?php // echo $release_date->format('Y-m-d'); ?>">
+      <?php // echo $release_date->format('Y年m月d日'); ?>
     </time>
-    に公開された
+    に公開された -->
     <?php echo $title_jp; ?>を執筆しました。
     <?php endif; ?>
   </h2>
