@@ -33,9 +33,9 @@ function getMax($siteName)
 $reviewSites = [];
 foreach ((array) $siteNames as $site) {
   if (get_field_object($site)) {
-    $addValue = array_merge(get_field_object($site)['value'], getMax($site));
     $label = get_field_object($site)['label'];
-    array_push($reviewSites, array($label => $addValue));
+    $addValue = array_merge(get_field_object($site)['value'], getMax($site), array("label" => $label));
+    array_push($reviewSites, array($site => $addValue));
   }
 }
 ?>
@@ -49,13 +49,23 @@ foreach ((array) $siteNames as $site) {
         $data = $value[key($value)];
         $siteUrl = strlen($data['site_url']) > 0 ? 'href="' . $data['site_url'] . '" target="_blank" rel="noopener"' : '';
         $score = strlen($data['score']) > 0 ? $data['score'] : '';
+        // rotten tomatoes audience score
+        $score_audience = '';
+        if (key($value) === $rottenTomatoes) {
+          $score_audience =  strlen($data['score_audience']) > 0 ? $data['score_audience'] : '';
+        }
         $max = strlen($data['max']) > 0 ? $data['max'] : '';
       ?>
     <?php if ($score) : ?>
     <li>
       <a <?php echo $siteUrl ?>>
-        <?php echo key($value) . ": " . $score . "/" . $max ?>
+        <?php echo $data['label'] . ": " . $score . "/" . $max ?>
       </a>
+      <?php if ($score_audience) : ?>
+      <a <?php echo $siteUrl ?>>
+        <?php echo "AUDIENCE: " . $score_audience . "/" . $max ?>
+      </a>
+      <?php endif; ?>
     </li>
     <?php endif; ?>
     <?php endforeach; ?>
