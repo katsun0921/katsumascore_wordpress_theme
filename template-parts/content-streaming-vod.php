@@ -28,6 +28,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $unext = pll_current_language() === 'en' ? 'u-next-en' : 'u-next-ja';
         $disney_plus = pll_current_language() === 'en' ? 'disneyplus-com' : 'disneyplus-jp';
         $dmmtv = pll_current_language() === 'en' ? 'dmmtv-en' : 'dmmtv-jp';
+        $youtube = pll_current_language() === 'en' ? 'youtube-com' : 'youtube-cojp';
         switch ($slug) {
           case $amazon_prime_video:
             $affiliate = $affiliate_path . 'amazon-prime-video';
@@ -46,6 +47,9 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
             break;
           case $dmmtv:
             $affiliate = $affiliate_path . 'dmmtv';
+            break;
+          case $youtube:
+            $affiliate = $affiliate_path . 'youtube';
             break;
         }
         $arg_affiliate = array(
