@@ -19,6 +19,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $vod_term_id = $rows_other_vod[$i]['other_vod_name'];
         $is_affiliate_code = $rows_other_vod[$i]['is_affiliate_code'];
         $affiliate_code = $rows_other_vod[$i]['affiliate_code'];
+        $is_paid = $rows_other_vod[$i]['is_paid'];
         $affiliate = null;
         $affiliate_path = '/template-parts/affiliate/';
         $url = $rows_other_vod[$i]['other_vod_url'];
@@ -62,6 +63,9 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
       ?>
     <?php if (!is_null($affiliate)) : ?>
     <li style="width: 50%">
+      <?php if ($is_paid) : ?>
+      <em>この配信は有料になります</em>
+      <?php endif; ?>
       <? get_template_part($affiliate, null, $arg_affiliate) ?>
     </li>
     <?php endif; ?>
