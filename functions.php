@@ -130,7 +130,7 @@ function progression_studios_scripts()
   wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/flexslider.js', array('jquery'), '20120206', true);
   wp_enqueue_script('ratency-progression-masonry', get_template_directory_uri() . '/js/masonry.js', array('jquery'), '20120206', true);
   wp_enqueue_script('ratency-progression-bundle', get_template_directory_uri() . '/js/bundle.js');
-  wp_enqueue_style('katsumascore-style-build', get_template_directory_uri() . '/css/all.css');
+  wp_enqueue_style('katsumascore-style-build', get_template_directory_uri() . '/css/build.css');
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
