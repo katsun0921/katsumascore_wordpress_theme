@@ -127,6 +127,7 @@ $title = pll_current_language() === 'en' ? $original_title : $title_jp;
     );
 
     $taxonomy_posts = get_posts($args);
+    $class_name = count($taxonomy_posts) === 3 ? 'l-postRelated__3columns' : 'l-postRelated';
     ?>
   <?php if (count($taxonomy_posts) > 0) : ?>
   <div class="u-mt-6">
@@ -136,7 +137,7 @@ $title = pll_current_language() === 'en' ? $original_title : $title_jp;
           '他にも' . $vod_service_name . 'の作品レビューを書いています。';
         ?>
     </h3>
-    <ul class="l-postRelated">
+    <ul class="<?php echo $class_name ?>">
       <?php foreach ($taxonomy_posts as $post) : ?>
       <li>
         <?php get_template_part('template-parts/components/postImageOverlay'); ?>
