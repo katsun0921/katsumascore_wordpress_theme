@@ -5,7 +5,7 @@
  */
 ?>
 <!doctype html>
-<html lang="<?php echo pll_current_language() === 'en' ? 'en' : 'ja' ?>">
+<html lang="<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>">
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -19,6 +19,9 @@
   gtag('js', new Date());
 
   gtag('config', 'G-NE4K3EM3VB');
+  gtag('set', {
+    language: "<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>"
+  })
   </script>
   <!-- Google AdSense -->
   <script data-ad-client="ca-pub-6583700677059660" async
