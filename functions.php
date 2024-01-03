@@ -188,6 +188,38 @@ function my_redirect()
 add_action('template_redirect', 'my_redirect', 1);
 
 /**
+ * Allows posts to be searched by ID in the admin area.
+ *
+ * @param WP_Query $query The WP_Query instance (passed by reference).
+ */
+add_action( 'pre_get_posts','wpse_admin_search_include_ids' );
+function wpse_admin_search_include_ids( $query ) {
+    // Bail if we are not in the admin area
+    if ( ! is_admin() ) {
+        return;
+    }
+
+    // Bail if this is not the search query.
+    if ( ! $query->is_main_query() && ! $query->is_search() ) {
+        return;
+    }
+
+    // Get the value that is being searched.
+    $search_string = get_query_var( 's' );
+
+    // Bail if the search string is not an integer.
+    if ( ! filter_var( $search_string, FILTER_VALIDATE_INT ) ) {
+        return;
+    }
+
+    // Set WP Query's p value to the searched post ID.
+    $query->set( 'p', intval( $search_string ) );
+
+    // Reset the search value to prevent standard search from being used.
+    $query->set( 's', '' );
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
