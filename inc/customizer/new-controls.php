@@ -15,9 +15,6 @@ add_action( 'customize_controls_print_styles', 'progression_studios_enqueue_cust
 //  http://pluto.kiwi.nz/2014/07/how-to-add-a-color-control-with-alphaopacity-to-the-wordpress-theme-customizer/
 
 function progression_studios_add_customizer_custom_controls( $wp_customize ) {
-	
-	
-	
 	/**
 	 * Create a Radio-Buttonset control.
 	 */
@@ -34,32 +31,42 @@ function progression_studios_add_customizer_custom_controls( $wp_customize ) {
 			$name = '_customize-radio-' . $this->id;
 
 			?>
-			<span class="customize-control-title">
-				<?php echo esc_attr( $this->label ); ?>
-				<?php if ( ! empty( $this->description ) ) : ?>
-					<?php // The description has already been sanitized in the Fields class, no need to re-sanitize it. ?>
-					<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
-				<?php endif; ?>
-			</span>
+<span class="customize-control-title">
+  <?php echo esc_attr( $this->label ); ?>
+  <?php if ( ! empty( $this->description ) ) : ?>
+  <?php // The description has already been sanitized in the Fields class, no need to re-sanitize it. ?>
+  <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+  <?php endif; ?>
+</span>
 
-			<div id="input_<?php echo esc_html( $this-> id ); ?>" class="buttonset">
-				<?php foreach ( $this->choices as $value => $label ) : ?>
-					<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr($this->id) . esc_attr( $value ); ?>" <?php $this->link(); checked( $this->value(), $value ); ?>>
-						<label for="<?php echo esc_attr($this->id) . esc_attr( $value ); ?>">
-							<?php echo esc_html( $label ); ?>
-						</label>
-					</input>
-				<?php endforeach; ?>
-			</div>
+<div id="input_<?php echo esc_html( $this-> id ); ?>" class="buttonset">
+  <?php foreach ( $this->choices as $value => $label ) : ?>
+  <input
+    type="radio"
+    value="<?php echo esc_attr( $value ); ?>"
+    name="<?php echo esc_attr( $name ); ?>"
+    id="<?php echo esc_attr($this->id) . esc_attr( $value ); ?>"
+    <?php $this->link(); checked( $this->value(), $value ); ?>
+  />
+  <label for="<?php echo esc_attr($this->id) . esc_attr( $value ); ?>">
+    <?php echo esc_html( $label ); ?>
+  </label>
+  </input>
+  <?php endforeach; ?>
+</div>
 
-			
-			<script>jQuery(document).ready(function($) { $( '[id="input_<?php echo esc_html( $this-> id ); ?>"]' ).buttonset(); });</script>
-			<?php
+
+<script>
+jQuery(document).ready(function($) {
+  $('[id="input_<?php echo esc_html( $this-> id ); ?>"]').buttonset();
+});
+</script>
+<?php
 		}
 
 	}
-	
-	
+
+
 	/**
 	 * Create a jQuery slider control.
 	 * TODO: Migrate to an HTML5 range control. Range control are hard to style 'cause they don't display the value
@@ -69,50 +76,66 @@ function progression_studios_add_customizer_custom_controls( $wp_customize ) {
 		public $type = 'slider';
 
 		public function render_content() { ?>
-			<label>
+<label>
 
-				<span class="customize-control-title">
-					<?php echo esc_attr( $this->label ); ?>
-					<?php if ( ! empty( $this->description ) ) : ?>
-						<?php // The description has already been sanitized in the Fields class, no need to re-sanitize it. ?>
-						<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
-					<?php endif; ?>
-				</span>
-			</label>
-			
-			<input type="number" class="progression-slider" id="input_<?php echo esc_html( $this-> id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" step="<?php echo esc_attr($this->choices['step']); ?>" <?php $this->link(); ?>/>
-			
-			
-			<input type="text" class="progression-slider-hidden" id="input_<?php echo esc_html( $this-> id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" step="<?php echo esc_attr($this->choices['step']); ?>" <?php $this->link(); ?>/>
-			
-			<div id="slider_<?php echo esc_html( $this-> id ); ?>" class="ss-slider"></div>
-			<script>
-				jQuery(document).ready(function($) {
-					$( '[id="slider_<?php echo esc_html( $this-> id ); ?>"]' ).slider({
-							value : <?php echo esc_attr( $this->value() ); ?><?php if ( $this->value() == 0 ) : ?>0<?php endif; ?>,
-							min   : <?php echo esc_attr($this->choices['min'] ); ?>,
-							max   : <?php echo esc_attr($this->choices['max'] ); ?>,
-							step  : <?php echo esc_attr($this->choices['step'] ); ?>,
-							slide : function( event, ui ) { $( '[id="input_<?php echo esc_html( $this-> id ); ?>"]' ).val(ui.value).change(); }
-					});
-					
-					//$( '[id="input_<?php echo esc_html( $this-> id ); ?>"]' ).val( $( '[id="slider_<?php echo esc_html( $this-> id ); ?>"]' ).slider( "value" ) );
+  <span class="customize-control-title">
+    <?php echo esc_attr( $this->label ); ?>
+    <?php if ( ! empty( $this->description ) ) : ?>
+    <?php // The description has already been sanitized in the Fields class, no need to re-sanitize it. ?>
+    <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+    <?php endif; ?>
+  </span>
+</label>
 
-					$( '[id="input_<?php echo esc_html( $this-> id ); ?>"]' ).change(function() { 
-						$( '[id="slider_<?php echo esc_html( $this-> id ); ?>"]' ).slider({
-							value : $( this ).val()
-						});
-					});
+<input
+  type="number"
+  class="progression-slider"
+  id="input_<?php echo esc_html( $this-> id ); ?>"
+  value="<?php echo esc_attr( $this->value() ); ?>"
+  step="<?php echo esc_attr($this->choices['step']); ?>"
+  <?php $this->link(); ?>
+/>
 
-				});
-			</script>
-			<?php
+
+<input
+  type="text"
+  class="progression-slider-hidden"
+  id="input_<?php echo esc_html( $this-> id ); ?>"
+  value="<?php echo esc_attr( $this->value() ); ?>"
+  step="<?php echo esc_attr($this->choices['step']); ?>"
+  <?php $this->link(); ?>
+/>
+
+<div id="slider_<?php echo esc_html( $this-> id ); ?>" class="ss-slider"></div>
+<script>
+jQuery(document).ready(function($) {
+  $('[id="slider_<?php echo esc_html( $this-> id ); ?>"]').slider({
+    value: <?php echo esc_attr( $this->value() ); ?><?php if ( $this->value() == 0 ) : ?>0<?php endif; ?>,
+    min: <?php echo esc_attr($this->choices['min'] ); ?>,
+    max: <?php echo esc_attr($this->choices['max'] ); ?>,
+    step: <?php echo esc_attr($this->choices['step'] ); ?>,
+    slide: function(event, ui) {
+      $('[id="input_<?php echo esc_html( $this-> id ); ?>"]').val(ui.value).change();
+    }
+  });
+
+  //$( '[id="input_<?php echo esc_html( $this-> id ); ?>"]' ).val( $( '[id="slider_<?php echo esc_html( $this-> id ); ?>"]' ).slider( "value" ) );
+
+  $('[id="input_<?php echo esc_html( $this-> id ); ?>"]').change(function() {
+    $('[id="slider_<?php echo esc_html( $this-> id ); ?>"]').slider({
+      value: $(this).val()
+    });
+  });
+
+});
+</script>
+<?php
 
 		}
 	}
-	
-	
-	/* 
+
+
+	/*
 	Modified November 30th 2017
 	https://github.com/skyshab/components/tree/master/customizer/alpha-color-picker
 
@@ -139,7 +162,7 @@ function progression_studios_add_customizer_custom_controls( $wp_customize ) {
 	 * You should have received a copy of the GNU General Public License
 	 * along with this Alpha Color Picker. If not, see <http://www.gnu.org/licenses/>.
 	 */
-	
+
 	class Progression_Studios_Revised_Alpha_Color_Control extends WP_Customize_Control {
 
 		/**
@@ -209,21 +232,25 @@ function progression_studios_add_customizer_custom_controls( $wp_customize ) {
 				echo '<span class="customize-control-title">' . sanitize_text_field( $this->label ) . '</span>';
 			}
 
-			// Output the description if passed in	
+			// Output the description if passed in
 			if ( isset( $this->description ) && '' !== $this->description ) {
 				echo '<span class="description customize-control-description">' . sanitize_text_field( $this->description ) . '</span>';
-			} 
+			}
 			?>
-			<div class="customize-control-content">
-				<label>
-					<input class="alpha-color-control" type="text" data-show-opacity="<?php echo esc_attr($show_opacity); ?>" data-palette="<?php echo esc_attr( $palette ); ?>" data-default-color="<?php echo esc_attr( $this->settings['default']->default ); ?>" <?php $this->link(); ?>  />
-				</label>
-			</div>
-			<?php
+<div class="customize-control-content">
+  <label>
+    <input
+      class="alpha-color-control"
+      type="text" data-show-opacity="<?php echo esc_attr($show_opacity); ?>"
+      data-palette="<?php echo esc_attr( $palette ); ?>"
+      data-default-color="<?php echo esc_attr( $this->settings['default']->default ); ?>"
+      <?php $this->link(); ?>
+    />
+  </label>
+</div>
+<?php
 		}
 	}
-	
 
 }
 add_action( 'customize_register', 'progression_studios_add_customizer_custom_controls' );
-

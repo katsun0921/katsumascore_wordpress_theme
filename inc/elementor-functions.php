@@ -13,7 +13,3 @@ if ( is_admin() && isset($_GET['activated'] ) && $pagenow == 'themes.php' ) {
 	update_option( 'elementor_disable_typography_schemes', 'yes' );
 	update_option( 'elementor_load_fa4_shim', 'yes' );
 }
-
-
-
-

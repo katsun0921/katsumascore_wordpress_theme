@@ -19,8 +19,7 @@ if (!function_exists('progression_studios_setup')) :
    * @since progression 1.0
    */
 
-  function theme_setup()
-  {
+  function theme_setup() {
 
     // Post Thumbnails
     add_theme_support('post-thumbnails');
@@ -64,8 +63,6 @@ if (!function_exists('progression_studios_setup')) :
   }
 endif; // progression_studios_setup
 add_action('after_setup_theme', 'theme_setup');
-
-
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -116,14 +113,10 @@ function progression_studios_widgets_init()
 }
 add_action('widgets_init', 'progression_studios_widgets_init');
 
-
-
-
 /**
  * Enqueue scripts and styles
  */
-function progression_studios_scripts()
-{
+function progression_studios_scripts() {
   wp_enqueue_style('ratency-progression-style', get_stylesheet_uri());
   wp_enqueue_script('ratency-progression-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true);
   wp_enqueue_script('scrolltofixed', get_template_directory_uri() . '/js/scrolltofixed.js', array('jquery'), '20120206', true);
@@ -139,8 +132,7 @@ function progression_studios_scripts()
 add_action('wp_enqueue_scripts', 'progression_studios_scripts');
 
 
-function progression_studios_demo_after_import_setup()
-{
+function progression_studios_demo_after_import_setup() {
   // Assign menus to their locations.
   $progession_studios_main_menu = get_term_by('name', 'Main Navigation', 'nav_menu');
 
@@ -166,8 +158,7 @@ add_filter('pt-ocdi/disable_pt_branding', '__return_true');
 /**
  * Custom Editor Settings
  */
-function custom_enqueue_scripts($hook)
-{
+function custom_enqueue_scripts($hook) {
   // Only add to the edit.php admin page.
   // See WP docs.
   if ('post.php' === $hook) {
@@ -177,8 +168,7 @@ function custom_enqueue_scripts($hook)
 }
 add_action('admin_enqueue_scripts', 'custom_enqueue_scripts');
 
-function my_redirect()
-{
+function my_redirect() {
   /* 著者アーカイブのリダイレクト */
   if (is_author()) {
     wp_safe_redirect(home_url());
@@ -192,7 +182,6 @@ add_action('template_redirect', 'my_redirect', 1);
  *
  * @param WP_Query $query The WP_Query instance (passed by reference).
  */
-add_action( 'pre_get_posts','wpse_admin_search_include_ids' );
 function wpse_admin_search_include_ids( $query ) {
     // Bail if we are not in the admin area
     if ( ! is_admin() ) {
@@ -218,11 +207,38 @@ function wpse_admin_search_include_ids( $query ) {
     // Reset the search value to prevent standard search from being used.
     $query->set( 's', '' );
 }
+add_action( 'pre_get_posts','wpse_admin_search_include_ids' );
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+/* Modify Default Category Widget */
+function progression_studios_add_span_cat_count($links) {
+  $links = str_replace('</a> (', ' <span class="count">', $links);
+
+  $links = str_replace('(', '', $links);
+
+  $links = str_replace(')', '</span></a>', $links);
+  return $links;
+}
+add_filter('wp_list_categories', 'progression_studios_add_span_cat_count');
+
+function progression_studios_archive_count_span($links) {
+  $links = str_replace('</a>&nbsp;(', ' <span class="count">', $links);
+  $links = str_replace(')', '</span></a>', $links);
+  return $links;
+}
+add_filter('get_archives_link', 'progression_studios_archive_count_span');
+
+function progression_studios_category_title($title) {
+  if (is_category()) {
+    $title = single_cat_title('', false);
+  } elseif (is_tag()) {
+    $title = single_tag_title('', false);
+  }
+  return $title;
+}
+add_filter('get_the_archive_title', 'progression_studios_category_title');
 
 
 /**
