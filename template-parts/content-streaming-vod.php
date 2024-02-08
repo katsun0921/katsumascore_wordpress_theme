@@ -30,6 +30,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $disney_plus = pll_current_language() === 'en' ? 'disneyplus-com' : 'disneyplus-jp';
         $dmmtv = pll_current_language() === 'en' ? 'dmmtv-en' : 'dmmtv-jp';
         $youtube = pll_current_language() === 'en' ? 'youtube-com' : 'youtube-cojp';
+        $appleTvPlus = pll_current_language() === 'en' ? 'apple-tv-com' : 'apple-tv-cojp';
         switch ($slug) {
           case $amazon_prime_video:
             $affiliate = $affiliate_path . 'amazon-prime-video';
@@ -51,6 +52,9 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
             break;
           case $youtube:
             $affiliate = $affiliate_path . 'youtube';
+            break;
+          case $appleTvPlus:
+            $affiliate = $affiliate_path . 'apple-tv-plus';
             break;
         }
         $arg_affiliate = array(
