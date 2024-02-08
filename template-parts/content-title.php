@@ -22,6 +22,6 @@ $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
   </p>
   <?php else : ?>
   <h1 class="page-title c-heading__title">
-    <?php echo the_title() ?></h1>
+    <?php echo !!$headingText ? $headingText : single_cat_title() ?></h1>
   <?php endif; ?>
 </div>
