@@ -3,7 +3,7 @@
   <?php echo $unregistered_text; ?>
 </p>
 <a style="display: block;" href="<?php echo esc_url($url) ?>" target="_blank" rel="noopener noreferrer">
-  <img src="<?php echo get_template_directory_uri() . '/images/banner/apple-tv-plus.webp' ?>" alt="youtube"
+  <img src="<?php echo get_template_directory_uri() . '/images/banner/apple-tv-plus.webp' ?>" alt="Apple TV Plus"
     loading="lazy">
   <?php echo $streaming_text; ?>
 </a>
