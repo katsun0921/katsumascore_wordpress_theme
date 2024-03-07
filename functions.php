@@ -162,7 +162,6 @@ function custom_enqueue_scripts($hook) {
   // Only add to the edit.php admin page.
   // See WP docs.
   if ('post.php' === $hook) {
-    wp_enqueue_script('my-custom-script', get_template_directory_uri() . '/js/edit-post.js');
     wp_enqueue_style('my-custom-script', get_template_directory_uri() . '/css/edit-post.css');
   }
 }
@@ -240,6 +239,9 @@ function progression_studios_category_title($title) {
 }
 add_filter('get_the_archive_title', 'progression_studios_category_title');
 
+
+// Disable Post-by-Email
+add_filter('enable_post_by_email_configuration', '__return_false', PHP_INT_MAX);
 
 /**
  * Theme Customizer
