@@ -2,7 +2,6 @@
 <?php
   ['post_id' => $post_id] = $args;
   $tags = get_the_tags($post_id);
-  $tag_ids = array();
   ?>
 <?php if ($tags) : ?>
 <?php foreach ($tags as $tag) : ?>
