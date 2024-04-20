@@ -3,7 +3,10 @@ $post_id = $post->ID;
 $template = 'template-parts';
 ?>
 
-<main id="single-post-<?php echo $post_id; ?>" <?php post_class(); ?>>
+<main
+  id="single-post-<?php echo $post_id; ?>"
+  <?php post_class(); ?>
+>
   <?php get_template_part($template . '/content-review'); ?>
 
   <?php if (is_active_sidebar('progression-studios-post-widgets-top')) : ?>
@@ -42,7 +45,5 @@ $template = 'template-parts';
     <?php dynamic_sidebar('progression-studios-post-widgets-bottom'); ?>
   </div>
   <?php endif; ?>
-
-  <?php the_tags('<div class="c-tags">', '', '</div>'); ?>
 
 </main>

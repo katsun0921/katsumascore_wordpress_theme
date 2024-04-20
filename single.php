@@ -11,9 +11,15 @@ $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'orig
 get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
 ?>
 
-<div id="content-pro" class="site-content-blog-post u-mt-60px u-mb-50px u-relative">
+<div
+  id="content-pro"
+  class="site-content-blog-post u-mt-60px u-mb-50px u-relative"
+>
   <div class="l-container l-container__showLeftSidebar">
-    <div id="main-container-pro" class="l-content">
+    <div
+      id="main-container-pro"
+      class="l-content"
+    >
       <?php get_template_part('template-parts/date', 'single'); ?>
       <?php get_template_part('template-parts/content', 'single'); ?>
     </div><!-- close #main-container-pro -->
@@ -40,6 +46,10 @@ get_template_part($template . '/content-title', null, array('post_id' => $post_i
     <?php
       // カテゴリーにもとづくPostを表示
       get_template_part($template . '/category-posts-rand', null, array('post_id' => $post_id));
+    ?>
+    <?php
+      // タグにもとづくPostを表示
+      get_template_part($template . '/content-tag-posts', null, array('post_id' => $post_id));
     ?>
   </div>
   <div class="u-mt-10">
