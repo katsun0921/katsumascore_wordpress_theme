@@ -3,11 +3,9 @@
 // レンタル広告を表示するページ。劇場で上映中でありVODで配信をしていない時は表示をしない。
 $titleJp = get_post_meta($post_id, 'title_jp', true);
 $rental_tsutaya_url = get_field('rental_tsutaya_url', $post_id);
-$rental_dmm_url = get_field('rental_dmm_url', $post_id);
 $rental_geo_url = get_field('rental_geo_url', $post_id);
 $rental_services = array(
   'tsutaya' => $rental_tsutaya_url,
-  'dmm' => $rental_dmm_url,
   'geo' => $rental_geo_url,
 );
 $all_empty_for_rental_services = true;
