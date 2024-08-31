@@ -39,7 +39,10 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
       <?php echo pll_current_language() === 'en' ? 'Original Site' : '公式サイト'; ?>
     </dt>
     <dd class="u-pl-4">
-      <a href="<?php echo esc_url(get_post_meta($post_id, 'official_url', true)) ?>" target="_blank">
+      <a
+        href="<?php echo esc_url(get_post_meta($post_id, 'official_url', true)) ?>"
+        target="_blank"
+      >
         <?php echo get_post_meta($post_id, 'official_url', true) ?>
       </a>
     </dd>
@@ -134,9 +137,9 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
     </dd>
     <?php endif ?>
   </dl>
+  <?php if (get_post_meta($post_id, 'video_code', true)) : ?>
   <div class="u-mt-4 p-info__iframe">
-    <?php if (get_post_meta($post_id, 'video_code', true)) : ?>
     <?php echo get_post_meta($post_id, 'video_code', true) ?>
-    <?php endif ?>
   </div>
+  <?php endif ?>
 </section>
