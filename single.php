@@ -48,6 +48,10 @@ get_template_part($template . '/content-title', null, array('post_id' => $post_i
       get_template_part($template . '/category-posts-rand', null, array('post_id' => $post_id));
     ?>
     <?php
+      // シリーズにもとづくPostを表示
+      get_template_part($template . '/content-series-posts', null, array('post_id' => $post_id));
+    ?>
+    <?php
       // タグにもとづくPostを表示
       get_template_part($template . '/content-tag-posts', null, array('post_id' => $post_id));
     ?>
