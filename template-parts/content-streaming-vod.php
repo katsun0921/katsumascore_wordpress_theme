@@ -68,7 +68,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
     <?php if (!is_null($affiliate)) : ?>
     <li style="width: 50%">
       <?php if ($is_paid) : ?>
-      <em>この配信は有料になります</em>
+      <em><?php echo pll_current_language() === 'en' ? 'This distribution is paid.' : 'この配信は有料になります。'; ?></em>
       <?php endif; ?>
       <? get_template_part($affiliate, null, $arg_affiliate) ?>
     </li>

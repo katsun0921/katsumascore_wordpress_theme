@@ -1,6 +1,6 @@
 <?php
 require_once get_template_directory() . '/libs/VodImageSelector.php';
-$vodImageSelector = new VodImageSelector();
+$vod_image_selector = new VodImageSelector();
 
 // レビューを投稿したVODを紹介するページ
 ['post_id' => $post_id] = $args;
@@ -20,7 +20,7 @@ $vod_service_url = get_field('streaming_vod_watched_vod_watched_vod_url');
 $vod_url = get_term_link(get_term($vod_streaming_term_id)->term_id);
 $is_affiliate_code = get_field('streaming_vod_watched_vod_is_affiliate_code');
 $affiliate_code = get_field('streaming_vod_watched_vod_affiliate_code');
-$vodImageUrl = $vodImageSelector->getImageUrl($$vod_service_slug);
+$vod_image_url = $vod_image_selector->getVodImageUrl($vod_service_slug);
 ?>
 <?php
 // まだVODが配信していなく、劇場公開を視聴している
@@ -113,9 +113,12 @@ $title = pll_current_language() === 'en' ? $original_title : $title_jp;
   <?php echo $affiliate_code ?>
   <?php else : ?>
 
-  <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank"
-    rel="noopener">
-    <img src="<?php echo $vodImageUrl?>" alt="<?php echo $vod_service_name . ' ' . $title; ?>"><?php echo $vod_service_name . ' ' . $title; ?></a>
+  <a href="<?php echo esc_url($vod_service_url); ?>" target="_blank" rel="noopener">
+    <?php if (isset($vod_image_url)) : ?>
+    <img src="<?php echo esc_url($vod_image_url); ?>" alt="<?php echo esc_attr($vod_service_name); ?> <?php echo esc_attr($title); ?>" >
+    <?php endif; ?>
+    <span class="u-block"><?php echo $vod_service_name . ' ' . $title; ?></span>
+  </a>
   <?php endif; ?>
   <?php
     // VODにもとづくPostを取得
