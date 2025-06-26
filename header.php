@@ -24,8 +24,7 @@
   })
   </script>
   <!-- Google AdSense -->
-  <script data-ad-client="ca-pub-6583700677059660" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php get_template_part('header/social', 'sharing'); ?>
