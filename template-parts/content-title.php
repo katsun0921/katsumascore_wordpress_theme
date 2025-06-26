@@ -10,18 +10,11 @@ $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
   <?php if ($is_post) : ?>
   <h1 class="page-title c-heading__title">
     <span class="u-block u-mb-6"><?php get_template_part('template-parts/content-category') ?></span>
-    <span class="u-block is-shadow"><?php echo the_title() ?></span>
+    <span class="u-block u-px-20 is-shadow"><?php echo the_title() ?></span>
   </h1>
-  <p class="u-text-white">
-    <?php if (get_theme_mod('progression_studios_blog_post_meta_date_display', 'true') == 'true' && get_theme_mod('progression_studios_blog_date_ago', 'true') == 'true') : ?>
-    <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); ?>
-    <?php esc_html_e('ago', 'ratency-progression'); ?>
-    <?php else : ?>
-    <li class="blog-meta-date-list"><?php the_time(get_option('date_format')); ?></li>
-    <?php endif; ?>
-  </p>
   <?php else : ?>
   <h1 class="page-title c-heading__title">
-    <?php echo !!$headingText ? $headingText : single_cat_title() ?></h1>
+    <?php echo !!$headingText ? $headingText : single_cat_title() ?>
+  </h1>
   <?php endif; ?>
 </div>
