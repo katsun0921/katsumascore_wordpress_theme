@@ -90,16 +90,7 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
     </section>
   </div>
 </footer>
-
 <?php wp_footer(); ?>
-<amp-ad width="100vw" height="320"
-  type="adsense"
-  data-ad-client="ca-pub-6583700677059660"
-  data-ad-slot="5327414450"
-  data-auto-format="rspv"
-  data-full-width="">
-  <div overflow=""></div>
-</amp-ad>
 </body>
 
 </html>
