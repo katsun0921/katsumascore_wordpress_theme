@@ -23,8 +23,13 @@
     language: "<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>"
   })
   </script>
-  <!-- Google AdSense -->
-  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+  <?php
+  if (!is_preview() && !is_admin() && !is_404() && !is_search()) {
+    // Google AdSense
+  ?>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6583700677059660" crossorigin="anonymous"></script>
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+  <?php } ?>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php get_template_part('header/social', 'sharing'); ?>
@@ -38,6 +43,8 @@
 </head>
 
 <body id="js-preloader" <?php body_class(); ?>>
+  <!-- Google AdSense AMP -->
+  <amp-auto-ads type="adsense" data-ad-client="ca-pub-6583700677059660"></amp-auto-ads>
   <?php get_template_part('header/page', 'loader'); ?>
   <header id="masthead-pro">
     <div class="l-header">
