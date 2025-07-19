@@ -4,6 +4,13 @@
     "admax",
     "cojp",
     "disneyplus",
-    "dmmtv"
+    "dmmtv",
+    "Intelephense",
+    "Polylang"
+  ],
+  "intelephense.environment.includePaths": [
+    "plugins/stubs",
+    "vendor/php-stubs/wordpress-stubs",
+    "vendor/php-stubs/acf-pro-stubs"
   ]
 }

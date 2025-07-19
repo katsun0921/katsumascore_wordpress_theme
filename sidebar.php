@@ -8,7 +8,7 @@
 
 ?>
 
-<div class="l-sidebar">
+<aside class="l-sidebar">
   <?php dynamic_sidebar('progression-studios-post-widget-sidebar'); ?>
   <!-- admax -->
   <script src="https://adm.shinobi.jp/s/907bbfd51ed847a8ad762bc34b8a57d4"></script>
@@ -25,4 +25,4 @@
       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
     ></iframe>
   </div>
-</div><!-- close .sidebar -->
+</aside><!-- close .sidebar -->

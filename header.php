@@ -46,12 +46,11 @@
 <body id="js-preloader" <?php body_class(); ?>>
   <!-- Google AdSense AMP -->
   <amp-auto-ads type="adsense" data-ad-client="ca-pub-6583700677059660"></amp-auto-ads>
-  <?php get_template_part('header/page', 'loader'); ?>
   <header id="masthead-pro">
     <div class="l-header">
       <div class="l-header__logo">
         <h1 id="logo-pro" class="u-m-0 u-py-3 u-w-28 u-leading-none logo-inside-nav-pro noselect">
-          <a href="<?php echo esc_url(pll_current_language() === 'en' ? '/en' : '/'); ?>" rel="home">
+          <a href="<?php echo esc_url(pll_current_language() === 'en' ? '/en/top' : '/'); ?>" rel="home">
             <img src="<?php echo get_template_directory_uri(); ?>/images/logo-primary.png" alt="katsumascore"
               className="u-w-24" width="100" />
           </a>
@@ -79,5 +78,4 @@
         <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
       </nav>
     </div>
-
   </header>

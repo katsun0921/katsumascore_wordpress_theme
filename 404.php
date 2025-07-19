@@ -10,7 +10,7 @@ $template = 'template-parts';
 <div id="content-pro" class="u-mb-50px u-relative">
   <div id="error-page-index">
     <div class="l-container">
-      <h3><?php esc_html_e("Oops! That page can&rsquo;t be found.", 'ratency-progression'); ?></h3>
+      <h2><?php esc_html_e("Oops! That page can&rsquo;t be found.", 'ratency-progression'); ?></h2>
       <p>
         <?php esc_html_e("Sorry, We couldn&rsquo;t find the page you&rsquo;re looking for. Maybe Try one of the links in the navigation or a search.", 'ratency-progression'); ?>
       </p>
