@@ -5,7 +5,7 @@ $image = $imageThumbnail[0];
 $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
 ?>
 
-<div style="<?php if (has_post_thumbnail()) : ?>background-image:url('<?php echo esc_attr($image); ?>') <?php endif; ?>"
+<hgroup style="<?php if (has_post_thumbnail()) : ?>background-image:url('<?php echo esc_attr($image); ?>') <?php endif; ?>"
   class="<?php echo $parent_class; ?>">
   <?php if ($is_post) : ?>
   <h1 class="page-title c-heading__title">
@@ -17,4 +17,4 @@ $parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
     <?php echo !!$headingText ? $headingText : single_cat_title() ?>
   </h1>
   <?php endif; ?>
-</div>
+</hgroup>

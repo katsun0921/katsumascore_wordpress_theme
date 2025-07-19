@@ -3,7 +3,7 @@ $post_id = $post->ID;
 $template = 'template-parts';
 ?>
 
-<main
+<section
   id="single-post-<?php echo $post_id; ?>"
   <?php post_class(); ?>
 >
@@ -18,9 +18,9 @@ $template = 'template-parts';
   <?php get_template_part($template . '/content-good-point') ?>
   <?php get_template_part($template . '/content-summary') ?>
 
-  <section class="p-content u-my-8">
+  <article class="p-content u-my-8">
     <?php the_content(); ?>
-  </section>
+  </article>
 
   <div class="u-mb-8">
     <?php get_template_part($template . '/content-review-site-scores'); ?>
@@ -46,4 +46,4 @@ $template = 'template-parts';
   </div>
   <?php endif; ?>
 
-</main>
+</section>
