@@ -12,5 +12,9 @@
     "plugins/stubs",
     "vendor/php-stubs/wordpress-stubs",
     "vendor/php-stubs/acf-pro-stubs"
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  }
 }
