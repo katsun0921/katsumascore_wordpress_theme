@@ -266,3 +266,8 @@ require get_template_directory() . '/inc/elementor-functions.php';
  * Load Plugin prohibitionation
  */
 require get_template_directory() . '/inc/tgm-plugin-activation/plugin-activation.php';
+
+/**
+ * ランキングアイコンを表示する
+ */
+require get_template_directory() . '/inc/get-ranking-icon.php';
