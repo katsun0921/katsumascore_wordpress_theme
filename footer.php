@@ -28,15 +28,14 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
         <dd class="c-list__content">
           <ul class="u-flex u-flex-wrap">
             <?php foreach($categories as $category) : ?>
-            <li class="c-list__termList">
-              <a href="<?php echo get_category_link($category->term_id); ?>">
-                <?php echo $category->name; ?>
-                <span class="c-list__termCount">
-                  <?php echo $category->count; ?>
-                </span>
-              </a>
-            </li>
-            <? endforeach ?>
+              <?php if($category->parent==0) : ?>
+                <li class="c-list__termList">
+                  <a href="<?php echo get_category_link($category->term_id); ?>">
+                    <?php echo $category->name; ?>
+                  </a>
+                </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
           </ul>
         </dd>
       </dl>
@@ -61,9 +60,6 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
             <li class="c-list__termList">
               <a href="<?php echo get_term_link($term->term_id, $taxonomy); ?>">
                 <?php echo $name; ?>
-                <span class="c-list__termCount">
-                  <?php echo $count; ?>
-                </span>
               </a>
             </li>
             <?php endif; ?>
