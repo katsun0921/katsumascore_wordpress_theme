@@ -1,10 +1,17 @@
 <?php if ('post' == get_post_type()) : ?>
 <?php
-  ['post_id' => $post_id] = $args;
+  $post_id = $args['post_id'] ?? get_the_ID();
   $tags = get_the_tags($post_id);
   ?>
 <?php if ($tags) : ?>
-<?php foreach ($tags as $tag) : ?>
+<?php
+  // 配列をシャッフル
+  shuffle($tags);
+
+  // ランダムに3件だけ取り出す
+  $random_tags = array_slice($tags, 0, 3);
+?>
+<?php foreach ($random_tags as $tag) : ?>
 <?php
       $tag_id = $tag->term_id;
       $tag_name = $tag->name;
