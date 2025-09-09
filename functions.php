@@ -253,20 +253,6 @@ require get_template_directory() . '/inc/default-customizer.php';
  */
 require get_template_directory() . '/inc/mega-menu/mega-menu-framework.php';
 
-
-
-/**
- * Elementor Page Builder Functions
- */
-require get_template_directory() . '/inc/elementor-functions.php';
-
-
-
-/**
- * Load Plugin prohibitionation
- */
-require get_template_directory() . '/inc/tgm-plugin-activation/plugin-activation.php';
-
 /**
  * ランキングアイコンを表示する
  */

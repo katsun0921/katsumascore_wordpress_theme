@@ -9,7 +9,7 @@ $template = 'template-parts';
   <main>
     <?php
     $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'original_title', true) : get_post_meta($post_id, 'title_jp', true);
-    get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
+    get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
     ?>
 
     <section
@@ -43,7 +43,7 @@ $template = 'template-parts';
         ?>
         <?php
         // カテゴリーにもとづくPostを表示
-        get_template_part($template . '/component/category-posts-rand', null, array('post_id' => $post_id));
+        get_template_part($template . '/components/category-posts-rand', null, array('post_id' => $post_id));
         ?>
         <?php
         // シリーズにもとづくPostを表示

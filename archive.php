@@ -4,7 +4,7 @@ $template = 'template-parts';
 ?>
 <?php get_header(); ?>
 
-<?php get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => null)); ?>
+<?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => null)); ?>
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
   <div class="l-container l-container__showLeftSidebar">
