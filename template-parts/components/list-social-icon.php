@@ -2,16 +2,11 @@
 /**
  * The Component for List Social Icon
  */
-$taxonomies = get_taxonomies();
-$rssLink = get_theme_mod('progression_studios_general_rss');
-$twitterLink = get_theme_mod('progression_studios_general_twitter');
-$facebookLink = get_theme_mod('progression_studios_general_facebook');
 ?>
 <ul class="c-list__socialLink">
-  <?php if ($twitterLink) : ?>
   <li>
     <a
-      href="<?php echo esc_url($twitterLink) ?>"
+      href="https://x.com/Katsun0921"
       target="_blank"
       class="c-icon__circle"
     >
@@ -24,11 +19,9 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
       />
     </a>
   </li>
-  <?php endif ?>
-  <?php if ($facebookLink) : ?>
   <li>
     <a
-      href="<?php echo esc_url($facebookLink) ?>"
+      href="https://www.facebook.com/people/Katsumascore/100072246676709/"
       target="_blank"
       class="c-icon__circle"
     >
@@ -41,11 +34,9 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
       />
     </a>
   </li>
-  <?php endif ?>
-  <?php if ($rssLink) : ?>
   <li>
     <a
-      href="<?php echo esc_url($rssLink) ?>"
+      href="/feed/"
       class="c-icon__rss c-icon__circle"
       target="_blank"
     >
@@ -57,5 +48,4 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
       />
     </a>
   </li>
-  <?php endif ?>
 </ul>
