@@ -16,7 +16,7 @@ $cat = $cats[0];
 
     <?php if (get_post_meta($post->ID, 'review_score', true)) : ?>
       <div class="u-absolute u-right-1-5 u-top-1-5">
-        <?php get_template_part('template-parts/component/score', null, array('post_id' => $post_id)); ?>
+        <?php get_template_part('template-parts/components/score', null, array('post_id' => $post_id)); ?>
       </div>
     <?php endif; ?>
     <div class="l-postImageOverlay__content">

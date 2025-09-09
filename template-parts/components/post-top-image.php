@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Component for Post Top Image
  */
@@ -11,13 +12,13 @@ $image = $imageThumbnail[0];
   <div class="p-postTopImage__image">
     <img src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
     <div class="u-absolute u-right-2 u-top-2">
-      <?php get_template_part('template-parts/component/score', null, array('post_id' => $post_id)); ?>
+      <?php get_template_part('template-parts/components/score', null, array('post_id' => $post_id)); ?>
     </div>
   </div>
   <div class="p-postTopImage__content">
     <div>
       <div class="u-mb-4">
-        <?php get_template_part('template-parts/component/category', null, array('size' => 'small')); ?>
+        <?php get_template_part('template-parts/components/category', null, array('size' => 'small')); ?>
       </div>
       <h3 class="c-heading__post">
         <?php the_title(); ?>

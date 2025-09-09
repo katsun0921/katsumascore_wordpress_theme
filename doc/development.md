@@ -188,7 +188,7 @@ extract($args);
 
 #### テンプレートパーツの呼び出し
 ```php
-get_template_part('template-parts/component/new-component', null, [
+get_template_part('template-parts/components/new-component', null, [
     'post_id' => $post_id,
     'size' => 'large'
 ]);

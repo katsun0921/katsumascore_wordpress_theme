@@ -14,7 +14,7 @@ if ($relation_filed) :
         $image =  $image_thumbnail[0];
       ?>
         <li>
-          <?php get_template_part('template-parts/component/post-image-overlay'); ?>
+          <?php get_template_part('template-parts/components/post-image-overlay'); ?>
         </li>
       <?php endforeach; ?>
     </ul>

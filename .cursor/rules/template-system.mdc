@@ -21,21 +21,21 @@ description: テンプレートシステムとコンポーネント開発ガイ�
 - [page.php](mdc:template-parts/page/page.php) - ページコンテンツ
 
 ### コンポーネントテンプレート (component/)
-- [content.php](mdc:template-parts/component/content.php) - 基本コンテンツ
-- [none.php](mdc:template-parts/component/none.php) - コンテンツなし
-- [overlay.php](mdc:template-parts/component/overlay.php) - オーバーレイ表示
-- [top.php](mdc:template-parts/component/top.php) - トップ画像表示
-- [title.php](mdc:template-parts/component/title.php) - タイトル表示
-- [sharing.php](mdc:template-parts/component/sharing.php) - シェア機能
-- [category.php](mdc:template-parts/component/category.php) - カテゴリ表示
-- [category-posts-rand.php](mdc:template-parts/component/category-posts-rand.php) - ランダムカテゴリ投稿
-- [date.php](mdc:template-parts/component/date.php) - 日付表示
-- [score.php](mdc:template-parts/component/score.php) - 評価スコア表示
-- [list-social-icon.php](mdc:template-parts/component/list-social-icon.php) - ソーシャルメディアアイコン
-- [post-image-overlay.php](mdc:template-parts/component/post-image-overlay.php) - 画像オーバーレイ
-- [post-top-image.php](mdc:template-parts/component/post-top-image.php) - アイキャッチ画像
-- [schema.php](mdc:template-parts/component/schema.php) - スキーママークアップ
-- [head-social.php](mdc:template-parts/component/head-social.php) - ヘッダーソーシャルシェア
+- [content.php](mdc:template-parts/components/content.php) - 基本コンテンツ
+- [none.php](mdc:template-parts/components/none.php) - コンテンツなし
+- [overlay.php](mdc:template-parts/components/overlay.php) - オーバーレイ表示
+- [top.php](mdc:template-parts/components/top.php) - トップ画像表示
+- [title.php](mdc:template-parts/components/title.php) - タイトル表示
+- [sharing.php](mdc:template-parts/components/sharing.php) - シェア機能
+- [category.php](mdc:template-parts/components/category.php) - カテゴリ表示
+- [category-posts-rand.php](mdc:template-parts/components/category-posts-rand.php) - ランダムカテゴリ投稿
+- [date.php](mdc:template-parts/components/date.php) - 日付表示
+- [score.php](mdc:template-parts/components/score.php) - 評価スコア表示
+- [list-social-icon.php](mdc:template-parts/components/list-social-icon.php) - ソーシャルメディアアイコン
+- [post-image-overlay.php](mdc:template-parts/components/post-image-overlay.php) - 画像オーバーレイ
+- [post-top-image.php](mdc:template-parts/components/post-top-image.php) - アイキャッチ画像
+- [schema.php](mdc:template-parts/components/schema.php) - スキーママークアップ
+- [head-social.php](mdc:template-parts/components/head-social.php) - ヘッダーソーシャルシェア
 
 ### プラグイン依存テンプレート (plugin/)
 - [plugin-ad-rental.php](mdc:template-parts/plugin/plugin-ad-rental.php) - レンタル広告
@@ -66,16 +66,16 @@ get_template_part('template-parts/post/post-single');
 get_template_part('template-parts/page/page');
 
 // コンポーネントテンプレート
-get_template_part('template-parts/component/title');
-get_template_part('template-parts/component/none');
-get_template_part('template-parts/component/score', null, [
+get_template_part('template-parts/components/title');
+get_template_part('template-parts/components/none');
+get_template_part('template-parts/components/score', null, [
     'post_id' => $post_id,
     'size' => 'large'
 ]);
 
 // ヘッダーコンポーネント
-get_template_part('template-parts/component/schema');
-get_template_part('template-parts/component/head-social');
+get_template_part('template-parts/components/schema');
+get_template_part('template-parts/components/head-social');
 
 // プラグイン依存テンプレート
 get_template_part('template-parts/plugin/plugin-ad-rental');

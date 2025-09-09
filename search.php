@@ -5,7 +5,7 @@ $template = 'template-parts';
 
 <?php get_header(); ?>
 
-<?php  get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => 'Search for:'. get_search_query())); ?>
+<?php get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => 'Search for:' . get_search_query())); ?>
 
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
@@ -13,25 +13,25 @@ $template = 'template-parts';
     <div class="l-content">
       <?php if (have_posts()) : ?>
 
-      <ul>
-        <?php while (have_posts()) : the_post(); ?>
-        <li>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'default') : ?>
-          <?php get_template_part('template-parts/component/content', get_post_format()); ?>
-          <?php endif; ?>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
-          <?php get_template_part('template-parts/component/overlay'); ?>
-          <?php endif; ?>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout', 'top-image') == 'top-image') : ?>
-          <?php get_template_part('template-parts/component/top'); ?>
-          <?php endif; ?>
-        </li>
-        <?php endwhile; ?>
-      </ul><!-- close .progression-blog-index-masonry -->
+        <ul>
+          <?php while (have_posts()) : the_post(); ?>
+            <li>
+              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'default') : ?>
+                <?php get_template_part('template-parts/components/content', get_post_format()); ?>
+              <?php endif; ?>
+              <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
+                <?php get_template_part('template-parts/components/overlay'); ?>
+              <?php endif; ?>
+              <?php if (get_theme_mod('progression_studios_blog_index_layout', 'top-image') == 'top-image') : ?>
+                <?php get_template_part('template-parts/components/top'); ?>
+              <?php endif; ?>
+            </li>
+          <?php endwhile; ?>
+        </ul><!-- close .progression-blog-index-masonry -->
 
       <?php else : ?>
 
-      <?php get_template_part('template-parts/component/none'); ?>
+        <?php get_template_part('template-parts/components/none'); ?>
 
       <?php endif; ?>
     </div>

@@ -19,7 +19,7 @@ $template = 'template-parts';
         <div
           id="main-container-pro"
           class="l-content">
-          <?php get_template_part('template-parts/component/date', 'single'); ?>
+          <?php get_template_part('template-parts/components/date', 'single'); ?>
           <?php get_template_part('template-parts/post/post-single'); ?>
         </div><!-- close #main-container-pro -->
         <?php get_sidebar(); ?>
@@ -56,7 +56,7 @@ $template = 'template-parts';
       </aside>
     </section>
     <section class="u-mb-50px">
-      <?php get_template_part('template-parts/component/sharing'); ?>
+      <?php get_template_part('template-parts/components/sharing'); ?>
     </section>
   </main>
 <?php endwhile; ?>

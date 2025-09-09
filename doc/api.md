@@ -217,7 +217,7 @@ if ($current_lang === 'en') {
 **使用例:**
 ```php
 // コンポーネントの読み込み
-get_template_part('template-parts/component/score', null, [
+get_template_part('template-parts/components/score', null, [
     'post_id' => $post_id,
     'size' => 'large'
 ]);
@@ -226,19 +226,19 @@ get_template_part('template-parts/component/score', null, [
 get_template_part('template-parts/post/post-single');
 
 // 条件付きテンプレート
-get_template_part('template-parts/component/content', get_post_format());
+get_template_part('template-parts/components/content', get_post_format());
 ```
 
 ### 利用可能なテンプレートパーツ
 
 #### コンポーネント
-- `template-parts/component/score.php` - 評価スコア表示
-- `template-parts/component/list-social-icon.php` - ソーシャルメディアアイコン
-- `template-parts/component/post-image-overlay.php` - 画像オーバーレイ
-- `template-parts/component/post-top-image.php` - アイキャッチ画像
-- `template-parts/component/category.php` - カテゴリ表示
-- `template-parts/component/title.php` - タイトル表示
-- `template-parts/component/sharing.php` - シェア機能
+- `template-parts/components/score.php` - 評価スコア表示
+- `template-parts/components/list-social-icon.php` - ソーシャルメディアアイコン
+- `template-parts/components/post-image-overlay.php` - 画像オーバーレイ
+- `template-parts/components/post-top-image.php` - アイキャッチ画像
+- `template-parts/components/category.php` - カテゴリ表示
+- `template-parts/components/title.php` - タイトル表示
+- `template-parts/components/sharing.php` - シェア機能
 
 #### 投稿テンプレート
 - `template-parts/post/post-single.php` - 単一投稿レイアウト

@@ -65,14 +65,14 @@ add_image_size('slider-thumb', 300, 200, true);
 ### 命名例
 ```php
 // 良い例
-template-parts/component/score.php
-template-parts/component/post-image-overlay.php
+template-parts/components/score.php
+template-parts/components/post-image-overlay.php
 template-parts/post/post-single.php
 template-parts/plugin/acf/acf-summary.php
 
 // 避けるべき例
-template-parts/component/Score.php          // 大文字
-template-parts/component/postImageOverlay.php // キャメルケース
+template-parts/components/Score.php          // 大文字
+template-parts/components/postImageOverlay.php // キャメルケース
 template-parts/common/content.php           // 不明確なプレフィックス
 ```
 

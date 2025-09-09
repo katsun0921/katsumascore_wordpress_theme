@@ -1,5 +1,5 @@
 <?php if ('post' == get_post_type()) : ?>
-<?php
+  <?php
   ['post_id' => $post_id] = $args;
   $series_term_id = get_post_meta($post_id, 'type_post_series', true);
   $series_ids = gettype($series_term_id) === 'array' ? $series_term_id : array(
@@ -7,13 +7,13 @@
   );
   $taxonomy_series_id = 'series';
   ?>
-<?php if ($series_ids) : ?>
-<?php foreach ($series_ids as $series_id) : ?>
-<?php
+  <?php if ($series_ids) : ?>
+    <?php foreach ($series_ids as $series_id) : ?>
+      <?php
       $term_series = get_term($series_id);
       $series_name = '';
       $series_description = '';
-      if ( $term_series && ! is_wp_error( $term_series ) ) {
+      if ($term_series && ! is_wp_error($term_series)) {
         $series_name = $term_series->name;
         $series_description = $term_series->description;
       }
@@ -35,24 +35,24 @@
       $series_query = new WP_Query($query_args);
       $class_name = count($series_query->posts) === 3 ? 'l-postRelated__3columns' : 'l-postRelated';
       ?>
-<?php if ($series_query->have_posts()) : ?>
-<section class="u-mt-6">
-  <h2 class="c-heading__related u-mb-3">
-    <?php echo pll_current_language() === 'en' ? 'There are more in the ' . $series_name . '!' : $series_name . 'は他にもあります！' ?>
-  </h2>
-  <?php if($series_description) : ?>
-  <p><?php echo $series_description ?></p>
+      <?php if ($series_query->have_posts()) : ?>
+        <section class="u-mt-6">
+          <h2 class="c-heading__related u-mb-3">
+            <?php echo pll_current_language() === 'en' ? 'There are more in the ' . $series_name . '!' : $series_name . 'は他にもあります！' ?>
+          </h2>
+          <?php if ($series_description) : ?>
+            <p><?php echo $series_description ?></p>
+          <?php endif; ?>
+          <ul class="<?php echo $class_name ?>">
+            <?php while ($series_query->have_posts()) : $series_query->the_post(); ?>
+              <li>
+                <?php get_template_part('template-parts/components/post-image-overlay'); ?>
+              </li>
+            <?php endwhile; ?>
+          </ul>
+        </section>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php wp_reset_postdata(); ?>
   <?php endif; ?>
-  <ul class="<?php echo $class_name ?>">
-    <?php while ($series_query->have_posts()) : $series_query->the_post(); ?>
-    <li>
-        <?php get_template_part('template-parts/component/post-image-overlay'); ?>
-    </li>
-    <?php endwhile; ?>
-  </ul>
-</section>
-<?php endif; ?>
-<?php endforeach; ?>
-<?php wp_reset_postdata(); ?>
-<?php endif; ?>
 <?php endif; ?>

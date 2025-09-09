@@ -33,7 +33,7 @@ function theme_function_name($param) {
 ## テンプレートパーツの使用
 - モジュラー型テンプレートには`get_template_part()`を使用
 - 必要に応じて`$args`パラメータでデータを渡す
-- 例: `get_template_part('template-parts/components/Score', null, ['post_id' => $post_id])`
+- 例: `get_template_part('template-parts/componentss/Score', null, ['post_id' => $post_id])`
 
 ## セキュリティのベストプラクティス
 - 常に出力をエスケープ: `<?php echo esc_html($variable); ?>`

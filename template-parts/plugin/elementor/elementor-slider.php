@@ -21,7 +21,7 @@ $post_id = $post->ID;
                 <div class="progression-ratency-slider-container">
                   <?php if ($settings['progression_elements_post_review'] == 'yes' && get_post_meta($post_id, 'review_score', true)) : ?>
                     <div class="u-absolute u-top-1-5 u-right-1-5">
-                      <?php get_template_part('template-parts/component/score', null, array('post_id' => $post_id)); ?>
+                      <?php get_template_part('template-parts/components/score', null, array('post_id' => $post_id)); ?>
                     </div>
                   <?php endif; ?>
                   <?php if ($settings['progression_elements_post_category'] == 'yes') : ?>
