@@ -32,8 +32,8 @@
   <?php } ?>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <?php get_template_part('header/social', 'sharing'); ?>
-  <?php get_template_part('header/schema'); ?>
+  <?php get_template_part('template-parts/component/head-social'); ?>
+  <?php get_template_part('template-parts/component/schema'); ?>
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@
         <?php get_search_form(); ?>
       </div>
       <div class="l-header__snsLinks">
-        <?php get_template_part('template-parts/components/ListSocialIcon') ?>
+        <?php get_template_part('template-parts/component/list-social-icon') ?>
       </div>
     </div>
     <div class="l-navigation l-navigation--isDesktop">

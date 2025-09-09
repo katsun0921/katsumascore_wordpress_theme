@@ -4,7 +4,7 @@ $template = 'template-parts';
 ?>
 <?php get_header(); ?>
 
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => null)); ?>
+<?php  get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => null)); ?>
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
   <div class="l-container l-container__showLeftSidebar">
@@ -13,14 +13,14 @@ $template = 'template-parts';
       <ul class="u-flex u-flex-col u-gap-10">
         <?php while (have_posts()) : the_post(); ?>
         <li>
-          <?php get_template_part('template-parts/components/postImageOverlay'); ?>
+          <?php get_template_part('template-parts/component/post-image-overlay'); ?>
         </li>
         <?php endwhile; ?>
       </ul><!-- close .progression-blog-index-masonry -->
 
       <?php else : ?>
 
-      <?php get_template_part('template-parts/content', 'none'); ?>
+      <?php get_template_part('template-parts/component/none'); ?>
 
       <?php endif; ?>
     </div>

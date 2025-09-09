@@ -1,0 +1,116 @@
+---
+globs: template-parts/**/*.php,*.php
+description: テンプレートシステムとコンポーネント開発ガイドライン
+---
+
+# テンプレートシステム & コンポーネント
+
+## テンプレートパーツ構造
+[template-parts/](mdc:template-parts/)ディレクトリに配置：
+
+### 投稿専用テンプレート (post/)
+- [post-single.php](mdc:template-parts/post/post-single.php) - 単一投稿レイアウト
+- [post-review.php](mdc:template-parts/post/post-review.php) - レビュー投稿コンテンツ
+- [post-related.php](mdc:template-parts/post/post-related.php) - 関連投稿
+- [post-introduce-vod.php](mdc:template-parts/post/post-introduce-vod.php) - VOD紹介
+- [post-series-posts.php](mdc:template-parts/post/post-series-posts.php) - シリーズ投稿
+- [post-tag-posts.php](mdc:template-parts/post/post-tag-posts.php) - タグ投稿
+- [author-info.php](mdc:template-parts/post/author-info.php) - 著者情報
+
+### ページ専用テンプレート (page/)
+- [page.php](mdc:template-parts/page/page.php) - ページコンテンツ
+
+### コンポーネントテンプレート (component/)
+- [content.php](mdc:template-parts/component/content.php) - 基本コンテンツ
+- [none.php](mdc:template-parts/component/none.php) - コンテンツなし
+- [overlay.php](mdc:template-parts/component/overlay.php) - オーバーレイ表示
+- [top.php](mdc:template-parts/component/top.php) - トップ画像表示
+- [title.php](mdc:template-parts/component/title.php) - タイトル表示
+- [sharing.php](mdc:template-parts/component/sharing.php) - シェア機能
+- [category.php](mdc:template-parts/component/category.php) - カテゴリ表示
+- [category-posts-rand.php](mdc:template-parts/component/category-posts-rand.php) - ランダムカテゴリ投稿
+- [date.php](mdc:template-parts/component/date.php) - 日付表示
+- [score.php](mdc:template-parts/component/score.php) - 評価スコア表示
+- [list-social-icon.php](mdc:template-parts/component/list-social-icon.php) - ソーシャルメディアアイコン
+- [post-image-overlay.php](mdc:template-parts/component/post-image-overlay.php) - 画像オーバーレイ
+- [post-top-image.php](mdc:template-parts/component/post-top-image.php) - アイキャッチ画像
+- [schema.php](mdc:template-parts/component/schema.php) - スキーママークアップ
+- [head-social.php](mdc:template-parts/component/head-social.php) - ヘッダーソーシャルシェア
+
+### プラグイン依存テンプレート (plugin/)
+- [plugin-ad-rental.php](mdc:template-parts/plugin/plugin-ad-rental.php) - レンタル広告
+
+### ACF依存テンプレート (plugin/acf/)
+- [acf-summary.php](mdc:template-parts/plugin/acf/acf-summary.php) - あらすじ表示
+- [acf-good-point.php](mdc:template-parts/plugin/acf/acf-good-point.php) - おすすめポイント
+- [acf-review-site-scores.php](mdc:template-parts/plugin/acf/acf-review-site-scores.php) - レビューサイトスコア
+- [acf-relation-by-post-id.php](mdc:template-parts/plugin/acf/acf-relation-by-post-id.php) - 関連投稿表示
+- [acf-streaming-vod.php](mdc:template-parts/plugin/acf/acf-streaming-vod.php) - ストリーミングVOD
+
+### VODテンプレート (plugin/acf/vod/)
+- VODサービス統合テンプレート（Netflix、Amazon Prime、Disney+など）
+- 各サービスに専用のテンプレートファイル
+
+### Elementorテンプレート (plugin/elementor/)
+- [elementor-overlay.php](mdc:template-parts/plugin/elementor/elementor-overlay.php) - Elementorオーバーレイ
+- [elementor-slider.php](mdc:template-parts/plugin/elementor/elementor-slider.php) - Elementorスライダー
+- [elementor-top.php](mdc:template-parts/plugin/elementor/elementor-top.php) - Elementorトップ表示
+
+## テンプレートパーツの使用
+```php
+// 投稿専用テンプレート
+get_template_part('template-parts/post/post-review');
+get_template_part('template-parts/post/post-single');
+
+// ページ専用テンプレート
+get_template_part('template-parts/page/page');
+
+// コンポーネントテンプレート
+get_template_part('template-parts/component/title');
+get_template_part('template-parts/component/none');
+get_template_part('template-parts/component/score', null, [
+    'post_id' => $post_id,
+    'size' => 'large'
+]);
+
+// ヘッダーコンポーネント
+get_template_part('template-parts/component/schema');
+get_template_part('template-parts/component/head-social');
+
+// プラグイン依存テンプレート
+get_template_part('template-parts/plugin/plugin-ad-rental');
+
+// ACF依存テンプレート
+get_template_part('template-parts/plugin/acf/acf-summary');
+get_template_part('template-parts/plugin/acf/acf-good-point');
+get_template_part('template-parts/plugin/acf/acf-review-site-scores');
+get_template_part('template-parts/plugin/acf/acf-relation-by-post-id');
+get_template_part('template-parts/plugin/acf/acf-streaming-vod');
+
+// VODテンプレート
+get_template_part('template-parts/plugin/acf/vod/netflix');
+```
+
+## コンポーネント開発
+- 説明的なコンポーネント名を使用
+- `$args`パラメータでデータを受け取る
+- 上部で引数を分割代入: `['post_id' => $post_id, 'size' => $size] = $args;`
+- オプションパラメータのフォールバック値を提供
+- すべての出力に適切なエスケープを使用
+
+## テンプレート階層
+1. **単一投稿**: [single.php](mdc:single.php) → [content-single.php](mdc:template-parts/post/content-single.php)
+2. **ページ**: [page.php](mdc:page.php) → [content-page.php](mdc:template-parts/page/content-page.php)
+3. **アーカイブ**: [archive.php](mdc:archive.php) → [content.php](mdc:template-parts/common/content.php)
+4. **検索**: [search.php](mdc:search.php) → [content.php](mdc:template-parts/common/content.php)
+
+## Elementor統合
+- [template-parts/elementor/](mdc:template-parts/elementor/)のカスタムElementorテンプレート
+- [inc/elementor-functions.php](mdc:inc/elementor-functions.php)のElementor関数
+- テーマ有効化時にデフォルトElementorスキームを無効化
+
+## レビューシステム
+- ランキングアイコン付きカスタムスコアリングシステム
+- スコアコンポーネントがレビュー評価を表示
+- ランキングアイコン: スコア範囲に基づくC、B、A、S、SSランク
+- 関数: [inc/get-ranking-icon.php](mdc:inc/get-ranking-icon.php)の`get_ranking_icon($value)`

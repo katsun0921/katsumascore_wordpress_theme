@@ -6,9 +6,9 @@ $template = 'template-parts';
 <?php get_header(); ?>
 
 <?php if (!get_post_meta($cover_page->ID, 'progression_studios_disable_page_title', true)) : ?>
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => get_the_title($cover_page))); ?>
+<?php  get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => get_the_title($cover_page))); ?>
 <?php else : ?>
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => 'Latest News')); ?>
+<?php  get_template_part($template . '/component/title', null, array('post_id' => $post_id, 'headingText' => 'Latest News')); ?>
 <?php endif; ?>
 
 <div class="u-mb-50px u-relative">
@@ -21,14 +21,14 @@ $template = 'template-parts';
       <ul class="progression-blog-index-masonry">
         <?php while (have_posts()) : the_post(); ?>
         <li>
-          <?php get_template_part('template-parts/components/postImageOverlay.php', null, array('post_id' => $post_id)); ?>
+          <?php get_template_part('template-parts/component/post-image-overlay', null, array('post_id' => $post_id)); ?>
         </li>
         <?php endwhile; ?>
       </ul>
 
       <?php else : ?>
 
-      <?php get_template_part('template-parts/content', 'none'); ?>
+      <?php get_template_part('template-parts/component/none'); ?>
 
       <?php endif; ?>
     </div>

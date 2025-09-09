@@ -1,0 +1,48 @@
+---
+globs: *.php
+description: KatsumascoreテーマのPHPコーディング標準と規則
+---
+
+# PHPコーディング標準
+
+## 変数命名規則
+- **すべての変数にスネークケースを使用**: `$post_id`, `$template`, `$size_class`
+- **キャメルケースは避ける**: WordPressではキャメルケース変数が認識されない場合がある
+- **関数名**: 説明的なプレフィックス付きのスネークケースを使用
+
+## WordPressコーディング標準
+- WordPress PHPコーディング標準に従う
+- 適切なエスケープ関数を使用: `esc_html()`, `esc_attr()`, `esc_url()`
+- 適切な関数でユーザー入力をサニタイズ
+- WordPressフックとフィルターを適切に使用
+
+## 関数構造
+```php
+/**
+ * 関数の説明
+ *
+ * @param type $param 説明
+ * @return type 説明
+ * @since version
+ */
+function theme_function_name($param) {
+    // 実装
+}
+```
+
+## テンプレートパーツの使用
+- モジュラー型テンプレートには`get_template_part()`を使用
+- 必要に応じて`$args`パラメータでデータを渡す
+- 例: `get_template_part('template-parts/components/Score', null, ['post_id' => $post_id])`
+
+## セキュリティのベストプラクティス
+- 常に出力をエスケープ: `<?php echo esc_html($variable); ?>`
+- フォームとAJAXリクエストにnonceを使用
+- すべてのユーザー入力を検証・サニタイズ
+- リダイレクトには`wp_safe_redirect()`を使用
+
+## ファイル構成
+- 関数は[functions.php](mdc:functions.php)または[inc/](mdc:inc/)のインクルードファイルに保持
+- テーマプレフィックス付きの説明的な関数名を使用
+- 関連する関数をグループ化
+- 複雑なロジックには十分なコメントを記述
