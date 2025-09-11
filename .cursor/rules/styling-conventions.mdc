@@ -8,34 +8,11 @@ description: KatsumascoreテーマのCSSとスタイリング規則
 ## CSSアーキテクチャ
 - **メインスタイルシート**: [style.css](mdc:style.css) - テーマヘッダーと基本スタイル
 - **ビルドCSS**: [css/build.css](mdc:css/build.css) - コンパイル済みスタイル
-- **カスタムスタイル**: [css/progression_studios_custom_styles.css](mdc:css/progression_studios_custom_styles.css)
 - **管理画面スタイル**: [css/edit-post.css](mdc:css/edit-post.css) - エディタースタイリング
 
 ## CSSクラス命名規則
 BEM（Block Element Modifier）手法に従う：
 
-### レイアウトクラス
-- `l-header` - ヘッダーレイアウト
-- `l-navigation` - ナビゲーションレイアウト
-- `l-navigation--isDesktop` - デスクトップナビゲーション修飾子
-
-### コンポーネントクラス
-- `c-widget` - ウィジェットコンポーネント
-- `c-score` - スコアコンポーネント
-- `c-score__count` - スコアカウント要素
-- `c-score__medium` - スコアサイズ修飾子
-- `c-hamburgerMenu` - ハンバーガーメニューコンポーネント
-- `c-hamburgerMenu__line` - メニューライン要素
-
-### ユーティリティクラス
-- `u-m-0` - マージンゼロ
-- `u-py-3` - Y軸パディング
-- `u-w-28` - 幅ユーティリティ
-- `u-flex` - フレックスボックスユーティリティ
-- `u-justify-center` - 中央揃え
-- `u-items-center` - アイテム中央揃え
-- `u-gap-x-4` - X軸ギャップ
-- `u-opacity-0` - 透明度ゼロ
 
 ## レスポンシブデザイン
 - モバイルファーストアプローチ
@@ -57,10 +34,6 @@ BEM（Block Element Modifier）手法に従う：
 
 ## JavaScript統合
 - [js/bundle.js](mdc:js/bundle.js) - メインJavaScriptバンドル
-- [js/navigation.js](mdc:js/navigation.js) - ナビゲーション機能
-- [js/masonry.js](mdc:js/masonry.js) - メイソンリーレイアウト
-- [js/flexslider.js](mdc:js/flexslider.js) - スライダー機能
-- [js/scrolltofixed.js](mdc:js/scrolltofixed.js) - 固定要素
 
 ## パフォーマンス考慮事項
 - CSSファイルサイズを最小化

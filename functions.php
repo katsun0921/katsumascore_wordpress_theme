@@ -117,12 +117,7 @@ add_action('widgets_init', 'progression_studios_widgets_init');
  * Enqueue scripts and styles
  */
 function progression_studios_scripts() {
-  wp_enqueue_style('ratency-progression-style', get_stylesheet_uri());
-  wp_enqueue_script('ratency-progression-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true);
-  wp_enqueue_script('scrolltofixed', get_template_directory_uri() . '/js/scrolltofixed.js', array('jquery'), '20120206', true);
-  wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/flexslider.js', array('jquery'), '20120206', true);
-  wp_enqueue_script('ratency-progression-masonry', get_template_directory_uri() . '/js/masonry.js', array('jquery'), '20120206', true);
-  wp_enqueue_script('ratency-progression-bundle', get_template_directory_uri() . '/js/bundle.js');
+  wp_enqueue_script('katsumascore-script-bundle', get_template_directory_uri() . '/js/bundle.js');
   wp_enqueue_style('katsumascore-style-build', get_template_directory_uri() . '/css/build.css');
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -243,15 +238,6 @@ add_filter('get_the_archive_title', 'progression_studios_category_title');
 // Disable Post-by-Email
 add_filter('enable_post_by_email_configuration', '__return_false', PHP_INT_MAX);
 
-/**
- * Theme Customizer
- */
-require get_template_directory() . '/inc/default-customizer.php';
-
-/**
- * Theme Customizer
- */
-require get_template_directory() . '/inc/mega-menu/mega-menu-framework.php';
 
 /**
  * ランキングアイコンを表示する
