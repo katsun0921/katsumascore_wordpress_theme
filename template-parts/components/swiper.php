@@ -5,7 +5,7 @@
  * @see: https://swiperjs.com/demos
  */
 // 最新記事一覧を取得
-$recent_count = 5;
+$recent_count = 6;
 $recent_posts = new WP_Query([
   'posts_per_page' => $recent_count,
   'post_status' => 'publish',
@@ -36,6 +36,7 @@ if ($recent_posts->have_posts()):
     }
 
     .swiper-posts__link:hover {
+      color: white;
       opacity: 0.8;
     }
 
@@ -130,9 +131,12 @@ if ($recent_posts->have_posts()):
         align-items: flex-start;
         width: 70%;
         padding-left: 50px;
+        top: 0;
+        transform: translateY(0);
       }
 
       .swiper-posts__image {
+        height: 500px;
         position: relative;
       }
     }
