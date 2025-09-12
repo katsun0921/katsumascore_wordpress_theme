@@ -4,7 +4,7 @@ $headingText = $args['headingText'] ?? null;
 $is_post = (get_post_type() === 'post');
 $imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'background');
 $image = ($imageThumbnail && is_array($imageThumbnail)) ? $imageThumbnail[0] : '';
-$parent_class = $is_post ? 'u-mb-50px l-title' : 'u-bg-cover u-mb-50px l-title';
+$parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
 ?>
 
 <hgroup style="<?php if (has_post_thumbnail()) : ?>background-image:url('<?php echo esc_attr($image); ?>') <?php endif; ?>"

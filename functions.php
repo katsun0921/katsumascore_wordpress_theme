@@ -239,7 +239,8 @@ add_filter('get_the_archive_title', 'progression_studios_category_title');
 add_filter('enable_post_by_email_configuration', '__return_false', PHP_INT_MAX);
 
 
-/**
- * ランキングアイコンを表示する
- */
+// ランキングアイコンを表示する
 require get_template_directory() . '/inc/get-ranking-icon.php';
+
+// パンくずリスト
+require get_template_directory() . '/inc/breadcrumbs.php';

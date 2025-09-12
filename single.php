@@ -6,7 +6,7 @@ $template = 'template-parts';
 
 <?php while (have_posts()) : the_post(); ?>
 
-  <main>
+  <main class=" u-mt-8">
     <?php
     $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'original_title', true) : get_post_meta($post_id, 'title_jp', true);
     get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));

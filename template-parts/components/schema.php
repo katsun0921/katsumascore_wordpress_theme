@@ -1,4 +1,4 @@
-<?php if (is_single() && get_theme_mod('progression_studios_blog_index_schema', 'true') == 'true') : ?>
+<?php if (is_single()) : ?>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
@@ -31,6 +31,76 @@
     "reviewCount": "1"
   }
   <?php endif; ?>
+}
+</script>
+<?php endif; ?>
+
+<?php if (!is_front_page()) : ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "HOME",
+      "item": "<?php echo esc_url(home_url('/')); ?>"
+    }
+    <?php
+    $position = 2;
+    if (is_single()) {
+      $categories = get_the_category();
+      if ($categories) {
+        $cat = $categories[0];
+        $ancestors = array_reverse(get_ancestors($cat->term_id, 'category'));
+        foreach ($ancestors as $ancestor) {
+          $cat_obj = get_category($ancestor);
+          echo ',
+          {
+            "@type": "ListItem",
+            "position": ' . $position++ . ',
+            "name": "' . esc_html($cat_obj->name) . '",
+            "item": "' . esc_url(get_category_link($ancestor)) . '"
+          }';
+        }
+        echo ',
+        {
+          "@type": "ListItem",
+          "position": ' . $position++ . ',
+          "name": "' . esc_html($cat->name) . '",
+          "item": "' . esc_url(get_category_link($cat->term_id)) . '"
+        }';
+      }
+      echo ',
+      {
+        "@type": "ListItem",
+        "position": ' . $position++ . ',
+        "name": "' . esc_html(get_the_title()) . '"
+      }';
+    } elseif (is_page()) {
+      global $post;
+      if ($post->post_parent) {
+        $ancestors = array_reverse(get_post_ancestors($post->ID));
+        foreach ($ancestors as $ancestor) {
+          echo ',
+          {
+            "@type": "ListItem",
+            "position": ' . $position++ . ',
+            "name": "' . esc_html(get_the_title($ancestor)) . '",
+            "item": "' . esc_url(get_permalink($ancestor)) . '"
+          }';
+        }
+      }
+      echo ',
+      {
+        "@type": "ListItem",
+        "position": ' . $position++ . ',
+        "name": "' . esc_html(get_the_title()) . '"
+      }';
+    }
+    ?>
+  ]
 }
 </script>
 <?php endif; ?>
