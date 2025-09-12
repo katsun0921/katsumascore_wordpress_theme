@@ -11,7 +11,27 @@ $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
   class="<?php echo $parent_class; ?>">
   <?php if (is_category()) : ?>
     <h1 class="page-title c-heading__title">
-      <?php echo single_cat_title('', false); ?>
+      <?php
+      // 現在表示しているカテゴリーを取得
+      $cat = get_queried_object();
+
+      if ($cat && ! is_wp_error($cat)) {
+        // 親カテゴリを遡って取得
+        $parents = get_ancestors($cat->term_id, 'category');
+        $parents = array_reverse($parents); // 親 → 子の順に整列
+
+        // 親カテゴリがあれば出力
+        if (! empty($parents)) {
+          foreach ($parents as $parent_id) {
+            $parent = get_category($parent_id);
+            echo esc_html($parent->name) . ' ';
+          }
+        }
+
+        // 最後に現在のカテゴリー名を出力
+        echo esc_html($cat->name);
+      }
+      ?>
     </h1>
   <?php elseif (is_tax()) : ?>
     <h1 class="page-title c-heading__title">

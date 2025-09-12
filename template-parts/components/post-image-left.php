@@ -15,28 +15,30 @@ if (is_array($imageThumbnail) && isset($imageThumbnail[0])) {
   // サムネイルがない場合のデフォルト画像パス（必要に応じて変更してください）
   $image = get_template_directory_uri() . '/images/loader.gif';
 }
-$is_single = is_single($id);
+$is_post_page = is_single($id) || is_archive();
 
 ?>
 
 <a class="u-flex u-p-2 u-gap-4 u-items-center c-border__primary" href="<?php echo esc_url($permalink); ?>">
-  <div class="u-relative u-bg-gray-200 u-shrink-1">
-    <img src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
-    <?php if ($is_single) : ?>
-      <div class="u-absolute u-right-2 u-top-2">
+  <div class="u-min-h-60 u-relative u-bg-gray-200 u-basic-1 u-basis-custom-property" style="--custom-basis: 250px;">
+    <img class="u-absolute u-top-half u-transform-custom-property" style="--custom-transform: translateY(-50%);" src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
+    <?php if ($is_post_page) : ?>
+      <div class="u-absolute u-left-2 u-top-2">
         <?php get_template_part('template-parts/components/score', null, array('post_id' => $id)); ?>
       </div>
     <?php endif; ?>
   </div>
-  <div class="u-shrink-3 u-flex u-flex-col u-gap-2">
-    <?php if ($is_single) : ?>
-      <div class="u-mb-4">
-        <?php get_template_part('template-parts/components/category', null, array('size' => 'small')); ?>
-      </div>
-    <?php endif; ?>
-    <h3 class="">
-      <?php echo esc_html($title); ?>
-    </h3>
+  <div class="u-shrink-2 u-flex u-flex-col u-gap-2">
+    <hgroup>
+      <?php if ($is_post_page) : ?>
+        <div>
+          <?php get_template_part('template-parts/components/category', null, array('size' => 'small')); ?>
+        </div>
+      <?php endif; ?>
+      <h3 class="u-mt-1">
+        <?php echo esc_html($title); ?>
+      </h3>
+    </hgroup>
     <div class="c-textOverflowHidden__line-3">
       <?php echo esc_html($excerpt); ?>
     </div>

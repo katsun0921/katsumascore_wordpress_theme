@@ -6,7 +6,8 @@ if ( ! empty( $categories ) ) {
 	foreach ( $categories as $category ) {
 		$cat_names[] = esc_html( $category->name );
 	}
-	echo implode( ' ', $cat_names );
+	$cat_names = array_reverse( $cat_names );
+  echo implode( ' ', $cat_names );
 }
 ?>
 </div>
