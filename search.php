@@ -9,7 +9,7 @@ $template = 'template-parts';
 
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
-  <div class="l-container l-container__showLeftSidebar">
+  <div class="l-container l-container__showSidebar">
     <div class="l-content">
       <?php if (have_posts()) : ?>
 

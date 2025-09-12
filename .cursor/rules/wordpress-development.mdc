@@ -60,7 +60,7 @@ add_image_size('slider-thumb', 300, 200, true);
   - `score.php` - 評価スコア表示
   - `list-social-icon.php` - ソーシャルメディアアイコン
   - `post-image-overlay.php` - 画像オーバーレイ
-  - `post-top-image.php` - アイキャッチ画像
+  - `post-image-top.php` - アイキャッチ画像
 
 ### 命名例
 ```php

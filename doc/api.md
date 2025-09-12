@@ -235,7 +235,7 @@ get_template_part('template-parts/components/content', get_post_format());
 - `template-parts/components/score.php` - 評価スコア表示
 - `template-parts/components/list-social-icon.php` - ソーシャルメディアアイコン
 - `template-parts/components/post-image-overlay.php` - 画像オーバーレイ
-- `template-parts/components/post-top-image.php` - アイキャッチ画像
+- `template-parts/components/post-image-top.php` - アイキャッチ画像
 - `template-parts/components/category.php` - カテゴリ表示
 - `template-parts/components/title.php` - タイトル表示
 - `template-parts/components/sharing.php` - シェア機能

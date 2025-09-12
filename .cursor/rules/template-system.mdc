@@ -33,7 +33,7 @@ description: テンプレートシステムとコンポーネント開発ガイ�
 - [score.php](mdc:template-parts/components/score.php) - 評価スコア表示
 - [list-social-icon.php](mdc:template-parts/components/list-social-icon.php) - ソーシャルメディアアイコン
 - [post-image-overlay.php](mdc:template-parts/components/post-image-overlay.php) - 画像オーバーレイ
-- [post-top-image.php](mdc:template-parts/components/post-top-image.php) - アイキャッチ画像
+- [post-image-top.php](mdc:template-parts/components/post-image-top.php) - アイキャッチ画像
 - [schema.php](mdc:template-parts/components/schema.php) - スキーママークアップ
 - [head-social.php](mdc:template-parts/components/head-social.php) - ヘッダーソーシャルシェア
 

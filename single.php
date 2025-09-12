@@ -15,7 +15,7 @@ $template = 'template-parts';
     <section
       id="content-pro"
       class="site-content-blog-post u-mt-60px u-mb-50px u-relative">
-      <div class="l-container l-container__showLeftSidebar">
+      <div class="l-container l-container__showSidebar">
         <div
           id="main-container-pro"
           class="l-content">

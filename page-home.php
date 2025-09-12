@@ -31,7 +31,7 @@ get_header();
               $args = [
                 'post_id' => get_the_ID(),
               ];
-              get_template_part('template-parts/components/post-top-image', null, $args);
+              get_template_part('template-parts/components/post-image-top', null, $args);
               ?>
             </li>
           <?php
@@ -66,7 +66,7 @@ get_header();
               $args = [
                 'post_id' => get_the_ID(),
               ];
-              get_template_part('template-parts/components/post-top-image', null, $args);
+              get_template_part('template-parts/components/post-image-top', null, $args);
               ?>
             </li>
           <?php
