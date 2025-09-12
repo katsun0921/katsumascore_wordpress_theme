@@ -14,10 +14,17 @@ $original_title = get_post_meta($post_id, 'original_title', true);
 $official_url = get_field('official_url');
 $date_string = get_field('release_date');
 $release_date = DateTime::createFromFormat('Ymd', $date_string);
-$vod_service_name = get_term($vod_streaming_term_id)->name;
-$vod_service_slug = get_term($vod_streaming_term_id)->slug;
+$vod_term = get_term($vod_streaming_term_id);
+if (!is_wp_error($vod_term)) {
+  $vod_service_name = $vod_term->name;
+  $vod_service_slug = $vod_term->slug;
+  $vod_url = get_term_link($vod_term->term_id);
+} else {
+  $vod_service_name = '';
+  $vod_service_slug = '';
+  $vod_url = '';
+}
 $vod_service_url = get_field('streaming_vod_watched_vod_watched_vod_url');
-$vod_url = get_term_link(get_term($vod_streaming_term_id)->term_id);
 $is_affiliate_code = get_field('streaming_vod_watched_vod_is_affiliate_code');
 $affiliate_code = get_field('streaming_vod_watched_vod_affiliate_code');
 $vod_image_url = $vod_image_selector->getVodImageUrl($vod_service_slug);
@@ -30,17 +37,17 @@ if (!$is_vod_streaming && $is_cinema_watched) :
     <h2 class="u-mb-4">
       <?php if (pll_current_language() === 'en') : ?>
         <!-- Published on this page on
-    <time datetime="<?php // echo $release_date->format('j M, Y'); 
+    <time datetime="<?php // echo $release_date->format('j M, Y');
                     ?>">
-      <?php // echo $release_date->format('j M, Y'); 
+      <?php // echo $release_date->format('j M, Y');
       ?>
     </time> -->
         Written <?php echo $original_title ?>.
       <?php else : ?>
         <!-- このページでは
-    <time datetime="<?php // echo $release_date->format('Y-m-d'); 
+    <time datetime="<?php // echo $release_date->format('Y-m-d');
                     ?>">
-      <?php // echo $release_date->format('Y年m月d日'); 
+      <?php // echo $release_date->format('Y年m月d日');
       ?>
     </time>
     に公開された -->

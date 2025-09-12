@@ -21,7 +21,7 @@ $template = 'template-parts';
         ]);
         if ($child_pages) :
       ?>
-          <ul>
+          <ul class="u-flex u-flex-col u-gap-4">
             <?php foreach ($child_pages as $page) : ?>
               <li>
                 <?php get_template_part('template-parts/components/post-image-left', null, array('id' => $page->ID)); ?>

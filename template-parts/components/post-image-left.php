@@ -19,8 +19,8 @@ $is_single = is_single($id);
 
 ?>
 
-<a class="p-postTopImage" href="<?php echo esc_url($permalink); ?>">
-  <div class="p-postTopImage__image">
+<a class="u-flex u-p-2 u-gap-4 u-items-center c-border__primary" href="<?php echo esc_url($permalink); ?>">
+  <div class="u-relative u-bg-gray-200 u-shrink-1">
     <img src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
     <?php if ($is_single) : ?>
       <div class="u-absolute u-right-2 u-top-2">
@@ -28,19 +28,17 @@ $is_single = is_single($id);
       </div>
     <?php endif; ?>
   </div>
-  <div class="p-postTopImage__content">
-    <div>
-      <?php if ($is_single) : ?>
-        <div class="u-mb-4">
-          <?php get_template_part('template-parts/components/category', null, array('size' => 'small')); ?>
-        </div>
-      <?php endif; ?>
-      <h3 class="c-heading__post">
-        <?php echo esc_html($title); ?>
-      </h3>
-      <div class="p-postTopImage__excerpt">
-        <?php echo esc_html($excerpt); ?>
+  <div class="u-shrink-3 u-flex u-flex-col u-gap-2">
+    <?php if ($is_single) : ?>
+      <div class="u-mb-4">
+        <?php get_template_part('template-parts/components/category', null, array('size' => 'small')); ?>
       </div>
+    <?php endif; ?>
+    <h3 class="">
+      <?php echo esc_html($title); ?>
+    </h3>
+    <div class="c-textOverflowHidden__line-3">
+      <?php echo esc_html($excerpt); ?>
     </div>
   </div>
 </a>
