@@ -19,7 +19,8 @@ if (!function_exists('progression_studios_setup')) :
    * @since progression 1.0
    */
 
-  function theme_setup() {
+  function theme_setup()
+  {
 
     // Post Thumbnails
     add_theme_support('post-thumbnails');
@@ -116,7 +117,8 @@ add_action('widgets_init', 'progression_studios_widgets_init');
 /**
  * Enqueue scripts and styles
  */
-function progression_studios_scripts() {
+function progression_studios_scripts()
+{
   wp_enqueue_script('katsumascore-script-bundle', get_template_directory_uri() . '/js/bundle.js');
   wp_enqueue_style('katsumascore-style-build', get_template_directory_uri() . '/css/build.css');
 
@@ -127,7 +129,8 @@ function progression_studios_scripts() {
 add_action('wp_enqueue_scripts', 'progression_studios_scripts');
 
 
-function progression_studios_demo_after_import_setup() {
+function progression_studios_demo_after_import_setup()
+{
   // Assign menus to their locations.
   $progession_studios_main_menu = get_term_by('name', 'Main Navigation', 'nav_menu');
 
@@ -153,7 +156,8 @@ add_filter('pt-ocdi/disable_pt_branding', '__return_true');
 /**
  * Custom Editor Settings
  */
-function custom_enqueue_scripts($hook) {
+function custom_enqueue_scripts($hook)
+{
   // Only add to the edit.php admin page.
   // See WP docs.
   if ('post.php' === $hook) {
@@ -162,7 +166,8 @@ function custom_enqueue_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'custom_enqueue_scripts');
 
-function my_redirect() {
+function my_redirect()
+{
   /* 著者アーカイブのリダイレクト */
   if (is_author()) {
     wp_safe_redirect(home_url());
@@ -176,38 +181,40 @@ add_action('template_redirect', 'my_redirect', 1);
  *
  * @param WP_Query $query The WP_Query instance (passed by reference).
  */
-function wpse_admin_search_include_ids( $query ) {
-    // Bail if we are not in the admin area
-    if ( ! is_admin() ) {
-        return;
-    }
+function wpse_admin_search_include_ids($query)
+{
+  // Bail if we are not in the admin area
+  if (! is_admin()) {
+    return;
+  }
 
-    // Bail if this is not the search query.
-    if ( ! $query->is_main_query() && ! $query->is_search() ) {
-        return;
-    }
+  // Bail if this is not the search query.
+  if (! $query->is_main_query() && ! $query->is_search()) {
+    return;
+  }
 
-    // Get the value that is being searched.
-    $search_string = get_query_var( 's' );
+  // Get the value that is being searched.
+  $search_string = get_query_var('s');
 
-    // Bail if the search string is not an integer.
-    if ( ! filter_var( $search_string, FILTER_VALIDATE_INT ) ) {
-        return;
-    }
+  // Bail if the search string is not an integer.
+  if (! filter_var($search_string, FILTER_VALIDATE_INT)) {
+    return;
+  }
 
-    // Set WP Query's p value to the searched post ID.
-    $query->set( 'p', intval( $search_string ) );
+  // Set WP Query's p value to the searched post ID.
+  $query->set('p', intval($search_string));
 
-    // Reset the search value to prevent standard search from being used.
-    $query->set( 's', '' );
+  // Reset the search value to prevent standard search from being used.
+  $query->set('s', '');
 }
-add_action( 'pre_get_posts','wpse_admin_search_include_ids' );
+add_action('pre_get_posts', 'wpse_admin_search_include_ids');
 
 /**
  * Custom template tags for this theme.
  */
 /* Modify Default Category Widget */
-function progression_studios_add_span_cat_count($links) {
+function progression_studios_add_span_cat_count($links)
+{
   $links = str_replace('</a> (', ' <span class="count">', $links);
 
   $links = str_replace('(', '', $links);
@@ -217,14 +224,16 @@ function progression_studios_add_span_cat_count($links) {
 }
 add_filter('wp_list_categories', 'progression_studios_add_span_cat_count');
 
-function progression_studios_archive_count_span($links) {
+function progression_studios_archive_count_span($links)
+{
   $links = str_replace('</a>&nbsp;(', ' <span class="count">', $links);
   $links = str_replace(')', '</span></a>', $links);
   return $links;
 }
 add_filter('get_archives_link', 'progression_studios_archive_count_span');
 
-function progression_studios_category_title($title) {
+function progression_studios_category_title($title)
+{
   if (is_category()) {
     $title = single_cat_title('', false);
   } elseif (is_tag()) {
@@ -244,3 +253,6 @@ require get_template_directory() . '/inc/get-ranking-icon.php';
 
 // パンくずリスト
 require get_template_directory() . '/inc/breadcrumbs.php';
+
+// UTMパラメーター関数
+require get_template_directory() . '/inc/utm-parameters.php';

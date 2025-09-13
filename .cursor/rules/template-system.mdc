@@ -49,7 +49,7 @@ description: テンプレートシステムとコンポーネント開発ガイ�
 - [acf-streaming-vod.php](mdc:template-parts/plugins/acf/acf-streaming-vod.php) - ストリーミングVOD
 - [actors-info.php](mdc:template-parts/plugins/acf/actors-info.php) - キャスト情報表示
 - [post-introduce-vod.php](mdc:template-parts/plugins/acf/post-introduce-vod.php) - VOD紹介
-- [plugin-ad-rental.php](mdc:template-parts/plugins/acf/plugin-ad-rental.php) - レンタル広告
+- [ad-rental.php](mdc:template-parts/plugins/acf/ad-rental.php) - レンタル広告
 - [single-cinema-check.php](mdc:template-parts/plugins/acf/single-cinema-check.php) - 劇場版チェック
 
 ### VODテンプレート (plugins/acf/vod/)

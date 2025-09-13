@@ -1,7 +1,12 @@
 <?php ['url' => $url, 'unregistered_text' => $unregistered_text, 'streaming_text' => $streaming_text] = $args; ?>
 <a
   class="u-block"
-  href="<?php echo esc_url($url) ?>"
+  href="<?php echo esc_url(add_utm_parameters([
+          'url' => $url,
+          'source' => 'katsumascore',
+          'medium' => 'content',
+          'campaign' => 'youtube_watch'
+        ])); ?>"
   target="_blank"
   rel="noopener noreferrer">
   <img

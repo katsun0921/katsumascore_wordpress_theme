@@ -37,7 +37,7 @@ $template = 'template-parts';
         <?php
         // 劇場版以外レンタルサービスを表示
         if (!$is_cinema_showing && pll_current_language() !== 'en') {
-          get_template_part($template . '/plugins/acf/plugin-ad-rental', null, array('post_id' => $post_id));
+          get_template_part($template . '/plugins/acf/ad-rental', null, array('post_id' => $post_id));
         }
         ?>
         <?php

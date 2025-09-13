@@ -1,7 +1,12 @@
 <?php ['url' => $url, 'unregistered_text' => $unregistered_text, 'streaming_text' => $streaming_text] = $args; ?>
 <div>
   <a
-    href="<?php echo pll_current_language() === 'en' ? 'https://www.amazon.com/amazonprime' : 'https://www.amazon.co.jp/amazonprime' ?>">
+    href="<?php echo add_utm_parameters([
+            'url' => pll_current_language() === 'en' ? 'https://www.amazon.com/amazonprime' : 'https://www.amazon.co.jp/amazonprime',
+            'source' => 'katsumascore',
+            'medium' => 'affiliate',
+            'campaign' => 'amazon_prime_signup'
+          ]); ?>">
     <p class="u-m-0">
       <?php echo $unregistered_text; ?>
     </p>
@@ -12,7 +17,12 @@
 </div>
 <a
   class="u-block"
-  href="<?php echo esc_url($url) ?>"
+  href="<?php echo esc_url(add_utm_parameters([
+          'url' => $url,
+          'source' => 'katsumascore',
+          'medium' => 'content',
+          'campaign' => 'amazon_prime_watch'
+        ])); ?>"
   target="_blank"
   rel="noopener noreferrer">
   <?php echo $streaming_text; ?>

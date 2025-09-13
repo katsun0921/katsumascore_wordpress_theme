@@ -10,7 +10,17 @@
 ?>
 <a
   class="u-block"
-  href="<?php echo empty($url) ? 'https://video-static.unext.jp/welcome' : esc_url($url) ?>"
+  href="<?php echo esc_url(empty($url) ? add_utm_parameters([
+          'url' => 'https://video-static.unext.jp/welcome',
+          'source' => 'katsumascore',
+          'medium' => 'affiliate',
+          'campaign' => 'u_next_signup'
+        ]) : add_utm_parameters([
+          'url' => $url,
+          'source' => 'katsumascore',
+          'medium' => 'content',
+          'campaign' => 'u_next_watch'
+        ])); ?>"
   target="_blank"
   rel="noopener noreferrer">
   <p class="u-m-0">

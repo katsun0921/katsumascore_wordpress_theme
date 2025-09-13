@@ -1,7 +1,12 @@
 <?php ['url' => $url, 'unregistered_text' => $unregistered_text, 'streaming_text' => $streaming_text] = $args; ?>
 <a
   class="u-block"
-  href="https://tv.apple.com/"
+  href="<?php echo add_utm_parameters([
+          'url' => 'https://tv.apple.com/',
+          'source' => 'katsumascore',
+          'medium' => 'affiliate',
+          'campaign' => 'apple_tv_plus_signup'
+        ]); ?>"
   target="_blank"
   rel="noopener noreferrer">
   <img
@@ -11,7 +16,12 @@
 </a>
 <a
   class="u-block"
-  href="<?php echo esc_url($url) ?>"
+  href="<?php echo esc_url(add_utm_parameters([
+          'url' => $url,
+          'source' => 'katsumascore',
+          'medium' => 'content',
+          'campaign' => 'apple_tv_plus_watch'
+        ])); ?>"
   target="_blank"
   rel="noopener noreferrer">
   <?php echo $streaming_text; ?>
