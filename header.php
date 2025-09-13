@@ -3,12 +3,15 @@
 /**
  * The Header for our theme.
  */
+
+$is_local = wp_get_environment_type() && wp_get_environment_type() === 'local';
+
 ?>
 <!doctype html>
 <html lang="<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>">
 
 <head>
-  <?php if (!is_preview() && !is_admin()) : ?>
+  <?php if (!is_preview() && !is_admin() && !$is_local) : ?>
     <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE4K3EM3VB"></script>
   <script>
@@ -25,10 +28,8 @@
     })
   </script>
   <?php endif; ?>
-  <?php
-  if (!is_preview() && !is_admin() && !is_404() && !is_search()) :
-    // Google AdSense
-  ?>
+  <?php if (!is_preview() && !is_admin() && !is_404() && !is_search() && !$is_local) : ?>
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6583700677059660" crossorigin="anonymous"></script>
     <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
   <?php endif ?>

@@ -8,7 +8,7 @@ $template = 'template-parts';
 <?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => 'Search for:' . get_search_query())); ?>
 
 
-<div class="site-content u-my-12 u-relative">
+<div class="site-content u-mt-12 u-relative">
   <div class="l-container l-container__showSidebar">
     <div class="l-content">
       <?php if (have_posts()) : ?>

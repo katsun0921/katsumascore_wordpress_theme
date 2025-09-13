@@ -21,7 +21,7 @@ $is_post_page = is_single($id) || is_archive();
 
 <a class="u-flex u-p-2 u-gap-4 u-items-center c-border__primary" href="<?php echo esc_url($permalink); ?>">
   <div class="u-min-h-60 u-relative u-bg-gray-200 u-basic-1 u-basis-custom-property" style="--custom-basis: 250px;">
-    <img class="u-absolute u-top-half u-transform-custom-property" style="--custom-transform: translateY(-50%);" src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
+    <img class="u-absolute u-top-half u-transform-custom-property u-w-auto u-max-h-full" style="--custom-transform: translateY(-50%);" src="<?php echo esc_url($image); ?>" alt="" width="540" loading="lazy" />
     <?php if ($is_post_page) : ?>
       <div class="u-absolute u-left-2 u-top-2">
         <?php get_template_part('template-parts/components/score', null, array('post_id' => $id)); ?>

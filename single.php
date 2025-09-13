@@ -13,7 +13,7 @@ $template = 'template-parts';
     ?>
 
     <section
-      class="site-content-blog-post u-my-12 u-relative">
+      class="site-content-blog-post u-mt-12 u-relative">
       <div class="l-container l-container__showSidebar">
         <div
           id="main-container-pro"

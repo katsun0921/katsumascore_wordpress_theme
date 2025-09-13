@@ -21,7 +21,7 @@ $twitterLink = get_theme_mod('progression_studios_general_twitter');
 $facebookLink = get_theme_mod('progression_studios_general_facebook');
 ?>
 
-<footer class="l-footer">
+<footer class="l-footer u-mt-12">
   <div class="l-container">
     <section>
       <dl class="c-list__taxonomy">
