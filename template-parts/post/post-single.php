@@ -8,12 +8,6 @@ $template = 'template-parts';
   <?php post_class(); ?>>
   <?php get_template_part($template . '/post/post-review'); ?>
 
-  <?php if (is_active_sidebar('progression-studios-post-widgets-top')) : ?>
-    <div class="widget-area-top-of-posts">
-      <?php dynamic_sidebar('progression-studios-post-widgets-top'); ?>
-    </div>
-  <?php endif; ?>
-
   <?php get_template_part($template . '/plugins/acf/acf-good-point') ?>
   <?php get_template_part($template . '/plugins/acf/acf-summary') ?>
 
@@ -37,12 +31,5 @@ $template = 'template-parts';
     )
   );
   ?>
-
-
-  <?php if (is_active_sidebar('progression-studios-post-widgets-bottom')) : ?>
-    <div class="u-mt-3 u-mb-12 c-search__box">
-      <?php dynamic_sidebar('progression-studios-post-widgets-bottom'); ?>
-    </div>
-  <?php endif; ?>
 
 </section>

@@ -54,7 +54,7 @@ $template = 'template-parts';
         ?>
       </aside>
     </section>
-    <section class="u-mb-50px">
+    <section class="u-mt-12">
       <?php get_template_part('template-parts/components/sharing'); ?>
     </section>
   </main>

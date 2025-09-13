@@ -69,19 +69,6 @@ Katsumascore WordPressテーマのインストール手順を説明します。
    - `progression-studios-primary` - メインナビゲーション
    - `progression-studios-mobile-menu` - モバイルメニュー
 
-### 5. ウィジェットエリアの設定
-
-#### 投稿ウィジェットエリア
-1. **外観** > **ウィジェット** をクリック
-2. 以下のウィジェットエリアにウィジェットを配置：
-   - `progression-studios-post-widget-sidebar` - 投稿サイドバー
-   - `progression-studios-post-widgets-top` - 投稿上部
-   - `progression-studios-post-widgets-bottom` - 投稿下部
-
-### 6. サンプルコンテンツのインポート（オプション）
-
-テーマにはサンプルコンテンツのインポート機能が含まれています：
-
 1. **ツール** > **インポート** をクリック
 2. **WordPress** を選択
 3. サンプルコンテンツファイルをアップロード

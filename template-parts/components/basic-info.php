@@ -37,6 +37,51 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
     </dd>
   <?php endif ?>
 
+  <!-- 公式サイトSNSリンク-->
+  <?php
+  $sns_group = get_field('official_sns', $post_id);
+  if ($sns_group && is_array($sns_group)) : ?>
+    <dt class="u-font-bold u-text-lg">
+      <?php echo pll_current_language() === 'en' ? 'Official SNS' : '公式サイトSNS'; ?>
+    </dt>
+    <dd class="u-pl-4">
+      <ul class="sns-list">
+        <?php foreach ($sns_group as $platform => $sns_data) :
+          if (!empty($sns_data['link'])) : ?>
+            <li class="sns-item">
+              <a href="<?php echo esc_url($sns_data['link']); ?>" target="_blank" rel="noopener">
+                <?php
+                // プラットフォーム名を表示用に変換
+                switch ($platform) {
+                  case 'x':
+                    echo 'X(旧Twitter)';
+                    break;
+                  case 'instagram':
+                    echo 'Instagram';
+                    break;
+                  case 'youtube_channel':
+                    echo 'YouTube Channel';
+                    break;
+                  case 'TikTok':
+                    echo 'TikTok';
+                    break;
+                  case 'facebook':
+                    echo 'Facebook';
+                    break;
+                  case 'line':
+                    echo 'LINE';
+                    break;
+                  default:
+                    echo esc_html(ucfirst($platform));
+                }
+                ?>
+              </a>
+            </li>
+        <?php endif;
+        endforeach; ?>
+      </ul>
+    </dd>
+  <?php endif; ?>
   <!-- 上映日・配信日 -->
   <?php if ($release_date) : ?>
     <dt class="u-font-bold u-text-lg">

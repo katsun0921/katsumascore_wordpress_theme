@@ -21,10 +21,8 @@ description: テンプレートシステムとコンポーネント開発ガイ�
 - [page.php](mdc:template-parts/page/page.php) - ページコンテンツ
 
 ### コンポーネントテンプレート (component/)
-- [content.php](mdc:template-parts/components/content.php) - 基本コンテンツ
 - [none.php](mdc:template-parts/components/none.php) - コンテンツなし
 - [overlay.php](mdc:template-parts/components/overlay.php) - オーバーレイ表示
-- [top.php](mdc:template-parts/components/top.php) - トップ画像表示
 - [title.php](mdc:template-parts/components/title.php) - タイトル表示
 - [sharing.php](mdc:template-parts/components/sharing.php) - シェア機能
 - [category.php](mdc:template-parts/components/category.php) - カテゴリ表示

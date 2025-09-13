@@ -66,4 +66,19 @@ $is_local = wp_get_environment_type() && wp_get_environment_type() === 'local';
         <?php get_template_part('template-parts/components/list-social-icon') ?>
       </div>
     </div>
+    <div class="l-navigation l-navigation--isDesktop">
+      <div class="l-navigation__menuButton u-flex u-justify-center u-items-center u-gap-x-4">
+        <button type="button" id="js-menu-button" class="c-hamburgerMenu">
+          <span class="c-hamburgerMenu__lineContainer">
+            <span class="c-hamburgerMenu__line"></span>
+            <span class="c-hamburgerMenu__line"></span>
+            <span class="c-hamburgerMenu__line"></span>
+          </span>
+          <span class="c-hamburgerMenu__label">MENU</span>
+        </button>
+      </div>
+      <nav id="js-mobile-menu" class="l-navigation__list u-opacity-0">
+        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new Walker_Nav_Menu)); ?>
+      </nav>
+    </div>
   </header>

@@ -27,14 +27,8 @@ add_image_size('left-align', 700, 460, true);
 add_image_size('slider-thumb', 300, 200, true);
 ```
 
-## ウィジェットエリア
-- `progression-studios-post-widget-sidebar` - 投稿の右側
-- `progression-studios-post-widgets-top` - 投稿の上部
-- `progression-studios-post-widgets-bottom` - 投稿の下部
-
 ## ナビゲーションメニュー
 - `progression-studios-primary` - メインナビゲーション
-- `progression-studios-mobile-menu` - モバイルナビゲーション
 
 ## カスタム関数
 - **著者リダイレクト**: 著者アーカイブをホームページにリダイレクト

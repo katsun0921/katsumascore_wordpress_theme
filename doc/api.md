@@ -225,8 +225,6 @@ get_template_part('template-parts/components/score', null, [
 // 投稿テンプレートの読み込み
 get_template_part('template-parts/post/post-single');
 
-// 条件付きテンプレート
-get_template_part('template-parts/components/content', get_post_format());
 ```
 
 ### 利用可能なテンプレートパーツ
@@ -255,30 +253,6 @@ get_template_part('template-parts/components/content', get_post_format());
 - `template-parts/plugin/acf/acf-relation-by-post-id.php` - 関連投稿表示
 - `template-parts/plugin/acf/acf-streaming-vod.php` - ストリーミングVOD
 
-## ウィジェットエリアAPI
-
-### 登録済みウィジェットエリア
-
-#### `progression-studios-post-widget-sidebar`
-- 説明: 投稿の右側サイドバー
-- 使用場所: 単一投稿ページ
-
-#### `progression-studios-post-widgets-top`
-- 説明: 投稿の上部
-- 使用場所: 単一投稿ページ
-
-#### `progression-studios-post-widgets-bottom`
-- 説明: 投稿の下部
-- 使用場所: 単一投稿ページ
-
-### ウィジェットエリアの表示
-
-```php
-// ウィジェットエリアの表示
-if (is_active_sidebar('progression-studios-post-widget-sidebar')) {
-    dynamic_sidebar('progression-studios-post-widget-sidebar');
-}
-```
 
 ## ナビゲーションメニューAPI
 
