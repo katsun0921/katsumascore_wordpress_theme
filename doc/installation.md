@@ -35,7 +35,6 @@ Katsumascore WordPressテーマのインストール手順を説明します。
 - **Advanced Custom Fields Pro** - カスタムフィールド
 
 #### 推奨プラグイン
-- **Elementor** - ページビルダー
 - **TGM Plugin Activation** - プラグイン管理
 
 ### 3. プラグインの設定

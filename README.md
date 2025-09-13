@@ -2,40 +2,50 @@
 
 katsumascore.blog wordpress theme
 
-## php ルール
+## 開発ガイドライン
 
-phpの変数名はスネークケースとする。※キャメルケースだと反映できないことがある。
+このテーマの開発は以下のルールにしたがってください：
 
-## tag ルール
+- **PHPコーディング標準**: [.cursor/rules/php-coding-standards.mdc](.cursor/rules/php-coding-standards.mdc)
+- **バージョン管理**: [.cursor/rules/version-control.mdc](.cursor/rules/version-control.mdc)
+- **多言語開発**: [.cursor/rules/multilingual-development.mdc](.cursor/rules/multilingual-development.mdc)
+- **テンプレートシステム**: [.cursor/rules/template-system.mdc](.cursor/rules/template-system.mdc)
+- **スタイリング規約**: [.cursor/rules/styling-conventions.mdc](.cursor/rules/styling-conventions.mdc)
+- **プロジェクト構造**: [.cursor/rules/project-structure.mdc](.cursor/rules/project-structure.mdc)
+- **WordPress開発**: [.cursor/rules/wordpress-development.mdc](.cursor/rules/wordpress-development.mdc)
 
-```bash
+## クイックリファレンス
 
-# template ファイルの追加と削除
-v1.0.0
-↓
-v2.0.0
+### テーマ情報
+- **テーマ名**: Katsumascore
+- **バージョン**: 1.0
+- **作者**: Katsumasa-sato
+- **テーマURI**: https://katsumascore.blog/
 
-# 機能の追加と削除
-v1.0.0
-↓
-v1.1.0
+### 主要技術
+- **CMS**: WordPress
+- **多言語**: Polylang Pro
+- **PHP**: 8.0以上推奨
 
-# 現在機能の修正
-v1.0.0
-↓
-v1.0.1
+## 依存プラグイン
 
-```
+### 必須プラグイン
+以下のプラグインはテーマの正常な動作に必要です：
 
-## 英語ページ
+| プラグイン | 説明 | バージョン |
+|-----------|------|----------|
+| **Polylang Pro** | 多言語サポート（日本語/英語） | 3.0以上 |
+| **Advanced Custom Fields Pro** | カスタムフィールド管理 | 6.4以上 |
 
-[Polylangプラグインを使用](https://polylang.pro/)
+### 推奨プラグイン
+以下のプラグインは機能拡張のために推奨されます：
 
-https://www.webdesignleaves.com/pr/wp/wp_polylang.html
+| プラグイン | 説明 | 用途 |
+|-----------|------|------|
+| **TGM Plugin Activation** | プラグイン管理 | 依存プラグインの自動インストール |
 
-日本語ページを作成したら、英語ページを作成する
+### 使用されている主要機能
+- **ACFフィールド**: `review_score`, `title_jp`, `acf_summary_group`, `streaming_vod_*`
+- **Polylang関数**: `pll_current_language()`, 言語固有コンテンツ
 
-```php
-# 英語ページの出し分け
-pll_current_language() === 'en' ? '英語' : '日本語';
-```
+詳細なセットアップ手順は [doc/installation.md](doc/installation.md) を参照してください。

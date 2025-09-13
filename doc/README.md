@@ -26,7 +26,6 @@ Katsumascoreは、映画・ドラマ・アニメなどのエンターテイメ�
 ### 🎨 デザインシステム
 - BEMメソドロジーによるCSS設計
 - レスポンシブデザイン
-- Elementorページビルダー対応
 
 ## 技術仕様
 
@@ -39,7 +38,6 @@ Katsumascoreは、映画・ドラマ・アニメなどのエンターテイメ�
 
 - **Polylang Pro**: 多言語サポート
 - **Advanced Custom Fields Pro**: カスタムフィールド
-- **Elementor**: ページビルダー（オプション）
 - **TGM Plugin Activation**: 必須プラグイン管理
 
 ## クイックスタート

@@ -125,7 +125,7 @@ function theme_function_name($param) {
 - `page-`: ページ専用テンプレート
 - `acf-`: ACF依存テンプレート
 - `plugin-`: プラグイン依存テンプレート
-- `elementor-`: Elementor依存テンプレート
+
 
 ## 開発ワークフロー
 
