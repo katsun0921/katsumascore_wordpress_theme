@@ -78,6 +78,7 @@ if ($recent_posts->have_posts()):
       margin: auto;
       z-index: 0;
       text-align: center;
+
       img {
         height: 100%;
       }
@@ -149,12 +150,12 @@ if ($recent_posts->have_posts()):
           <?php
           $categories = get_the_category();
           $cat_names_str = '';
-          if (!empty($categories)) {
+          if (!empty($categories)) :
             $cat_names = array_map(function ($cat) {
               return esc_html($cat->name);
             }, $categories);
             $cat_names_str = implode(', ', $cat_names);
-          }
+          endif;
           ?>
           <swiper-slide>
             <a href="<?php the_permalink(); ?>" class="swiper-posts__link">

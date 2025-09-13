@@ -46,3 +46,43 @@ function theme_function_name($param) {
 - テーマプレフィックス付きの説明的な関数名を使用
 - 関連する関数をグループ化
 - 複雑なロジックには十分なコメントを記述
+
+## 条件文の構文規則
+**重要：テンプレートファイル内のHTML混在PHPコードでは代替構文を使用する**
+
+### 使用すべき構文（OK）：
+```php
+<?php if (condition) : ?>
+<div></div>
+<?php endif; ?>
+```
+
+### 使用禁止の構文（NG）：
+```php
+<?php if (condition) { ?>
+<div></div>
+<?php } ?>
+```
+
+### 適用対象：
+- `if`, `elseif`, `else`
+- `foreach`, `for`, `while`
+- `switch`
+
+### 理由：
+- テンプレートファイルでのHTML/PHP混在コードの可読性向上
+- WordPressテーマの標準的な記述方式
+- エディタでのコードハイライト、インデント処理の改善
+
+### 例：
+```php
+<?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
+        <article>
+            <?php the_title(); ?>
+        </article>
+    <?php endwhile; ?>
+<?php else : ?>
+    <p>記事が見つかりません。</p>
+<?php endif; ?>
+```

@@ -13,10 +13,10 @@
       $term_series = get_term($series_id);
       $series_name = '';
       $series_description = '';
-      if ($term_series && ! is_wp_error($term_series)) {
+      if ($term_series && ! is_wp_error($term_series)) :
         $series_name = $term_series->name;
         $series_description = $term_series->description;
-      }
+      endif;
       // タクソノミーに登録された投稿を取得（現在の投稿を除外）
       $query_args = array(
         'post_type' => 'post',
