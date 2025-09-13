@@ -27,7 +27,6 @@ description: Katsumascore WordPressテーマのプロジェクト構造とアー
 - **コンテンツテンプレート**: content-single.php, content-page.php, content-review.php
 - **コンポーネントテンプレート**: components/ディレクトリの再利用可能なUIコンポーネント
 - **アフィリエイトテンプレート**: VODサービス統合用のaffiliate/ディレクトリ
-- **Elementorテンプレート**: ページビルダー互換性用のelementor/ディレクトリ
 
 ## 主要ディレクトリ
 - [inc/](mdc:inc/) - テーマインクルードと機能
@@ -40,5 +39,4 @@ description: Katsumascore WordPressテーマのプロジェクト構造とアー
 - **多言語サポート**: 日本語/英語用のPolylangプラグイン使用
 - **レビューシステム**: カスタムスコアリングとランキングアイコン
 - **VOD統合**: ストリーミングサービス用のアフィリエイトテンプレート
-- **Elementor互換性**: カスタムウィジェットとテンプレート
 - **メガメニュー**: カスタムナビゲーションフレームワーク

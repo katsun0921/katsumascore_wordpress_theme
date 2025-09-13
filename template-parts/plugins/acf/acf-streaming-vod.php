@@ -21,7 +21,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
         $affiliate_code = $rows_other_vod[$i]['affiliate_code'];
         $is_paid = $rows_other_vod[$i]['is_paid'];
         $affiliate = null;
-        $affiliate_path = '/template-parts/plugin/acf/vod/';
+        $affiliate_path = '/template-parts/plugins/acf/vod/';
         $url = $rows_other_vod[$i]['other_vod_url'];
         $slug = get_term($vod_term_id)->slug;
         $amazon_prime_video = pll_current_language() === 'en' ? 'amazon-prime-video-com' : 'amazon-prime-video-jp';

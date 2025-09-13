@@ -53,7 +53,7 @@ $post_id = $post->ID;
     <?php get_template_part('template-parts/components/director-info', null, array('post_id' => $post_id)); ?>
 
     <!-- 登場人物・俳優情報 -->
-    <?php get_template_part('template-parts/components/actors-info', null, array('post_id' => $post_id)); ?>
+    <?php get_template_part('template-parts/plugins/acf/actors-info', null, array('post_id' => $post_id)); ?>
 
     <!-- 制作会社・配給会社情報 -->
     <?php get_template_part('template-parts/components/studio-info', null, array('post_id' => $post_id)); ?>

@@ -15,18 +15,18 @@ $template = 'template-parts';
   </div>
   <?php endif; ?>
 
-  <?php get_template_part($template . '/plugin/acf/acf-good-point') ?>
-  <?php get_template_part($template . '/plugin/acf/acf-summary') ?>
+  <?php get_template_part($template . '/plugins/acf/acf-good-point') ?>
+  <?php get_template_part($template . '/plugins/acf/acf-summary') ?>
 
   <article class="p-content u-my-8">
     <?php the_content(); ?>
   </article>
 
   <div class="u-mb-8">
-    <?php get_template_part($template . '/plugin/acf/acf-review-site-scores'); ?>
+    <?php get_template_part($template . '/plugins/acf/acf-review-site-scores'); ?>
   </div>
 
-  <?php get_template_part($template . '/post/post-introduce-vod', null, array('post_id' => $post_id)); ?>
+  <?php get_template_part($template . '/plugins/acf/post-introduce-vod', null, array('post_id' => $post_id)); ?>
 
 
   <?php wp_link_pages(

@@ -26,18 +26,18 @@ $template = 'template-parts';
       <aside class="u-mt-10 l-container">
         <?php
         // 関連IDにもとづくPostを表示
-        get_template_part($template . '/plugin/acf/acf-relation-by-post-id'); ?>
+        get_template_part($template . '/plugins/acf/acf-relation-by-post-id'); ?>
         <?php
         // 劇場版以外VODサービスを表示
-        $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
+        $is_cinema_showing = include get_template_directory() . '/template-parts/plugins/acf/single-cinema-check.php';
         if (!$is_cinema_showing) {
-          get_template_part($template . '/plugin/acf/acf-streaming-vod', null, array('post_id' => $post_id));
+          get_template_part($template . '/plugins/acf/acf-streaming-vod', null, array('post_id' => $post_id));
         }
         ?>
         <?php
         // 劇場版以外レンタルサービスを表示
         if (!$is_cinema_showing && pll_current_language() !== 'en') {
-          get_template_part($template . '/plugin/plugin-ad-rental', null, array('post_id' => $post_id));
+          get_template_part($template . '/plugins/acf/plugin-ad-rental', null, array('post_id' => $post_id));
         }
         ?>
         <?php

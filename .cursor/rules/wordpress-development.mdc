@@ -43,7 +43,6 @@ add_image_size('slider-thumb', 300, 200, true);
 - **アーカイブタイトル修正**: カスタムカテゴリ/タグタイトル
 
 ## プラグイン依存関係
-- **Elementor**: ページビルダー統合
 - **Polylang**: 多言語サポート
 - **ACF Pro**: 高度なカスタムフィールド（スタブ含む）
 - **TGM Plugin Activation**: 必須プラグイン管理
@@ -55,7 +54,6 @@ add_image_size('slider-thumb', 300, 200, true);
   - `page-`: ページ専用テンプレート
   - `acf-`: ACF依存テンプレート
   - `plugin-`: プラグイン依存テンプレート
-  - `elementor-`: Elementor依存テンプレート
 - **コンポーネント**: 機能を表す説明的な名前を使用
   - `score.php` - 評価スコア表示
   - `list-social-icon.php` - ソーシャルメディアアイコン

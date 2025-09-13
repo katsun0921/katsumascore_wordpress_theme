@@ -31,7 +31,7 @@ endforeach;
       ?>
         <?php if (!empty($value)) : ?>
           <li style="width: 33%">
-            <? get_template_part('template-parts/plugin/acf/vod/' . $key, null, $arg_affiliate); ?>
+            <? get_template_part('template-parts/plugins/acf/vod/' . $key, null, $arg_affiliate); ?>
           </li>
         <?php endif; ?>
       <?php endforeach; ?>
