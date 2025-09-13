@@ -1,5 +1,5 @@
 <?php
-$post_id = $post->ID;
+$post_id = isset($post) ? $post->ID : null;
 $template = 'template-parts';
 ?>
 <?php get_header(); ?>

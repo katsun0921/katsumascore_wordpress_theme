@@ -6,16 +6,14 @@
       <?php echo $unregistered_text; ?>
     </p>
     <img
-      src="<?php echo get_template_directory_uri() . '/images/banner/amazon-prime-video.webp' ?>"
-      alt="Amazon Prime Video"
-    >
+      src="<?php echo get_template_directory_uri() . '/images/vod/amazon-prime-video.webp' ?>"
+      alt="Amazon Prime Video">
   </a>
 </div>
 <a
   class="u-block"
   href="<?php echo esc_url($url) ?>"
   target="_blank"
-  rel="noopener noreferrer"
->
+  rel="noopener noreferrer">
   <?php echo $streaming_text; ?>
 </a>

@@ -3,12 +3,10 @@
   class="u-block"
   href="<?php echo esc_url($url) ?>"
   target="_blank"
-  rel="noopener noreferrer"
->
+  rel="noopener noreferrer">
   <img
-    src="<?php echo get_template_directory_uri() . '/images/banner/youtube.webp' ?>"
+    src="<?php echo get_template_directory_uri() . '/images/vod/youtube.webp' ?>"
     alt="youtube"
-    loading="lazy"
-  >
+    loading="lazy">
   <?php echo $streaming_text; ?>
 </a>

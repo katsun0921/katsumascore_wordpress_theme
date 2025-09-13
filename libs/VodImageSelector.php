@@ -1,11 +1,11 @@
 <?php
 
 class VodImageSelector {
-    private $bannerImageBaseUrl;
+    private $vodImageBaseUrl;
     private $imageMap;
 
     public function __construct() {
-        $this->bannerImageBaseUrl = get_template_directory_uri() . '/images/banner/';
+        $this->vodImageBaseUrl = get_template_directory_uri() . '/images/vod/';
 
         $this->imageMap = [
             'amazon-prime-video-com'   => 'amazon-prime-video.webp',
@@ -37,6 +37,6 @@ class VodImageSelector {
             return null;
         }
 
-        return $this->bannerImageBaseUrl . $this->imageMap[$slug];
+        return $this->vodImageBaseUrl . $this->imageMap[$slug];
     }
 }

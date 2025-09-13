@@ -1,9 +1,63 @@
 <?php
+global $post;
 $post_id = $args['post_id'] ?? null;
 $headingText = $args['headingText'] ?? null;
 $is_post = (get_post_type() === 'post');
-$imageThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'background');
+$imageThumbnail = ($post && isset($post->ID)) ? wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'background') : false;
 $image = ($imageThumbnail && is_array($imageThumbnail)) ? $imageThumbnail[0] : '';
+
+$imageDefault = get_template_directory_uri() . '/images/main-visual-default.webp';
+if (is_category()) {
+  $cat = get_queried_object();
+  $category_images = [
+    // カテゴリースラッグ => ファイル名
+    'japan' => 'category-movie-japan.webp',
+    'france' => 'category-movie-france.webp',
+    'germany' => 'category-movie-germany.webp',
+    'australia' => 'category-movie-australia.webp',
+    'india-ja' => 'category-movie-india.webp',
+    'movie-ja' => 'category-movie.webp',
+    'united-kingdom' => 'category-movie-united-kingdom.webp',
+    'america-ja' => 'category-movie-america.webp',
+    'anime' => 'category-anime.webp',
+    'anime-ova-ja' => 'category-anime.webp',
+    'anime-film-ja' => 'category-anime.webp',
+    'anime-en' => 'category-anime.webp',
+    'anime-film-en' => 'category-anime.webp',
+    'movie-en' => 'category-movie.webp',
+    'america-en' => 'category-movie.webp',
+    'australia-en' => 'category-movie-australia.webp',
+    'france-en' => 'category-movie-france.webp',
+    'germany-en' => 'category-movie-germany.webp',
+    'japan-en' => 'category-movie-japan.webp',
+    'united-kingdom-en' => 'category-movie-united-kingdom.webp',
+  ];
+  $filename = $category_images[$cat->slug] ?? '';
+  $image = $filename ? get_template_directory_uri() . '/images/categories/' . $filename : $imageDefault;
+}
+if (taxonomy_exists('vod') && is_tax('vod')) {
+
+  $vod_images = [
+    //スラッグ => ファイル名
+    'abema-tv' => 'abema-tv.webp',
+    'amazon-prime-video-com' => 'amazon-prime-video.webp',
+    'amazon-prime-video-jp' => 'amazon-prime-video.webp',
+    'apple-tv-com' => 'apple-tv-plus.webp',
+    'apple-tv-cojp' => 'apple-tv-plus.webp',
+    'disneyplus-com' => 'disney-plus.webp',
+    'disneyplus-jp' => 'disney-plus.webp',
+    'dmmtv-jp' => 'dmm-tv.webp',
+    'netflix-com' => 'netflix.webp',
+    'netflix-jp' => 'netflix.webp',
+    'u-next-ja' => 'u-next.webp',
+    'youtube-com' => 'youtube.webp',
+    'youtube-cojp' => 'youtube.webp',
+  ];
+  $tax = get_queried_object();
+  $filename = $vod_images[$tax->slug] ?? '';
+  $image = $filename ? get_template_directory_uri() . '/images/vod/' . $filename : $imageDefault;
+}
+
 $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
 ?>
 
