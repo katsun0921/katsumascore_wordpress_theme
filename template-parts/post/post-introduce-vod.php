@@ -1,6 +1,6 @@
 <?php
-require_once get_template_directory() . '/libs/VodImageSelector.php';
-$vod_image_selector = new VodImageSelector();
+require_once get_template_directory() . '/libs/ImageSelector.php';
+$vod_image_selector = new ImageSelector();
 
 // レビューを投稿したVODを紹介するページ
 ['post_id' => $post_id] = $args;
