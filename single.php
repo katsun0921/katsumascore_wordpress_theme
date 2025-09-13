@@ -6,15 +6,14 @@ $template = 'template-parts';
 
 <?php while (have_posts()) : the_post(); ?>
 
-  <main class=" u-mt-8">
+  <main>
     <?php
-    $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'original_title', true) : get_post_meta($post_id, 'title_jp', true);
+    $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'title_en', true) : get_post_meta($post_id, 'title_jp', true);
     get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
     ?>
 
     <section
-      id="content-pro"
-      class="site-content-blog-post u-mt-60px u-mb-50px u-relative">
+      class="site-content-blog-post u-my-12 u-relative">
       <div class="l-container l-container__showSidebar">
         <div
           id="main-container-pro"

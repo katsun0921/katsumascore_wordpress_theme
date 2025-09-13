@@ -10,7 +10,7 @@ $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
 $is_vod_streaming = get_field('streaming_vod_watched_vod_is_writing_video_article');
 $vod_streaming_term_id = get_field('streaming_vod_watched_vod_watched_vod_name');
 $title_jp = get_post_meta($post_id, 'title_jp', true);
-$original_title = get_post_meta($post_id, 'original_title', true);
+$title_en = get_post_meta($post_id, 'title_en', true);
 $official_url = get_field('official_url');
 $date_string = get_field('release_date');
 $release_date = DateTime::createFromFormat('Ymd', $date_string);
@@ -42,7 +42,7 @@ if (!$is_vod_streaming && $is_cinema_watched) :
       <?php // echo $release_date->format('j M, Y');
       ?>
     </time> -->
-        Written <?php echo $original_title ?>.
+        Written <?php echo $title_en ?>.
       <?php else : ?>
         <!-- このページでは
     <time datetime="<?php // echo $release_date->format('Y-m-d');
@@ -57,11 +57,11 @@ if (!$is_vod_streaming && $is_cinema_watched) :
     <?php if ($is_cinema_showing) : ?>
       <p class="u-mb-2">
         <?php echo pll_current_language() === 'en' ?
-          'Here are the synopsis, impressions, and ratings for' . $original_title . 'that are in theaters. If you are interested in the film, please check out the theater information URL!' :
+          'Here are the synopsis, impressions, and ratings for' . $original_en . 'that are in theaters. If you are interested in the film, please check out the theater information URL!' :
           '公開中の' . $title_jp . 'のあらすじ、感想、評価を紹介しました。気になる方は、ぜひ劇場情報URLからチェックしてみてください！'; ?>
       </p>
       <a href="<?php echo esc_url($cinema_list_filed); ?>" target="_blank" rel="noopener">
-        <?php echo pll_current_language() === 'en' ? 'Theater information for ' . $original_title : $title_jp . 'の劇場情報'; ?>
+        <?php echo pll_current_language() === 'en' ? 'Theater information for ' . $original_en : $title_jp . 'の劇場情報'; ?>
       </a>
     <?php else : ?>
       <p>
@@ -86,7 +86,7 @@ if (!$is_vod_streaming && $is_cinema_watched) :
           </time>.</strong><br>
         Please check
         <a href="<?php echo esc_url($official_url); ?>" rel="noopener" target="_blank">
-          <?php echo $original_title; ?>site for the latest information.
+          <?php echo $original_en; ?>site for the latest information.
         </a>
       <?php else : ?>
         <strong>本ページの情報は
@@ -104,7 +104,7 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 <?php
 // VODが配信中のものかり執筆し、劇場公開で視聴していない
 if ($is_vod_streaming && !$is_cinema_watched) :
-  $title = pll_current_language() === 'en' ? $original_title : $title_jp;
+  $title = pll_current_language() === 'en' ? $original_en : $title_jp;
 ?>
   <section>
     <h2 class="u-mb-4">

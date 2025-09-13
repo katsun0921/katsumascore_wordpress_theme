@@ -49,7 +49,7 @@ Katsumascore WordPressテーマのインストール手順を説明します。
 2. レビュー関連のカスタムフィールドを設定：
    - `review_score` - レビュースコア
    - `title_jp` - 日本語タイトル
-   - `original_title` - オリジナルタイトル
+   - `title_en` - 英語タイトル
    - `acf_summary_group` - あらすじ
    - `good_point_filed` - おすすめポイント
 

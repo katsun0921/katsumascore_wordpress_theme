@@ -89,7 +89,8 @@ $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
     </h1>
   <?php elseif (is_tax()) : ?>
     <h1 class="page-title c-heading__title">
-      <div class="u-block u-mb-6 c-category c-category__title">
+      <div class="u-block u-mb-6">
+      <div class="c-category c-category__title">
         <?php
         $tax = get_queried_object();
         if ($tax && isset($tax->taxonomy)) {
@@ -97,6 +98,7 @@ $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
           echo esc_html($tax_obj->labels->singular_name);
         }
         ?>
+      </div>
       </div>
       <?php echo single_term_title('', false); ?>
     </h1>

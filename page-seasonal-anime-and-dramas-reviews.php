@@ -7,7 +7,7 @@ $template = 'template-parts';
 
 <?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => get_the_title())); ?>
 
-<main class="u-mb-50px u-relative">
+<main class="u-my-12 u-relative">
   <div class=" l-container l-container__showSidebar">
     <section class="l-content ">
       <?php

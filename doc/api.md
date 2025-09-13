@@ -90,9 +90,9 @@ the_post_thumbnail('background');
 - タイプ: Text
 - 説明: 日本語タイトル
 
-**`original_title`**
+**`title_en`**
 - タイプ: Text
-- 説明: オリジナルタイトル
+- 説明: 英語タイトル
 
 **`acf_summary_group`**
 - タイプ: Repeater

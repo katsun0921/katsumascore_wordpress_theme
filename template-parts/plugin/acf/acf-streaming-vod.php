@@ -2,7 +2,7 @@
 ['post_id' => $post_id] = $args;
 // コンテンツを配信していVODを表示するページ。劇場で上映中でありVODで配信をしていない時は表示をしない。
 $title_jp = get_post_meta($post_id, 'title_jp', true);
-$original_title = get_post_meta($post_id, 'original_title', true);
+$title_en = get_post_meta($post_id, 'title_en', true);
 $repeater_other_vod = 'streaming_vod_other_vod';
 $rows_other_vod = get_field($repeater_other_vod, $post_id);
 $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
@@ -11,7 +11,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
 <?php if ($count_other_vod > 0) : ?>
 <section>
   <h2>
-    <?php echo pll_current_language() === 'en' ? 'You can access ' . $original_title . ' through various other video distribution services as well.' : $title_jp . 'は、他にも様々な動画配信サービスで配信中です。' ?>
+    <?php echo pll_current_language() === 'en' ? 'You can access ' . $title_en . ' through various other video distribution services as well.' : $title_jp . 'は、他にも様々な動画配信サービスで配信中です。' ?>
   </h2>
   <ul style="flex-wrap: wrap;display: flex;list-style: none;">
     <?php
