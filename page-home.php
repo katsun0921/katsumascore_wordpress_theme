@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Home (Custom)
-Description: トップページ用テンプレート
+Description: 日本語トップページ用テンプレート
 */
 
 global $post;

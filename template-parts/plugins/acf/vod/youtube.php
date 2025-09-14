@@ -13,5 +13,7 @@
     src="<?php echo get_template_directory_uri() . '/images/vod/youtube.webp' ?>"
     alt="youtube"
     loading="lazy">
-  <?php echo $streaming_text; ?>
+    <div>
+      <?php echo $streaming_text; ?>
+    </div>
 </a>

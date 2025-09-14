@@ -17,7 +17,7 @@ foreach ($rental_services as $value) :
 endforeach;
 ?>
 <?php if (!$all_empty_for_rental_services) : ?>
-  <section>
+  <div>
     <h2>
       <?php echo $titleJp ?>はレンタルサービスでレンタル中です。
     </h2>
@@ -36,5 +36,5 @@ endforeach;
         <?php endif; ?>
       <?php endforeach; ?>
     </ul>
-  </section>
+  </div>
 <?php endif; ?>

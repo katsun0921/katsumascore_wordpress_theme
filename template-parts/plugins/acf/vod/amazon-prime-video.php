@@ -25,5 +25,7 @@
         ])); ?>"
   target="_blank"
   rel="noopener noreferrer">
-  <?php echo $streaming_text; ?>
+  <div>
+    <?php echo $streaming_text; ?>
+  </div>
 </a>

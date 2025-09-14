@@ -34,12 +34,14 @@ $template = 'template-parts';
           get_template_part($template . '/plugins/acf/acf-streaming-vod', null, array('post_id' => $post_id));
         }
         ?>
+        <section class="u-mt-8">
         <?php
-        // 劇場版以外レンタルサービスを表示
+        // 日本語ページはレンタルサービスを表示
         if (!$is_cinema_showing && pll_current_language() !== 'en') {
           get_template_part($template . '/plugins/acf/ad-rental', null, array('post_id' => $post_id));
         }
         ?>
+        </section>
         <?php
         // カテゴリーにもとづくPostを表示
         get_template_part($template . '/components/category-posts-rand', null, array('post_id' => $post_id));
