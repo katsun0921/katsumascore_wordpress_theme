@@ -1,6 +1,9 @@
+<?php
+  $id = $args['id'] ?? get_the_ID();
+?>
 <div class="c-category c-category__title">
   <?php
-  $categories = get_the_category();
+  $categories = get_the_category($id);
   $cat_names = array();
   if (! empty($categories)) :
     foreach ($categories as $category) :

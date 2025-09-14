@@ -35,12 +35,18 @@ $template = 'template-parts';
         }
         ?>
         <section class="u-mt-8">
-        <?php
-        // 日本語ページはレンタルサービスを表示
-        if (!$is_cinema_showing && pll_current_language() !== 'en') {
-          get_template_part($template . '/plugins/acf/ad-rental', null, array('post_id' => $post_id));
-        }
-        ?>
+          <?php
+          // 日本語ページはレンタルサービスを表示
+          if (!$is_cinema_showing && pll_current_language() !== 'en') {
+            get_template_part($template . '/plugins/acf/ad-rental', null, array('post_id' => $post_id));
+          }
+          ?>
+        </section>
+        <section class="u-mt-8">
+          <?php
+          // 関連ページのPostを表示
+          get_template_part($template . '/post/post-related-posts', null, array('post_id' => $post_id));
+          ?>
         </section>
         <?php
         // カテゴリーにもとづくPostを表示
