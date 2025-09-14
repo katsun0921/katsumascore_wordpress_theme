@@ -1,6 +1,21 @@
 <?php
 
 /**
+ * Sets up theme defaults and registers support for various WordPress features.
+ */
+
+function theme_setup() {
+
+  // Post Thumbnails
+  add_theme_support('post-thumbnails');
+
+  add_image_size('index', 512, 512, true);
+  add_image_size('background', 900, 900, false);
+  add_image_size('left-align', 700, 460, true);
+}
+add_action('after_setup_theme', 'theme_setup');
+
+/**
  * Enqueue scripts and styles
  */
 function katsumascore_scripts()
