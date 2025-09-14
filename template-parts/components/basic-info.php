@@ -45,11 +45,11 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
       <?php echo pll_current_language() === 'en' ? 'Official SNS' : '公式サイトSNS'; ?>
     </dt>
     <dd class="u-pl-4">
-      <ul class="sns-list">
+      <ul class="u-flex u-flex-col u-gap-2 u-mt-2">
         <?php foreach ($sns_group as $platform => $sns_data) :
           if (!empty($sns_data['link'])) : ?>
             <li class="sns-item">
-              <a href="<?php echo esc_url($sns_data['link']); ?>" target="_blank" rel="noopener">
+              <a class="u-p-2" href="<?php echo esc_url($sns_data['link']); ?>" target="_blank" rel="noopener">
                 <?php
                 // プラットフォーム名を表示用に変換
                 switch ($platform) {
