@@ -5,39 +5,27 @@ $template = 'template-parts';
 
 <?php get_header(); ?>
 
-<?php if (!get_post_meta($cover_page->ID, 'progression_studios_disable_page_title', true)) : ?>
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => get_the_title($cover_page))); ?>
-<?php else : ?>
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => 'Latest News')); ?>
-<?php endif; ?>
+<?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => get_the_title($cover_page))); ?>
 
-<div class="u-mb-50px u-relative">
+<main class="u-mb-50px u-relative">
   <div class="l-container">
-    <?php if (is_active_sidebar('progression-studios-post-widget-sidebar')) : ?>
-    <div class="l-content">
-      <?php endif; ?>
-
+    <section class="l-content">
       <?php if (have_posts()) : ?>
-      <ul class="progression-blog-index-masonry">
-        <?php while (have_posts()) : the_post(); ?>
-        <li>
-          <?php get_template_part('template-parts/components/postImageOverlay.php', null, array('post_id' => $post_id)); ?>
-        </li>
-        <?php endwhile; ?>
-      </ul>
+        <ul class="progression-blog-index-masonry">
+          <?php while (have_posts()) : the_post(); ?>
+            <li>
+              <?php get_template_part('template-parts/components/post-image-left', null, array('post_id' => $post_id)); ?>
+            </li>
+          <?php endwhile; ?>
+        </ul>
 
       <?php else : ?>
 
-      <?php get_template_part('template-parts/content', 'none'); ?>
+        <?php get_template_part('template-parts/components/none'); ?>
 
       <?php endif; ?>
-    </div>
-
-    <?php if (is_active_sidebar('progression-studios-post-widget-sidebar')) : ?>
-    <?php get_sidebar(); ?>
-    <?php endif; ?>
+      </section>
+      <?php get_sidebar(); ?>
   </div>
-  <!-- close .l-container -->
-</div>
-<!-- #content-pro -->
+</main>
 <?php get_footer(); ?>

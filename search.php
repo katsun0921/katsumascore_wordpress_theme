@@ -1,41 +1,34 @@
 <?php
-$post_id = $post->ID;
+$post_id = isset($post) ? $post->ID : null;
 $template = 'template-parts';
 ?>
 
 <?php get_header(); ?>
 
-<?php  get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => 'Search for:'. get_search_query())); ?>
+<?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => 'Search for:' . get_search_query())); ?>
 
-
-<div id="content-pro" class="site-content u-mb-50px u-relative">
-  <div class="l-container l-container__showLeftSidebar">
-    <div class="l-content">
+<main class="site-content u-mt-12 u-relative">
+  <div class="l-container l-container__showSidebar">
+    <section class="l-content">
       <?php if (have_posts()) : ?>
 
-      <ul>
-        <?php while (have_posts()) : the_post(); ?>
-        <li>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'default') : ?>
-          <?php get_template_part('template-parts/content', get_post_format()); ?>
-          <?php endif; ?>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout') == 'overlay') : ?>
-          <?php get_template_part('template-parts/content', 'overlay'); ?>
-          <?php endif; ?>
-          <?php if (get_theme_mod('progression_studios_blog_index_layout', 'top-image') == 'top-image') : ?>
-          <?php get_template_part('template-parts/content', 'top'); ?>
-          <?php endif; ?>
-        </li>
-        <?php endwhile; ?>
-      </ul><!-- close .progression-blog-index-masonry -->
-
+        <ul>
+          <?php while (have_posts()) : the_post(); ?>
+            <li>
+              <?php get_template_part('template-parts/components/post-image-left'); ?>
+            </li>
+          <?php endwhile; ?>
+        </ul>
+        <div class="u-mt-8">
+          <?php get_template_part('template-parts/components/pagination'); ?>
+        </div>
       <?php else : ?>
 
-      <?php get_template_part('template-parts/content', 'none'); ?>
+        <?php get_template_part('template-parts/components/none'); ?>
 
       <?php endif; ?>
-    </div>
+    </section>
     <?php get_sidebar(); ?>
   </div><!-- close .l-container -->
-</div><!-- #content-pro -->
+</main><!-- #content-pro -->
 <?php get_footer(); ?>

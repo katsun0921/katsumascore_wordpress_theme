@@ -1,0 +1,74 @@
+---
+globs: *.php
+description: Polylangプラグインを使用した多言語開発ガイドライン
+---
+
+# 多言語開発 (Polylang)
+
+## 言語サポート
+- **プライマリ言語**: 日本語 (ja)
+- **セカンダリ言語**: 英語 (en)
+- **プラグイン**: Polylang Pro (https://polylang.pro/)
+
+## 言語検出
+```php
+// 現在の言語をチェック
+$current_lang = function_exists('pll_current_language') ? pll_current_language() : null;
+
+// 言語固有のコンテンツ
+$content = pll_current_language() === 'en' ? 'English content' : 'Japanese content';
+```
+
+## HTML言語属性
+```php
+// header.php内
+<html lang="<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>">
+```
+
+## ナビゲーション & URL
+```php
+// 言語固有のホームURL
+$home_url = pll_current_language() === 'en' ? '/en/top' : '/';
+
+// ヘッダーのロゴリンク
+<a href="<?php echo esc_url(pll_current_language() === 'en' ? '/en/top' : '/'); ?>" rel="home">
+```
+
+## Google Analytics統合
+```php
+// Google Analyticsの言語設定
+gtag('set', {
+    language: "<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>"
+});
+```
+
+## コンテンツ翻訳ワークフロー
+1. **まず日本語コンテンツを作成**
+2. **Polylangインターフェースを使用して英語翻訳を作成**
+3. **言語間のナビゲーションに言語スイッチャーを使用**
+4. **両方の言語バージョンを徹底的にテスト**
+
+## 翻訳ファイル
+- 場所: [languages/](mdc:languages/)ディレクトリ
+- メインファイル: [ratency-progression.pot](mdc:languages/ratency-progression.pot)
+- テキストドメイン: `ratency-progression`
+
+## ベストプラクティス
+- 使用前にPolylang関数の存在を常にチェック: `function_exists('pll_current_language')`
+- Polylangがアクティブでない場合のフォールバックコンテンツを提供
+- 言語固有のURLに適切なエスケープを使用
+- 両方の言語がアクティブ/非アクティブの状態でテスト
+- 他の言語でRTLサポートが必要な場合は考慮
+
+## 一般的なパターン
+```php
+// 言語に基づく条件付きコンテンツ
+<?php if (pll_current_language() === 'en'): ?>
+    <p>English content here</p>
+<?php else: ?>
+    <p>日本語のコンテンツ</p>
+<?php endif; ?>
+
+// 言語固有のCSSクラス
+<body <?php body_class(pll_current_language() === 'en' ? 'lang-en' : 'lang-ja'); ?>>
+```

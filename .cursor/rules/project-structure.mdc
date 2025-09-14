@@ -1,0 +1,42 @@
+---
+alwaysApply: true
+description: Katsumascore WordPressテーマのプロジェクト構造とアーキテクチャガイド
+---
+
+# Katsumascore WordPressテーマ - プロジェクト構造
+
+これはkatsumascore.blogのレビュー・マガジンサイト用のカスタムWordPressテーマです。
+
+## コアテーマファイル
+- [style.css](mdc:style.css) - テーマヘッダーとメインスタイルシート
+- [functions.php](mdc:functions.php) - メインテーマ機能とセットアップ
+- [index.php](mdc:index.php) - メインテンプレートフォールバック
+- [header.php](mdc:header.php) - ナビゲーション付きサイトヘッダー
+- [footer.php](mdc:footer.php) - サイトフッター
+- [sidebar.php](mdc:sidebar.php) - ウィジェットエリア
+
+## テンプレート階層
+- [single.php](mdc:single.php) - 単一投稿テンプレート
+- [page.php](mdc:page.php) - ページテンプレート
+- [archive.php](mdc:archive.php) - アーカイブページ
+- [search.php](mdc:search.php) - 検索結果
+- [404.php](mdc:404.php) - エラーページ
+
+## テンプレートパーツシステム
+[template-parts/](mdc:template-parts/)ディレクトリに配置：
+- **コンテンツテンプレート**: content-single.php, content-page.php, content-review.php
+- **コンポーネントテンプレート**: components/ディレクトリの再利用可能なUIコンポーネント
+- **アフィリエイトテンプレート**: VODサービス統合用のaffiliate/ディレクトリ
+
+## 主要ディレクトリ
+- [inc/](mdc:inc/) - テーマインクルードと機能
+- [css/](mdc:css/) - スタイルシートとビルドファイル
+- [js/](mdc:js/) - JavaScriptファイルとバンドル
+- [images/](mdc:images/) - テーマアセットとアイコン
+- [languages/](mdc:languages/) - 翻訳ファイル
+
+## 特別な機能
+- **多言語サポート**: 日本語/英語用のPolylangプラグイン使用
+- **レビューシステム**: カスタムスコアリングとランキングアイコン
+- **VOD統合**: ストリーミングサービス用のアフィリエイトテンプレート
+- **メガメニュー**: カスタムナビゲーションフレームワーク

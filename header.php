@@ -3,37 +3,40 @@
 /**
  * The Header for our theme.
  */
+
+$is_local = wp_get_environment_type() && wp_get_environment_type() === 'local';
+
 ?>
 <!doctype html>
 <html lang="<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>">
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <?php if (!is_preview() && !is_admin() && !$is_local) : ?>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE4K3EM3VB"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag('js', new Date());
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-  gtag('config', 'G-NE4K3EM3VB');
-  gtag('set', {
-    language: "<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>"
-  })
+    gtag('config', 'G-NE4K3EM3VB');
+    gtag('set', {
+      language: "<?php echo function_exists('pll_current_language') ? pll_current_language() : null ?>"
+    })
   </script>
-  <?php
-  if (!is_preview() && !is_admin() && !is_404() && !is_search()) {
-    // Google AdSense
-  ?>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6583700677059660" crossorigin="anonymous"></script>
-  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-  <?php } ?>
+  <?php endif; ?>
+  <?php if (!is_preview() && !is_admin() && !is_404() && !is_search() && !$is_local) : ?>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6583700677059660" crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+  <?php endif ?>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <?php get_template_part('header/social', 'sharing'); ?>
-  <?php get_template_part('header/schema'); ?>
+  <?php get_template_part('template-parts/components/head-social'); ?>
+  <?php get_template_part('template-parts/components/schema'); ?>
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +63,7 @@
         <?php get_search_form(); ?>
       </div>
       <div class="l-header__snsLinks">
-        <?php get_template_part('template-parts/components/ListSocialIcon') ?>
+        <?php get_template_part('template-parts/components/list-social-icon') ?>
       </div>
     </div>
     <div class="l-navigation l-navigation--isDesktop">
@@ -75,7 +78,7 @@
         </button>
       </div>
       <nav id="js-mobile-menu" class="l-navigation__list u-opacity-0">
-        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new ProgressionFrontendWalker)); ?>
+        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new Walker_Nav_Menu)); ?>
       </nav>
     </div>
   </header>

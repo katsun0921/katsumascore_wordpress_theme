@@ -8,55 +8,62 @@ $template = 'template-parts';
 
   <main>
     <?php
-    $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'original_title', true) : get_post_meta($post_id, 'title_jp', true);
-    get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
+    $heading_title = pll_current_language() === 'en' ? get_post_meta($post_id, 'title_en', true) : get_post_meta($post_id, 'title_jp', true);
+    get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => $heading_title, 'is_post' => 'post' == get_post_type()));
     ?>
 
     <section
-      id="content-pro"
-      class="site-content-blog-post u-mt-60px u-mb-50px u-relative">
-      <div class="l-container l-container__showLeftSidebar">
+      class="site-content-blog-post u-mt-12 u-relative">
+      <div class="l-container l-container__showSidebar">
         <div
           id="main-container-pro"
           class="l-content">
-          <?php get_template_part('template-parts/date', 'single'); ?>
-          <?php get_template_part('template-parts/content', 'single'); ?>
+          <?php get_template_part('template-parts/components/date', 'single'); ?>
+          <?php get_template_part('template-parts/post/post-single'); ?>
         </div><!-- close #main-container-pro -->
         <?php get_sidebar(); ?>
       </div><!-- close .l-container -->
       <aside class="u-mt-10 l-container">
         <?php
         // 関連IDにもとづくPostを表示
-        get_template_part($template . '/content-relation-by-post-id'); ?>
+        get_template_part($template . '/plugins/acf/acf-relation-by-post-id'); ?>
         <?php
         // 劇場版以外VODサービスを表示
-        $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
+        $is_cinema_showing = include get_template_directory() . '/template-parts/plugins/acf/single-cinema-check.php';
         if (!$is_cinema_showing) {
-          get_template_part($template . '/content-streaming-vod', null, array('post_id' => $post_id));
+          get_template_part($template . '/plugins/acf/acf-streaming-vod', null, array('post_id' => $post_id));
         }
         ?>
-        <?php
-        // 劇場版以外レンタルサービスを表示
-        if (!$is_cinema_showing && pll_current_language() !== 'en') {
-          get_template_part($template . '/content-ad-rental', null, array('post_id' => $post_id));
-        }
-        ?>
+        <section class="u-mt-8">
+          <?php
+          // 日本語ページはレンタルサービスを表示
+          if (!$is_cinema_showing && pll_current_language() !== 'en') {
+            get_template_part($template . '/plugins/acf/ad-rental', null, array('post_id' => $post_id));
+          }
+          ?>
+        </section>
+        <section class="u-mt-8">
+          <?php
+          // 関連ページのPostを表示
+          get_template_part($template . '/post/post-related-posts', null, array('post_id' => $post_id));
+          ?>
+        </section>
         <?php
         // カテゴリーにもとづくPostを表示
-        get_template_part($template . '/category-posts-rand', null, array('post_id' => $post_id));
+        get_template_part($template . '/components/category-posts-rand', null, array('post_id' => $post_id));
         ?>
         <?php
         // シリーズにもとづくPostを表示
-        get_template_part($template . '/content-series-posts', null, array('post_id' => $post_id));
+        get_template_part($template . '/post/post-series-posts', null, array('post_id' => $post_id));
         ?>
         <?php
         // タグにもとづくPostを表示
-        get_template_part($template . '/content-tag-posts', null, array('post_id' => $post_id));
+        get_template_part($template . '/post/post-tag-posts', null, array('post_id' => $post_id));
         ?>
       </aside>
     </section>
-    <section class="u-mb-50px">
-      <?php get_template_part('template-parts/content-sharing'); ?>
+    <section class="u-mt-12">
+      <?php get_template_part('template-parts/components/sharing'); ?>
     </section>
   </main>
 <?php endwhile; ?>

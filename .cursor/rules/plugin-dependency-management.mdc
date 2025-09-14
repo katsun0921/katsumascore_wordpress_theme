@@ -1,0 +1,97 @@
+---
+globs: "**/*.php"
+description: プラグイン依存性管理とファイル分離のルール
+---
+
+# プラグイン依存性管理ルール
+
+## 基本原則
+プラグイン依存のコードは専用ディレクトリに分離し、メインテーマコードからプラグイン依存性を除去する。
+
+## ACF (Advanced Custom Fields) プラグイン依存
+
+### 配置ルール
+`get_field()`関数を使用するファイルは**必ず**`template-parts/plugins/acf/`ディレクトリに配置する。
+
+### 判定基準
+以下の条件に該当するファイルは移動対象：
+- `get_field()`関数を使用している
+- `the_field()`関数を使用している
+- `have_rows()`関数を使用している
+- その他ACF関数を使用している
+
+### 移動手順
+
+#### 1. 検索と特定
+```bash
+# get_field()を使用しているファイルを検索
+grep -r "get_field(" --include="*.php" .
+```
+
+#### 2. ディレクトリ作成
+```bash
+mkdir -p template-parts/plugins/acf
+```
+
+#### 3. ファイル移動
+```bash
+# 完全にACF依存のファイル
+mv path/to/acf-dependent-file.php template-parts/plugins/acf/
+
+# 部分的にACF依存の場合は抽出して新ファイル作成
+```
+
+#### 4. 参照パス更新
+移動後は全ての参照箇所でパスを更新：
+```php
+// 移動前
+get_template_part('template-parts/components/actors-info');
+
+// 移動後
+get_template_part('template-parts/plugins/acf/actors-info');
+```
+
+### 部分分離の例
+メインファイルの一部分のみがACF依存の場合：
+
+**移動前 (single.php)**
+```php
+$is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
+if (!$is_cinema_showing) {
+    // VODサービス表示
+}
+```
+
+**移動後**
+1. **新ファイル作成** (`template-parts/plugins/acf/single-cinema-check.php`)
+```php
+<?php
+$is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
+return $is_cinema_showing;
+```
+
+2. **メインファイル更新** (`single.php`)
+```php
+$is_cinema_showing = include get_template_directory() . '/template-parts/plugins/acf/single-cinema-check.php';
+if (!$is_cinema_showing) {
+    // VODサービス表示
+}
+```
+
+## 他のプラグイン依存
+
+### その他のプラグイン
+各プラグインごとに`template-parts/plugins/{plugin-name}/`ディレクトリを作成
+
+## 利点
+
+1. **保守性向上**: プラグイン依存コードが明確に分離される
+2. **エラー防止**: プラグイン無効時のPHPエラーを防げる
+3. **条件付き読み込み**: プラグインの有無で処理を分岐可能
+4. **再利用性**: プラグイン依存コンポーネントの再利用が容易
+
+## 注意事項
+
+- ドキュメントファイル（.md）内のサンプルコードは移動対象外
+- 移動後は必ず全ての参照パスを更新する
+- 移動したファイル内での相互参照パスも忘れずに更新する

@@ -1,0 +1,75 @@
+---
+globs: *.php
+description: WordPress固有の開発ガイドラインとベストプラクティス
+---
+
+# WordPress開発ガイドライン
+
+## テーマセットアップ
+- テーマ名: "Katsumascore" ([style.css](mdc:style.css)で定義)
+- テキストドメイン: `ratency-progression`
+- バージョン: 1.0
+- ライセンス: GPL v3
+
+## コアWordPress機能
+- **投稿サムネイル**: カスタム画像サイズで有効化
+- **ナビゲーションメニュー**: プライマリとモバイルメニューを登録
+- **ウィジェットエリア**: 投稿サイドバー、上部、下部ウィジェットエリア
+- **投稿フォーマット**: ギャラリー、動画、音声、引用、リンク、画像
+- **タイトルタグ**: WordPress管理
+- **フィードリンク**: 自動RSSフィード
+
+## カスタム画像サイズ
+```php
+add_image_size('index', 512, 512, true);
+add_image_size('background', 900, 900, false);
+add_image_size('left-align', 700, 460, true);
+add_image_size('slider-thumb', 300, 200, true);
+```
+
+## ナビゲーションメニュー
+- `progression-studios-primary` - メインナビゲーション
+
+## カスタム関数
+- **著者リダイレクト**: 著者アーカイブをホームページにリダイレクト
+- **管理画面でのID検索**: 管理画面で投稿をIDで検索可能
+- **カテゴリカウントスタイリング**: カテゴリカウント用のカスタムspanスタイリング
+- **アーカイブタイトル修正**: カスタムカテゴリ/タグタイトル
+
+## プラグイン依存関係
+- **Polylang**: 多言語サポート
+- **ACF Pro**: 高度なカスタムフィールド（スタブ含む）
+- **TGM Plugin Activation**: 必須プラグイン管理
+
+## ファイル命名規則
+- **ケバブケース（kebab-case）**: すべてのファイル名は小文字とハイフンを使用
+- **テンプレートパーツ**: ディレクトリの役割に応じたプレフィックスを使用
+  - `post-`: 投稿専用テンプレート
+  - `page-`: ページ専用テンプレート
+  - `acf-`: ACF依存テンプレート
+  - `plugin-`: プラグイン依存テンプレート
+- **コンポーネント**: 機能を表す説明的な名前を使用
+  - `score.php` - 評価スコア表示
+  - `list-social-icon.php` - ソーシャルメディアアイコン
+  - `post-image-overlay.php` - 画像オーバーレイ
+  - `post-image-top.php` - アイキャッチ画像
+
+### 命名例
+```php
+// 良い例
+template-parts/components/score.php
+template-parts/components/post-image-overlay.php
+template-parts/post/post-single.php
+template-parts/plugin/acf/acf-summary.php
+
+// 避けるべき例
+template-parts/components/Score.php          // 大文字
+template-parts/components/postImageOverlay.php // キャメルケース
+template-parts/common/content.php           // 不明確なプレフィックス
+```
+
+## セキュリティ機能
+- メール投稿を無効化
+- 適切なエスケープとサニタイゼーション
+- 著者ページの安全なリダイレクト
+- フォームのnonce検証

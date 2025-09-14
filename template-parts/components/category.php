@@ -1,11 +1,16 @@
 <?php
-/**
- * The Component for Category
- */
-['size' => $size] = $args;
-$sizeClass = $size ? 'c-category__' . $size : '';
-$cats = get_the_category();
-$cat = $cats[0];
+  $id = $args['id'] ?? get_the_ID();
 ?>
-
-<div class="c-category <?php echo $sizeClass; ?>"><?php echo $cat->cat_name; ?></div>
+<div class="c-category c-category__title">
+  <?php
+  $categories = get_the_category($id);
+  $cat_names = array();
+  if (! empty($categories)) :
+    foreach ($categories as $category) :
+      $cat_names[] = esc_html($category->name);
+    endforeach;
+    $cat_names = array_reverse($cat_names);
+    echo implode(' ', $cat_names);
+  endif;
+  ?>
+</div>

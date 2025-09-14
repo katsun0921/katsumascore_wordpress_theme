@@ -1,0 +1,49 @@
+---
+globs: *.css,*.scss,*.sass
+description: KatsumascoreテーマのCSSとスタイリング規則
+---
+
+# CSS & スタイリング規則
+
+## CSSアーキテクチャ
+- **メインスタイルシート**: [style.css](mdc:style.css) - テーマヘッダーと基本スタイル
+- **ビルドCSS**: [css/build.css](mdc:css/build.css) - コンパイル済みスタイル
+- **管理画面スタイル**: [css/edit-post.css](mdc:css/edit-post.css) - エディタースタイリング
+
+## CSSクラス命名規則
+BEM（Block Element Modifier）手法に従う：
+
+
+## レスポンシブデザイン
+- モバイルファーストアプローチ
+- レスポンシブ動作にユーティリティクラスを使用
+- 複数のデバイスサイズでテスト
+
+## フォント統合
+```html
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shippori+Mincho&display=swap" rel="stylesheet">
+```
+- **プライマリフォント**: Noto Sans JP（日本語）
+- **セカンダリフォント**: Shippori Mincho（日本語セリフ）
+
+## カラースキーム
+- WordPressカスタマイザーのカラースキームに従う
+- テーマカラーにCSSカスタムプロパティを使用
+- アクセシビリティの適切なコントラスト比を確保
+
+## JavaScript統合
+- [js/bundle.js](mdc:js/bundle.js) - メインJavaScriptバンドル
+
+## パフォーマンス考慮事項
+- CSSファイルサイズを最小化
+- 効率的なセレクターを使用
+- [images/](mdc:images/)ディレクトリの画像を最適化
+- 静的アセットのブラウザキャッシュを活用
+
+## アクセシビリティ
+- 適切な色のコントラストを確保
+- セマンティックなHTML構造を使用
+- 画像にaltテキストを提供
+- キーボードナビゲーションをサポート
+- スクリーンリーダーでテスト
