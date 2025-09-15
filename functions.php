@@ -9,9 +9,26 @@ function theme_setup() {
   // Post Thumbnails
   add_theme_support('post-thumbnails');
 
+  // Custom Image Sizes
+  add_image_size('thumbnail', 150, 150, true);
+  add_image_size('medium', 300, 300, false);
+  add_image_size('large', 1024, 1024, false);
   add_image_size('index', 512, 512, true);
-  add_image_size('background', 900, 900, false);
-  add_image_size('left-align', 700, 460, true);
+
+    /*
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
+    add_theme_support('title-tag');
+
+    /**
+     * This theme uses wp_nav_menu() in one location.
+     */
+    register_nav_menus(array(
+      'katsumascore-header-menu' => esc_html__('Header Menu', 'katsumascore'),
+    ));
 }
 add_action('after_setup_theme', 'theme_setup');
 
