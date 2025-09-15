@@ -13,7 +13,7 @@ $count_other_vod = $rows_other_vod ? count($rows_other_vod) : 0;
     <h2>
       <?php echo pll_current_language() === 'en' ? 'You can access ' . $title_en . ' through various other video distribution services as well.' : $title_jp . 'は、他にも様々な動画配信サービスで配信中です。' ?>
     </h2>
-    <ul class="u-grid u-grid-cols-2 u-gap-8">
+    <ul class="u-grid u-grid-cols-3 u-gap-8">
       <?php
       for ($i = 0; $i < $count_other_vod; $i++) :
         $vod_term_id = $rows_other_vod[$i]['other_vod_name'];
