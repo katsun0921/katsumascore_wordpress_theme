@@ -104,7 +104,7 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 <?php
 // VODが配信中のものかり執筆し、劇場公開で視聴していない
 if ($is_vod_streaming && !$is_cinema_watched) :
-  $title = pll_current_language() === 'en' ? $original_en : $title_jp;
+  $title = pll_current_language() === 'en' ? $title_en : $title_jp;
 ?>
   <section>
     <h2 class="u-mb-4">

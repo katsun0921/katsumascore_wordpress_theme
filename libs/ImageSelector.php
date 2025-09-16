@@ -17,8 +17,8 @@ class ImageSelector
     $this->vodImageMap = [
       'amazon-prime-video-com'   => 'amazon-prime-video.webp',
       'amazon-prime-video-jp'   => 'amazon-prime-video.webp',
-      'apple-tv-plus-com'      => 'apple-tv-plus.webp',
-      'apple-tv-plus-cojp'     => 'apple-tv-plus.webp',
+      'apple-tv-com'      => 'apple-tv-plus.webp',
+      'apple-tv-cojp'     => 'apple-tv-plus.webp',
       'disneyplus-com'  => 'disney-plus.webp',
       'disneyplus-jp'  => 'disney-plus.webp',
       'dmmtv-jp'  => 'dmm-tv.webp',
@@ -29,6 +29,7 @@ class ImageSelector
       'youtube-cojp'  => 'youtube.webp',
       'netflix-com'  => 'netflix.webp',
       'netflix-jp'  => 'netflix.webp',
+      'crunchyroll'  => 'crunchyroll.webp',
     ];
 
     $this->categoryImageMap = [

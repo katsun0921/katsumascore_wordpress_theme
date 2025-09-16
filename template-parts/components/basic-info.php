@@ -24,23 +24,35 @@ $release_date = $date_string ? DateTime::createFromFormat('Ymd', $date_string) :
   <?php endif ?>
 
   <!-- 公式サイト -->
-  <?php if (get_post_meta($post_id, 'official_url', true)) : ?>
-    <dt class="u-font-bold u-text-lg">
-      <?php echo pll_current_language() === 'en' ? 'Original Site' : '公式サイト'; ?>
-    </dt>
-    <dd class="u-pl-4">
-      <a
-        href="<?php echo esc_url(get_post_meta($post_id, 'official_url', true)) ?>"
-        target="_blank">
-        <?php echo get_post_meta($post_id, 'official_url', true) ?>
-      </a>
-    </dd>
-  <?php endif ?>
+  <dt class="u-font-bold u-text-lg">
+    <?php echo pll_current_language() === 'en' ? 'Original Site' : '公式サイト'; ?>
+  </dt>
+  <dd class="u-pl-4">
+    <?php if (get_post_meta($post_id, 'official_url', true)) : ?>
+    <a
+      href="<?php echo esc_url(get_post_meta($post_id, 'official_url', true)) ?>"
+      target="_blank">
+      <?php echo get_post_meta($post_id, 'official_url', true) ?>
+    </a>
+    <?php endif ?>
+    <p>
+      <?php echo get_post_meta($post_id, 'copyright', true) ?>
+    </p>
+  </dd>
 
   <!-- 公式サイトSNSリンク-->
   <?php
   $sns_group = get_field('official_sns', $post_id);
-  if ($sns_group && is_array($sns_group)) : ?>
+  $has_content = false;
+  if ($sns_group && is_array($sns_group)) {
+    foreach ($sns_group as $platform => $sns_data) {
+      if (!empty($sns_data['embed'])) {
+        $has_content = true;
+        break;
+      }
+    }
+  }
+  if ($has_content) : ?>
     <dt class="u-font-bold u-text-lg">
       <?php echo pll_current_language() === 'en' ? 'Official SNS' : '公式サイトSNS'; ?>
     </dt>
