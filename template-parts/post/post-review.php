@@ -36,7 +36,9 @@ $post_id = $post->ID;
 
 <section class="p-info u-mb-12">
   <!-- レビュースコア表示 -->
-  <?php get_template_part('template-parts/components/review-score', null, array('post_id' => $post_id)); ?>
+  <div class="p-info__score">
+    <?php get_template_part('template-parts/components/score', null, array('post_id' => $post_id, 'size' => 'large')); ?>
+  </div>
 
   <!-- 記事の概要表示 -->
   <?php if (get_the_excerpt($post_id, true)) : ?>
