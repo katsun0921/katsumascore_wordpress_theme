@@ -145,7 +145,7 @@ if ($recent_posts->have_posts()):
   <section class="swiper-section">
     <div class="recent-posts__main">
       <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff;" class="swiper-recent-posts"
-        thumbs-swiper=".swiper" space-between="10" navigation="true" loop="true">
+        thumbs-swiper=".swiper" space-between="10" navigation="true" loop="true" autoplay="true">
         <?php while ($recent_posts->have_posts()): $recent_posts->the_post(); ?>
           <?php
           $categories = get_the_category();
@@ -160,8 +160,8 @@ if ($recent_posts->have_posts()):
           <swiper-slide>
             <a href="<?php the_permalink(); ?>" class="swiper-posts__link">
               <div class="swiper-posts__detail">
-                <div class="u-absolute u-top-1-5 u-right-1-5">
-                  <?php get_template_part('template-parts/components/score', null, array('post_id' => get_the_ID())); ?>
+                <div class="u-absolute u-top-1-5 u-right-0 u-translate-x-one-third">
+                  <?php get_template_part('template-parts/components/score', null, array('post_id' => get_the_ID(), 'size' => 'large')); ?>
                 </div>
                 <p class="c-category c-category__normal"><?php echo $cat_names_str; ?></p>
                 <p class="swiper-posts__title u-mt-3"><?php the_title(); ?></p>
@@ -190,6 +190,18 @@ if ($recent_posts->have_posts()):
     </div>
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/swiper-element-bundle.min.js"></script>
+    <script>
+      const swiperContainer = document.querySelector('swiper-container');
+      swiperContainer.a11y = {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+      }
+      swiperContainer.autoplay = {
+        delay: 10000, // num seconds delay between slides
+        disableOnInteraction: false,
+        reverseDirection: false,
+      };
+    </script>
   </section>
 <?php endif;
 wp_reset_postdata(); ?>

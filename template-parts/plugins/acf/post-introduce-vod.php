@@ -7,7 +7,8 @@ $vod_image_selector = new ImageSelector();
 $is_cinema_watched = get_field('cinema_info_filed_is_cinema_watched');
 $cinema_list_filed = get_field('cinema_info_filed_cinema_list_filed');
 $is_cinema_showing = get_field('cinema_info_filed_is_cinema_showing');
-$is_vod_streaming = get_field('streaming_vod_watched_vod_is_writing_video_article');
+$is_vod_streaming = get_field('is_vod_streaming');
+$is_writing_video = get_field('streaming_vod_watched_vod_is_writing_video_article');
 $vod_streaming_term_id = get_field('streaming_vod_watched_vod_watched_vod_name');
 $title_jp = get_post_meta($post_id, 'title_jp', true);
 $title_en = get_post_meta($post_id, 'title_en', true);
@@ -104,7 +105,7 @@ if (!$is_vod_streaming && $is_cinema_watched) :
 <?php
 // VODが配信中のものかり執筆し、劇場公開で視聴していない
 if ($is_vod_streaming && !$is_cinema_watched) :
-  $title = pll_current_language() === 'en' ? $original_en : $title_jp;
+  $title = pll_current_language() === 'en' ? $title_en : $title_jp;
 ?>
   <section>
     <h2 class="u-mb-4">

@@ -3,9 +3,11 @@
     "abema",
     "admax",
     "cojp",
+    "crunchyroll",
     "disneyplus",
     "dmmtv",
     "Intelephense",
+    "katsumascore",
     "Polylang"
   ],
   "intelephense.environment.includePaths": [

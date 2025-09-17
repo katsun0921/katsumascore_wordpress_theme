@@ -53,25 +53,36 @@ function display_terms($post_tag = null, $parent_id = 0)
 ?>
 
 <section class="l-sidebar u-flex u-flex-col u-gap-y-8">
-<div>
+  <div>
     <!-- 公式サイトSNSリンク-->
-  <?php
-  $sns_group = get_field('official_sns', get_the_ID());
-  if ($sns_group && is_array($sns_group)) : ?>
-    <h2 class="u-font-bold u-text-lg">
-      <?php echo pll_current_language() === 'en' ? 'Official SNS Post' : '公式サイトSNSからおすすめポスト'; ?>
-    </h2>
-      <ul class="u-mt-4">
-      <?php foreach ($sns_group as $platform => $sns_data) :
-        if (!empty($sns_data['embed'])) : ?>
-          <li>
-            <?php echo $sns_data['embed']; ?>
-          </li>
-      <?php endif;
-      endforeach; ?>
-      </ul>
-  <?php endif; ?>
-</div>
+    <?php
+    $sns_group = get_field('official_sns', get_the_ID());
+    if ($sns_group && is_array($sns_group)) :
+      // Check if any embed value is not empty
+      $has_content = false;
+      foreach ($sns_group as $platform => $sns_data) {
+        if (!empty($sns_data['embed'])) {
+          $has_content = true;
+          break;
+        }
+      }
+
+      if ($has_content) : ?>
+        <h2 class="u-font-bold u-text-lg">
+          <?php echo pll_current_language() === 'en' ? 'Official SNS Post' : '公式サイトSNSからおすすめポスト'; ?>
+        </h2>
+        <ul class="u-mt-4">
+          <?php foreach ($sns_group as $platform => $sns_data) :
+            if (!empty($sns_data['embed'])) : ?>
+              <li>
+                <?php echo $sns_data['embed']; ?>
+              </li>
+          <?php endif;
+          endforeach; ?>
+        </ul>
+      <?php endif; ?>
+    <?php endif; ?>
+  </div>
   <div>
     <h2>Categories</h2>
     <div class="u-mt-4">
@@ -105,6 +116,7 @@ function display_terms($post_tag = null, $parent_id = 0)
         allowfullscreen="true"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
+    <?php if (pll_current_language() === 'ja') : ?>
     <ul class="u-mt-8">
       <li>
         <!-- ＡＢＥＭＡ -->
@@ -134,5 +146,6 @@ function display_terms($post_tag = null, $parent_id = 0)
         <img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=3YYS8R+FGOBEA+6HW+3SZUAP" alt="">
       </li>
     </ul>
+    <?php endif; ?>
   </aside>
 </section>

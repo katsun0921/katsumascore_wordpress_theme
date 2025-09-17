@@ -105,7 +105,15 @@ get_header();
     <div class="u-mx-auto u-px-4 l-content">
       <ul class="l-columns u-grid-cols-3 u-gap-6">
         <li class="u-col-span-2">
-          <h2 class="c-heading__related u-text-3xl">アニメとドラマの一口レビュー</h2>
+          <?php
+            // 親ページのIDを取得
+            $parent_page = get_page_by_path('seasonal-anime-and-dramas-reviews');
+          ?>
+          <h2 class="c-heading__related u-text-3xl">
+            <a href="<?php echo get_permalink($parent_page->ID); ?>">
+                <?php ?><?php echo esc_html($parent_page->post_title); ?>
+            </a>
+          </h2>
           <?php
           // 親ページのIDを取得
           $parent_page = get_page_by_path('seasonal-anime-and-dramas-reviews');

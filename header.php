@@ -78,7 +78,7 @@ $is_local = wp_get_environment_type() && wp_get_environment_type() === 'local';
         </button>
       </div>
       <nav id="js-mobile-menu" class="l-navigation__list u-opacity-0">
-        <?php wp_nav_menu(array('theme_location' => 'progression-studios-primary', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new Walker_Nav_Menu)); ?>
+        <?php wp_nav_menu(array('theme_location' => 'katsumascore-header-menu', 'menu_class' => 'c-list__header', 'fallback_cb' => false, 'walker'  => new Walker_Nav_Menu)); ?>
       </nav>
     </div>
   </header>

@@ -6,7 +6,7 @@ if ($good_points_filed) :
   <h2 class="u-mb-4">
     <?php echo pll_current_language() === 'en' ? 'I highly recommend this place!' : 'ここがおすすめ！' ?>
   </h2>
-  <ul class="u-list-disc">
+  <ul class="u-list-disc u-text-lg">
     <?php
       foreach ((array) $good_points_filed as $good_point) :
         $good_point_text = (string) $good_point['good_point_text'];
