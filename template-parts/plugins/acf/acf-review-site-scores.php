@@ -130,6 +130,41 @@ endforeach;
 
         if (reviewData.length === 0) return;
 
+        // チャートの最大値を定義
+        const maxScore = 10;
+
+        // 平均スコアを計算
+        const averageScore = reviewData.reduce((sum, item) => sum + item.score, 0) / reviewData.length;
+
+        // 中央にテキストを表示するプラグイン
+        const centerTextPlugin = {
+          id: 'centerText',
+          afterDraw: function(chart) {
+            const ctx = chart.ctx;
+            const centerX = (chart.chartArea.left + chart.chartArea.right) / 2;
+            const centerY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
+            ctx.save();
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // 平均スコア/最大値のテキスト
+            ctx.font = 'bold 24px noto-sans, sans-serif';
+            ctx.fillStyle = '#2c3e50';
+            ctx.fillText(averageScore.toFixed(1) + '/' + maxScore, centerX, centerY - 15);
+
+            // 「平均」ラベル
+            ctx.font = '16px noto-sans, sans-serif';
+            ctx.fillStyle = '#2c3e50';
+            ctx.fillText('<?php echo pll_current_language() === 'en' ? 'Average' : '平均値'; ?>', centerX, centerY + 15);
+
+            ctx.restore();
+          }
+        };
+
+        // プラグインを登録
+        Chart.register(centerTextPlugin);
+
         // Chart.jsの設定
         const ctx = document.getElementById('reviewScoresChart').getContext('2d');
 
@@ -181,18 +216,18 @@ endforeach;
                 ticks: {
                   beginAtZero: true,
                   min: 0,
-                  max: 10,
+                  max: maxScore,
                   stepSize: 2,
                   display: true,
                   backdropColor: 'rgba(255, 255, 255, 0.8)',
                   color: '#667eea',
                   font: {
-                    size: 10,
+                    size: 12,
                     weight: 'bold'
                   }
                 },
                 suggestedMin: 0,
-                suggestedMax: 10
+                suggestedMax: maxScore
               }
             },
             plugins: {
@@ -201,7 +236,8 @@ endforeach;
               },
               tooltip: {
                 enabled: false
-              }
+              },
+              centerText: true
             },
             elements: {
               line: {
