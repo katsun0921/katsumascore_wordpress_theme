@@ -15,20 +15,20 @@ function theme_setup() {
   add_image_size('large', 1024, 1024, false);
   add_image_size('index', 512, 512, true);
 
-    /*
+  /*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
 	 * hard-coded <title> tag in the document head, and expect WordPress to
 	 * provide it for us.
 	 */
-    add_theme_support('title-tag');
+  add_theme_support('title-tag');
 
-    /**
-     * This theme uses wp_nav_menu() in one location.
-     */
-    register_nav_menus(array(
-      'katsumascore-header-menu' => esc_html__('Header Menu', 'katsumascore'),
-    ));
+  /**
+   * This theme uses wp_nav_menu() in one location.
+   */
+  register_nav_menus(array(
+    'katsumascore-header-menu' => esc_html__('Header Menu', 'katsumascore'),
+  ));
 }
 add_action('after_setup_theme', 'theme_setup');
 
@@ -149,3 +149,6 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 
 // UTMパラメーター関数
 require get_template_directory() . '/inc/utm-parameters.php';
+
+// カスタムページネーション機能
+require get_template_directory() . '/inc/pagination.php';
