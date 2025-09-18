@@ -149,3 +149,9 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 
 // UTMパラメーター関数
 require get_template_directory() . '/inc/utm-parameters.php';
+
+// カテゴリー画像機能
+require get_template_directory() . '/inc/taxonomy-image.php';
+
+// カテゴリー画像ヘルパー関数
+require get_template_directory() . '/inc/taxonomy-image-helpers.php';
