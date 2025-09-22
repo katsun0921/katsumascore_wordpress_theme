@@ -13,7 +13,7 @@ $template = 'template-parts';
       custom_breadcrumb();
     } ?>
   </div>
-  <div class="l-container l-container__showSidebar u-mt-12">
+  <div class="l-container u-mt-12">
     <section class="l-content">
       <?php if (have_posts()) : ?>
         <ul class="u-flex u-flex-col u-gap-10">

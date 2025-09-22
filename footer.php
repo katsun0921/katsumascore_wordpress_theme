@@ -24,9 +24,9 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
 <footer class="l-footer u-mt-12">
   <div class="l-container">
     <section>
-      <dl class="c-list__taxonomy">
-        <dt class="c-list__term u-mb-4">CATEGORIES</dt>
-        <dd class="c-list__content">
+      <dl>
+        <dt class="u-mb-4">CATEGORIES</dt>
+        <dd>
           <ul class="u-flex u-flex-wrap">
             <?php foreach ($categories as $category) : ?>
               <?php if ($category->parent == 0) : ?>
@@ -49,8 +49,8 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
               'hide_empty' => false,
             ));
         ?>
-            <dt class="c-list__term u-mb-4">VOD</dt>
-            <dd class="c-list__content">
+            <dt class="u-mb-4">VOD</dt>
+            <dd>
               <ul class="u-flex u-flex-wrap">
                 <?php
                 foreach ($terms as $term) :
@@ -71,7 +71,7 @@ $facebookLink = get_theme_mod('progression_studios_general_facebook');
         <?php endforeach; ?>
       </dl>
     </section>
-    <section class="u-mt-8 l-footer__info">
+    <section class="u-mt-8">
       <?php get_template_part('template-parts/componentss/ListSocialIcon') ?>
       <div class="l-footer__support">
         <ul class="l-footer__help">

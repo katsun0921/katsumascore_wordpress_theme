@@ -163,7 +163,7 @@ if ($recent_posts->have_posts()):
                 <div class="u-absolute u-top-1-5 u-right-0 u-translate-x-one-third">
                   <?php get_template_part('template-parts/components/score', null, array('post_id' => get_the_ID(), 'size' => 'large')); ?>
                 </div>
-                <p class="c-category c-category__normal"><?php echo $cat_names_str; ?></p>
+                <p class="c-category"><?php echo $cat_names_str; ?></p>
                 <p class="swiper-posts__title u-mt-3"><?php the_title(); ?></p>
                 <div class="u-mt-6 swiper-posts__excerpt">
                   <?php the_excerpt(); ?>

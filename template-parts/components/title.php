@@ -52,7 +52,7 @@ $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
   <?php elseif (is_tax()) : ?>
     <h1 class="page-title c-heading__title">
       <div class="u-block u-mb-6">
-        <div class="c-category c-category__title">
+        <div class="c-category">
           <?php
           $tax = get_queried_object();
           if ($tax && isset($tax->taxonomy)) {
