@@ -16,9 +16,6 @@ $categories = get_categories(array(
   'include' => array('movie', 'anime', 'drama')
 ));
 $taxonomies = get_taxonomies();
-$rssLink = get_theme_mod('progression_studios_general_rss');
-$twitterLink = get_theme_mod('progression_studios_general_twitter');
-$facebookLink = get_theme_mod('progression_studios_general_facebook');
 ?>
 
 <footer class="l-footer u-mt-12">
