@@ -14,13 +14,12 @@ $template = 'template-parts';
 
     <section
       class="site-content-blog-post u-mt-12 u-relative">
-      <div class="l-container l-container__showSidebar">
+      <div class="l-container">
         <div
-          id="main-container-pro"
           class="l-content">
           <?php get_template_part('template-parts/components/date', 'single'); ?>
           <?php get_template_part('template-parts/post/post-single'); ?>
-        </div><!-- close #main-container-pro -->
+        </div>
         <?php get_sidebar(); ?>
       </div><!-- close .l-container -->
       <aside class="u-mt-10 l-container">

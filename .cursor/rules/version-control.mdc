@@ -51,6 +51,10 @@ git tag v1.0.1
 ## プルリクエスト作成
 プルリクエスト作成時は、必ず[`.github/pull_request_template.md`](mdc:.github/pull_request_template.md)のテンプレートを参照すること：
 
+### コミット時のルール
+
+- 必ずphpのエラーチェックを行う
+
 ### PR作成時の必須事項
 - **概要**と**変更内容**を明確に記載
 - 関連する**Issue**を紐付け
