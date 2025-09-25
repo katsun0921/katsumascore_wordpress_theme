@@ -11,7 +11,7 @@ $template = 'template-parts';
   <div class="l-container">
     <section class="l-content">
       <?php if (have_posts()) : ?>
-        <ul class="progression-blog-index-masonry">
+        <ul>
           <?php while (have_posts()) : the_post(); ?>
             <li>
               <?php get_template_part('template-parts/components/post-image-left', null, array('post_id' => $post_id)); ?>

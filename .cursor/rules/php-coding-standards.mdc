@@ -19,8 +19,7 @@ description: KatsumascoreテーマのPHPコーディング標準と規則
 ## 関数構造
 ```php
 /**
- * 関数の説明
- *
+ * @description 関数の説明
  * @param type $param 説明
  * @return type 説明
  * @since version
@@ -55,6 +54,22 @@ function theme_function_name($param) {
 <?php if (condition) : ?>
 <div></div>
 <?php endif; ?>
+```
+
+**条件分を閉じる時は必ず<?php endif; ?>**とします。
+使用すべき構文（OK）：
+```php
+<?php for ($i = $start_page; $i <= $end_page; $i++) : ?>
+  <?php if ($i == $current_page) : ?>
+  <?php endif; ?>
+<?php endif; ?>
+```
+使用禁止構文（NG）：
+```php
+<?php for ($i = $start_page; $i <= $end_page; $i++) :
+  if ($i == $current_page) : ?>
+  <?php endif;
+endif; ?>
 ```
 
 ### 使用禁止の構文（NG）：

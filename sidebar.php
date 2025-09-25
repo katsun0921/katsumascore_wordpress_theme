@@ -52,7 +52,7 @@ function display_terms($post_tag = null, $parent_id = 0)
 
 ?>
 
-<section class="l-sidebar u-flex u-flex-col u-gap-y-8">
+<section class="u-flex u-flex-col u-gap-y-8">
   <div>
     <!-- 公式サイトSNSリンク-->
     <?php

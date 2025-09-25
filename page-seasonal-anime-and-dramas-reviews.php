@@ -8,7 +8,7 @@ $template = 'template-parts';
 <?php get_template_part($template . '/components/title', null, array('post_id' => $post_id, 'headingText' => get_the_title())); ?>
 
 <main class="u-mt-12 u-relative">
-  <div class=" l-container l-container__showSidebar">
+  <div class=" l-container">
     <section class="l-content ">
       <?php
       // 親ページのIDを取得

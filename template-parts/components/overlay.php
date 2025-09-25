@@ -7,7 +7,7 @@ $cat = $cats[0];
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <a href="<?php the_permalink(); ?>" class="l-postImageOverlay" <?php if (has_post_thumbnail()) : ?> style="background-image:url('<?php echo esc_attr($image); ?>')" <?php endif; ?>>
+  <a href="<?php the_permalink(); ?>"  <?php if (has_post_thumbnail()) : ?> style="background-image:url('<?php echo esc_attr($image); ?>')" <?php endif; ?>>
     <?php if ('post' == get_post_type()) : ?>
       <div class="u-z-20 u-relative">
         <div class="c-category c-category__small u-z-20"><?php echo $cat->cat_name; ?></div>
@@ -19,7 +19,7 @@ $cat = $cats[0];
         <?php get_template_part('template-parts/components/score', null, array('post_id' => $post_id)); ?>
       </div>
     <?php endif; ?>
-    <div class="l-postImageOverlay__content">
+    <div>
       <div class="u-p-3">
         <h3 class="c-heading__post"><?php the_title(); ?></h3>
       </div>

@@ -9,7 +9,7 @@ $template = 'template-parts';
 <?php get_template_part($template . '/content-title', null, array('post_id' => $post_id, 'headingText' => get_the_author())); ?>
 
 <div id="content-pro" class="site-content u-mb-50px u-relative">
-  <div class="l-container l-container__showSidebar">
+  <div class="l-container">
     <div class="l-content">
 
       <?php if (get_the_author_meta('description')) : ?>

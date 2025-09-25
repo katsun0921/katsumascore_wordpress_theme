@@ -1,7 +1,7 @@
 <?php
   $id = $args['id'] ?? get_the_ID();
 ?>
-<div class="c-category c-category__title">
+<div class="c-category">
   <?php
   $categories = get_the_category($id);
   $cat_names = array();
