@@ -49,6 +49,17 @@ $parent_class = $is_post ? 'l-title' : 'u-bg-cover l-title';
       }
       ?>
     </h1>
+  <?php elseif (is_tag()) : ?>
+    <h1 class="page-title c-heading__title">
+      <?php
+      // 現在表示しているタグを取得
+      $tag = get_queried_object();
+
+      if ($tag && ! is_wp_error($tag)) {
+        echo esc_html($tag->name);
+      }
+      ?>
+    </h1>
   <?php elseif (is_tax()) : ?>
     <h1 class="page-title c-heading__title">
       <div class="u-block u-mb-6">
