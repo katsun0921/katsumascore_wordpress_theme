@@ -23,7 +23,7 @@ $directors = get_the_terms($post_id, 'director');
           <?php
           $director_posts = get_posts(array(
             'post_type' => 'post',
-            'posts_per_page' => -1,
+            'posts_per_page' => 3,
             'tax_query' => array(
               array(
                 'taxonomy' => 'director',
@@ -31,6 +31,7 @@ $directors = get_the_terms($post_id, 'director');
                 'terms' => $director->term_id,
               ),
             ),
+            'orderby' => 'rand',
             'post__not_in' => array($post_id), // 現在の投稿を除外
           ));
           ?>

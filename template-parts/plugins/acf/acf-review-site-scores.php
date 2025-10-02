@@ -258,12 +258,7 @@ endforeach;
     if ($score_analysis) :
     ?>
       <div class="score-analysis u-mt-6">
-        <h3>
-          <?php echo pll_current_language() === 'en' ? 'Score Analysis' : 'スコア分析'; ?>
-        </h3>
-        <div class="u-mt-3">
-          <?php echo wp_kses_post($score_analysis); ?>
-        </div>
+        <?php echo wp_kses_post($score_analysis); ?>
       </div>
     <?php endif; ?>
     <div>
