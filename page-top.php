@@ -59,12 +59,14 @@ get_header();
 
             <?php
             // 投稿が7件以上なら「すべて見る」リンクを表示
-            $all_tag_posts_count = $wpdb->get_var($wpdb->prepare(
-              "SELECT COUNT(*) FROM $wpdb->term_relationships
-             WHERE term_taxonomy_id = %d",
-              $tag->term_taxonomy_id
-            ));
-            if ($all_tag_posts_count > 6) : ?>
+            $all_tag_posts_query = new WP_Query([
+              'post_type'      => 'post',
+              'post_status'    => 'publish',
+              'tag_id'         => $tag->term_id,
+              'posts_per_page' => -1,
+              'fields'         => 'ids',
+            ]);
+            if ($all_tag_posts_query->found_posts > 6) : ?>
               <a href="<?php echo get_tag_link($tag->term_id); ?>" class="c-link__primary u-mt-8">View All</a>
             <?php endif; ?>
           </div>
