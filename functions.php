@@ -157,3 +157,6 @@ require get_template_directory() . '/inc/taxonomy-image.php';
 require get_template_directory() . '/inc/taxonomy-image-helpers.php';
 // カスタムページネーション機能
 require get_template_directory() . '/inc/pagination.php';
+
+// 管理フィルタ関連
+require_once get_template_directory() . '/inc/admin-author-filter.php';

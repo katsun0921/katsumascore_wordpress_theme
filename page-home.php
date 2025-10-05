@@ -12,10 +12,15 @@ get_header();
   <?php get_template_part('template-parts/components/swiper'); ?>
   <!-- ランダムタグ3つとそれぞれの投稿 -->
   <?php
-  $random_tags = get_tags([
-    'orderby' => 'rand',
-    'number'  => 3,
+  $all_tags = get_tags([
+    'hide_empty' => false,
   ]);
+
+  $random_tags = [];
+  if (!empty($all_tags)) {
+    shuffle($all_tags);
+    $random_tags = array_slice($all_tags, 0, 3);
+  }
 
   if ($random_tags) :
     foreach ($random_tags as $tag) :
